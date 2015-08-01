@@ -30,7 +30,7 @@ strong {
 	font-family: Bold, Helvetica;
 }
 
-p {
+p, li {
 	font-family: Light, Helvetica;
 }
 
@@ -63,7 +63,6 @@ a:active {
 }
 
 .headerSection {
-	padding: 20px 0px 10px 0px;
 }
 
 .footerSection {
@@ -73,4 +72,15 @@ a:active {
 }
 
 .bodyBlock {
+}
+
+.navUnit {
+	margin-right: 20px;
+	cursor: pointer;
+	font-family: Medium, Helvetica;
+}
+
+.navSelected {
+	color: #57068c;
+	text-decoration: underline;
 }
