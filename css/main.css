@@ -1,0 +1,76 @@
+@font-face {
+    font-family: "Light";
+    src: url(../fonts/clear-sans/ClearSans-Light.ttf);
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url(../fonts/clear-sans/ClearSans-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Regular";
+    src: url(../fonts/clear-sans/ClearSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Bold";
+    src: url(../fonts/clear-sans/ClearSans-Bold.ttf);
+}
+
+h1,h2 {
+	font-family: Medium, Helvetica;
+}
+
+h3,h4,h5 {
+	font-family: Regular, Helvetica;
+}
+
+strong {
+	font-family: Bold, Helvetica;
+}
+
+p {
+	font-family: Light, Helvetica;
+}
+
+a {
+	font-family: Medium, Helvetica;
+	text-decoration: none;
+}
+
+/* unvisited link */
+a:link {
+}
+
+/* visited link */
+a:visited {
+}
+
+/* mouse over link */
+a:hover {
+}
+
+/* selected link */
+a:active {
+}
+
+.container {
+	width: 100%;
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.headerSection {
+	padding: 20px 0px 10px 0px;
+}
+
+.footerSection {
+}
+
+.bodySection {
+}
+
+.bodyBlock {
+}
