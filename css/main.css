@@ -84,3 +84,12 @@ a:active {
 	color: #57068c;
 	text-decoration: underline;
 }
+
+.classBlock {
+	padding: 20px 0px 20px 0px;
+}
+
+.classDate {
+	margin-top:-10px;
+	color:gray;
+}
