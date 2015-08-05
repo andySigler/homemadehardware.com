@@ -37,6 +37,7 @@ p, li {
 a {
 	font-family: Medium, Helvetica;
 	text-decoration: none;
+	color: #57068c;
 }
 
 /* unvisited link */
@@ -92,4 +93,8 @@ a:active {
 .classDate {
 	margin-top:-10px;
 	color:gray;
+}
+
+.homeworkDiv{
+	color: gray;
 }
