@@ -37,7 +37,7 @@ p, li {
 a {
 	font-family: Medium, Helvetica;
 	text-decoration: none;
-	color: #57068c;
+	color: #008EB2;
 }
 
 /* unvisited link */
@@ -67,6 +67,10 @@ a:active {
 }
 
 .footerSection {
+	font-family: Light, Helvetica;
+	width:100%;
+	margin-top:50px;
+	margin-bottom:10px;
 }
 
 .bodySection {
@@ -77,13 +81,14 @@ a:active {
 
 .navUnit {
 	margin-right: 20px;
+	padding:2px 5px 2px 5px;
 	cursor: pointer;
 	font-family: Medium, Helvetica;
 }
 
 .navSelected {
-	color: #57068c;
-	text-decoration: underline;
+	color: white;
+	background-color: #008EB2;
 }
 
 .classBlock {
@@ -96,5 +101,5 @@ a:active {
 }
 
 .homeworkDiv{
-	color: gray;
+	color: #008EB2;
 }

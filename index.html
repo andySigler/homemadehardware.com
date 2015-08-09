@@ -3,6 +3,8 @@
 	<head>
 		<title>Homemade Hardware</title>
 		<link rel="stylesheet" href="./css/main.css">
+		<link rel="icon" href="./img/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
 		<meta name=viewport content="width=device-width, initial-scale=1">
 	</head>
 	<body>
@@ -12,258 +14,159 @@
 					Homemade Hardware
 				</h1>
 				<div class="navBar">
-					<span id="nav_syllabus" class="navUnit navSelected" onclick="changeNav('syllabus');">Syllabus</span>
-					<span id="nav_resources" class="navUnit" onclick="changeNav('info');">Info</span>
-					<span id="nav_materials" class="navUnit" onclick="changeNav('things');">Things</span>
-					<span id="nav_students" class="navUnit" onclick="changeNav('students');">Students</span>
+					<a class="navUnit navSelected" href="#">Syllabus</a>
+					<a class="navUnit" href="./pages/links/">Links</a>
+					<a class="navUnit" href="./pages/things/">Things</a>
+					<a class="navUnit" href="./pages/students/">Students</a>
 				</div>
 			</div>
 			<div class="bodySection">
-				<div id="syllabus" class="navContent">
-					<div class="classBlock">
-						<h2>Class 1</h2>
-						<p class="classDate">Sept. 3</p>
-						<h3>Introduction and Overview</h3>
-						<h3>Microcontrollers</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Breadboard an interaction using an ATtiny85 and batteries.</p>
-						</div>
+				<div class="classBlock">
+					<h2>Class 1</h2>
+					<p class="classDate">Sept. 3</p>
+					<h3>Introduction and Overview</h3>
+					<h3>Microcontrollers</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Breadboard an interaction using an ATtiny85 and batteries.</p>
 					</div>
-					<div class="classBlock">
-						<h2>Class 2</h2>
-						<p class="classDate">Sept. 10</p>
-						<h3>Electricity Basics</h3>
-						<h3>Eagle Schematic View</h3>
-						<h3>Soldering</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Turn your previous breadboard project into an Eagle schematic.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 3</h2>
-						<p class="classDate">Sept. 17</p>
-						<h3>Components and Packages</h3>
-						<h3>Eagle Board View</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Design a board layout in Eagle using your schematic from last week.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 4</h2>
-						<p class="classDate">Sept. 24</p>
-						<h3>Othermill</h3>
-						<h3>Solder Mask</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Mill and assemble you're first PCB using the OtherMill and through-hole parts.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 5</h2>
-						<p class="classDate">Oct. 1</p>
-						<h3>SMD in Eagle</h3>
-						<h3>SMD Assembly</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Begin thinking about your midterm.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 6</h2>
-						<p class="classDate">Oct. 8</p>
-						<h3>Borrowing from Open-Source</h3>
-						<h3>Acid Etching</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Research open-source breakout boards, and get your hands of some to start writing software.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 7</h2>
-						<p class="classDate">Oct. 15</p>
-						<h3>Power</h3>
-						<h3>Midterm Workshop</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Order the parts needed for your Midterm if you haven't already. Work on your board designs, and refine your interaction/software.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 8</h2>
-						<p class="classDate">Oct. 22</p>
-						<h3>Roland Modela</h3>
-						<h3>Midterm Workshop</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Finish the midterm, document, and be prepared to present to the class.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 9</h2>
-						<p class="classDate">Oct. 29</p>
-						<h3>Midterm Presentations</h3>
-						<h3>Using a Board House</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p></p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 10</h2>
-						<p class="classDate">Nov. 5</p>
-						<h3>Wireless</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Research for your final, and get writing software as soon as possible.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 11</h2>
-						<p class="classDate">Nov. 12</p>
-						<h3>Eagle Part Design</h3>
-						<h3>Shenzhen & Shanzhai</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Narrow down the hardware for you final, and work with ready-made boards to refine the interaction.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 12</h2>
-						<p class="classDate">Nov. 19</p>
-						<h3>Pick-and-Place</h3>
-						<h3>Reflow Oven</h3>
-						<h3>Final Workshop</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Source your parts, and design your boards. Over break, try to make at least one prototype PCB to spot any mistakes you've missed.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<div class="homeworkDiv">
-							<h2>Thanksgiving Break</h2>
-							<p>No class this week!</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 13</h2>
-						<p class="classDate">Dec. 3</p>
-						<h3>Alternative Materials and Processes</h3>
-						<h3>Final Workshop</h3>
-						<div class="homeworkDiv">
-							<h3>For next class:</h3>
-							<p>Finish the final.</p>
-						</div>
-					</div>
-					<div class="classBlock">
-						<h2>Class 14</h2>
-						<p class="classDate">Dec. 10</p>
-						<h3>Final Presentations</h3>
-						<h3>Class Review</h3>
-					</div>
-
 				</div>
-				<div id="info" class="navContent" style="display:none">
-					<p>The <a target="_blank" href="http://itp.nyu.edu/physcomp">Physical Computing</a> website is packed with everything you'll need to know about electronics and programming for this class. Specifically, go through:
-						<ul>
-							<li>Topics:
-								<ul>
-									<li>
-										<a target="_blank" href="http://itp.nyu.edu/physcomp/lessons/electronics/electricity-the-basics/">Electricity basics</a>
-									</li>
-									<li>
-										<a target="_blank" href="http://itp.nyu.edu/physcomp/lessons/microcontrollers/microcontrollers-the-basics/">Microcontrollers</a>
-									</li>
-									<li>
-										<a target="_blank" href="http://itp.nyu.edu/physcomp/lessons/serial-communication/serial-communication-the-basics/">Asynchronous serial</a>
-									</li>
-									<li>
-										<a target="_blank" href="http://itp.nyu.edu/physcomp/lessons/serial-communication/synchronous-serial-communication-the-basics/">Synchronous serial</a>
-									</li>
-								</ul>
-							</li>
-							<li>Labs:
-								<ul>
-									<li>
-										<a target="_blank" href="https://itp.nyu.edu/physcomp/labs/labs-electronics/electronics/">Electronics</a>
-									</li>
-									<li>
-										<a target="_blank" href="https://itp.nyu.edu/physcomp/labs/labs-electronics/components/">Components</a>
-									</li>
-									<li>
-										<a target="_blank" href="https://itp.nyu.edu/physcomp/labs/labs-electronics/soldering/">Soldering</a>
-									</li>
-									<li>
-										<a target="_blank" href="https://itp.nyu.edu/physcomp/labs/labs-serial-communication/lab-spi-communication-aith-a-digital-potentiometer/">SPI</a>
-									</li>
-									<li>
-										<a target="_blank" href="https://itp.nyu.edu/physcomp/labs/labs-serial-communication/i2c-communication-with-an-infrared-temperature-sensor/">I2C</a>
-									</li>
-								</ul>
-							</li>
-						</ul>
-					</p>
-					<h2>Electricity</h2>
-					<h2>Arduino</h2>
-					<h2>Eagle</h2>
-					<h2>CNC Routers</h2>
-					<h2>Acid Etching</h2>
-					<h2>Solder Mask</h2>
+				<div class="classBlock">
+					<h2>Class 2</h2>
+					<p class="classDate">Sept. 10</p>
+					<h3>Electricity Basics</h3>
+					<h3>Eagle Schematic View</h3>
+					<h3>Soldering</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Turn your previous breadboard project into an Eagle schematic.</p>
+					</div>
 				</div>
-				<div id="things" class="navContent" style="display:none">
-					<h2>Tools</h2>
-					<h2>Materials</h2>
-					<h2>Components</h2>
+				<div class="classBlock">
+					<h2>Class 3</h2>
+					<p class="classDate">Sept. 17</p>
+					<h3>Components and Packages</h3>
+					<h3>Eagle Board View</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Design a board layout in Eagle using your schematic from last week.</p>
+					</div>
 				</div>
-				<div id="students" class="navContent" style="display:none">
-					<h2>Fall 2015 Student Blogs</h2>
-					<ul>
-						<li>Student 1</li>
-						<li>Student 2</li>
-						<li>Student 3</li>
-						<li>Student 4</li>
-						<li>Student 5</li>
-						<li>Student 6</li>
-						<li>Student 7</li>
-						<li>Student 8</li>
-						<li>Student 9</li>
-						<li>Student 10</li>
-						<li>Student 11</li>
-						<li>Student 12</li>
-						<li>Student 13</li>
-						<li>Student 14</li>
-						<li>Student 15</li>
-						<li>Student 16</li>
-					</ul>
+				<div class="classBlock">
+					<h2>Class 4</h2>
+					<p class="classDate">Sept. 24</p>
+					<h3>Othermill</h3>
+					<h3>Solder Mask</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Mill and assemble you're first PCB using the OtherMill and through-hole parts.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 5</h2>
+					<p class="classDate">Oct. 1</p>
+					<h3>SMD in Eagle</h3>
+					<h3>SMD Assembly</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Begin thinking about your midterm.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 6</h2>
+					<p class="classDate">Oct. 8</p>
+					<h3>Borrowing from Open-Source</h3>
+					<h3>Acid Etching</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Research open-source breakout boards, and get your hands of some to start writing software.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 7</h2>
+					<p class="classDate">Oct. 15</p>
+					<h3>Power</h3>
+					<h3>Midterm Workshop</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Order the parts needed for your Midterm if you haven't already. Work on your board designs, and refine your interaction/software.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 8</h2>
+					<p class="classDate">Oct. 22</p>
+					<h3>Roland Modela</h3>
+					<h3>Midterm Workshop</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Finish the midterm, document, and be prepared to present to the class.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 9</h2>
+					<p class="classDate">Oct. 29</p>
+					<h3>Midterm Presentations</h3>
+					<h3>Using a Board House</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p></p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 10</h2>
+					<p class="classDate">Nov. 5</p>
+					<h3>Wireless</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Research for your final, and get writing software as soon as possible.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 11</h2>
+					<p class="classDate">Nov. 12</p>
+					<h3>Eagle Part Design</h3>
+					<h3>Shenzhen & Shanzhai</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Narrow down the hardware for you final, and work with ready-made boards to refine the interaction.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 12</h2>
+					<p class="classDate">Nov. 19</p>
+					<h3>Pick-and-Place</h3>
+					<h3>Reflow Oven</h3>
+					<h3>Final Workshop</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Source your parts, and design your boards. Over break, try to make at least one prototype PCB to spot any mistakes you've missed.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<div class="homeworkDiv">
+						<h2>Thanksgiving Break</h2>
+						<p>No class this week!</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 13</h2>
+					<p class="classDate">Dec. 3</p>
+					<h3>Alternative Materials and Processes</h3>
+					<h3>Final Workshop</h3>
+					<div class="homeworkDiv">
+						<h3>For next class:</h3>
+						<p>Finish the final.</p>
+					</div>
+				</div>
+				<div class="classBlock">
+					<h2>Class 14</h2>
+					<p class="classDate">Dec. 10</p>
+					<h3>Final Presentations</h3>
+					<h3>Class Review</h3>
 				</div>
 			</div>
 			<div class="footerSection">
 			</div>
 		</div>
-		<script type="text/javascript">
-
-			window.addEventListener('load', function (e) {
-				//
-			});
-
-			function changeNav(type) {
-				var navUnits = document.getElementsByClassName('navUnit');
-				var navContents = document.getElementsByClassName('navContent');
-
-				for(var i=0;i<navContents.length;i++) {
-					if(navContents[i].id == type) {
-						navContents[i].style.display = 'block';
-						navUnits[i].classList.add('navSelected');
-					}
-					else {
-						navContents[i].style.display = 'none';
-						navUnits[i].classList.remove('navSelected');
-					}
-				}
-			}
-
-		</script>
 	</body>
 </html>
