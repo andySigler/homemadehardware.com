@@ -70,7 +70,8 @@ a:active {
 	font-family: Light, Helvetica;
 	width:100%;
 	margin-top:50px;
-	margin-bottom:10px;
+	margin-bottom:20px;
+	text-align: right;
 }
 
 .bodySection {
@@ -81,9 +82,10 @@ a:active {
 
 .navUnit {
 	margin-right: 20px;
-	padding:2px 5px 2px 5px;
+	padding:2px 6px 4px 6px;
 	cursor: pointer;
 	font-family: Medium, Helvetica;
+	border-radius: 3px;
 }
 
 .navSelected {
@@ -91,7 +93,7 @@ a:active {
 	background-color: #008EB2;
 }
 
-.classBlock {
+.contentBlock {
 	padding: 20px 0px 20px 0px;
 }
 
@@ -101,5 +103,5 @@ a:active {
 }
 
 .homeworkDiv{
-	color: #008EB2;
+	color: #8E00B2;
 }
