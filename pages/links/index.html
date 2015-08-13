@@ -22,6 +22,15 @@
 			</div>
 			<div class="bodySection">
 				<div class="contentBlock">
+					<h2>Using this Page</h2>
+					<p>
+						Here is a bunch of links to learning resources to help you in this class. None of these are required readings, and it is certainly not everything that's good out there, they're just suggestions and a starting point for you.
+					</p>
+					<p>
+						The topics covered here are to help students get started prototyping with printer circuit boards, and working more closely with their microcontrollers. If you find any good links, or feel this page should change some how, please let me know.
+					</p>
+				</div>
+				<div class="contentBlock">
 					<h2>Physical Computing</h2>
 					<p>
 						The <a target="_blank" href="http://itp.nyu.edu/physcomp">Physical Computing</a> website is packed with everything you'll need to know about electronics and programming for this class. Specifically, the following pages should be reviewed:
@@ -71,10 +80,37 @@
 						<li>
 							<p><a target="_blank" href="http://lushprojects.com/circuitjs/circuitjs.html">CircuitJS</a> is a cool simulator to interact with circuits and see how they work.</p>
 						</li>
+						<li>
+							<p><a target="_blank" href="https://learn.sparkfun.com/tutorials/logic-levels">Logic levels</a>, or how to communicate with voltage, as explained by Sparkfun.</p>
+						</li>
+						<li>
+							<p>Also Sparkfun explains <a target="_blank" href="https://learn.sparkfun.com/tutorials/analog-vs-digital">Analog v.s. Digital</a> electrical signals.</p>
+						</li>
 					</ul>
 				</div>
 				<div class="contentBlock">
 					<h2>Microcontrollers</h2>
+					<h3>Arduino on a breadboard</h3>
+					<ul>
+						<li>
+							<p>Arduino's tutorial on <a target="_blank" href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">bootloading an ATmega328p on a breadboard</a> using an Arduino Uno as the programmer</p>
+						</li>
+						<li>
+							<p>Arduino's tutorial on <a target="_blank" href="https://www.arduino.cc/en/Main/Standalone">making a breadboard Arduino</a>, which includes the supporting power, timing, and communications circuitry.</p>
+						</li>
+						<li>
+							<p>Tutorial on <a target="_blank" href="http://highlowtech.org/?p=1706">programming an ATtiny85</a>, using an Arduino Uno.</p>
+						</li>
+					</ul>
+					<h3>Under the hood</h3>
+					<ul>
+						<li>
+							<p>Sparkfun's explaination of <a target="_blank" href="https://learn.sparkfun.com/tutorials/integrated-circuits">what an Integrated Circuit (IC) is</a>.</p>
+						</li>
+						<li>
+							<p>Arduino's explaination of <a target="_blank" href="https://www.arduino.cc/en/Hacking/BuildProcess">what happens when you hit Upload</a>.</p>
+						</li>
+					</ul>
 				</div>
 				<div class="contentBlock">
 					<h2>Eagle</h2>
@@ -85,8 +121,20 @@
 						<li>
 							<p>A simple list of the <a target="_blank" href="http://web.mit.edu/xavid/arch/i386_rhel4/help/24.htm">Eagle commands</a>, for quick reference.</p>
 						</li>
+					</ul>
+					<h3>Sparkfun tutorials on Eagle</h3>
+					<ul>
 						<li>
-							<p>Sparkfun has tutorials on Eagle's <a target="_blank" href="https://learn.sparkfun.com/tutorials/using-eagle-schematic">schematic view</a>, the <a target="_blank" href="https://learn.sparkfun.com/tutorials/using-eagle-board-layout">board view</a>, and <a target="_blank" href="https://learn.sparkfun.com/tutorials/how-to-install-and-setup-eagle/using-the-sparkfun-libraries">using their libraries.</a></p>
+							<a target="_blank" href="https://learn.sparkfun.com/tutorials/using-eagle-schematic">schematic view</a>
+						</li>
+						<li>
+							<a target="_blank" href="https://learn.sparkfun.com/tutorials/using-eagle-board-layout">board view</a>
+						</li>
+						<li>
+							<a target="_blank" href="https://learn.sparkfun.com/tutorials/designing-pcbs-advanced-smd">designing with SMD</a>
+						</li>
+						<li>
+							<a target="_blank" href="https://learn.sparkfun.com/tutorials/how-to-install-and-setup-eagle/using-the-sparkfun-libraries">using their libraries</a>
 						</li>
 					</ul>
 				</div>
@@ -94,12 +142,35 @@
 					<h2>Using SMD</h2>
 					<ul>
 						<li>
+							<p><a target="_blank" href="https://www.youtube.com/watch?v=_5lksMvmqQc">Quick video</a> showing how solder paste will reflow on a PCB that also has soldermask. Note how too much solder will cause "bridges."</p>
+						</li>
+						<li>
 							<p><a target="_blank" href="https://learn.adafruit.com/smt-manufacturing/overview">Adafruit has a great set of tutorials</a> for handling SMD parts, but they're aimed at manufacturers rather than prototypers. Also we do things a little differently here, but still worth a read for if you end up doing small-scale manufacturing in the future.</p>
+						</li>
+						<li>
+							<p><a target="_blank" href="https://www.sparkfun.com/tutorials/category/2">Sparkfun's tutorials</a> are focused on how to solder the parts down, whether using an iron, hot air gun, skillet, or toaster oven.</p>
+						</li>
+						<li>
+							<p>
+								Here's a short tutorial on <a target="_blank" href="http://lowpowerlab.com/blog/2015/03/27/laser-etching-smt-stencils-tutorial/">laser etching a solder stencil from transparency film</a>. This is the easiest way to do it at ITP, since we have a laser cutter here.
+							</p>
 						</li>
 					</ul>
 				</div>
 				<div class="contentBlock">
 					<h2>CNC Routers</h2>
+					<h3>Othermill Instructables</h3>
+					<ul>
+						<li><a target="_blank" href="https://othermachine.co/support/othermill/maintenance/">Maintenance</a> and making sure ITP's mills don't break right when you want to use them</li>
+						<li><a target="_blank" href="http://www.instructables.com/id/Hello-World-Building-a-Simple-Circuit-with-the-Oth/?ALLSTEPS">Hello World</a>: milling a simple PCB</li>
+						<li><a target="_blank" href="http://www.instructables.com/id/Unlimited-Arduino-clones-the-Otherduino/?ALLSTEPS">Otherduino</a>: milling the Othermill's Arduino clone</li>
+						<li><a target="_blank" href="http://www.instructables.com/id/Solder-Stencils-on-the-Othermill/?ALLSTEPS">Milling solder stencils</a></li>
+					</ul>
+					<h3>Roland Modela</h3>
+					<ul>
+						<li>Download the <a target="_blank" href="https://github.com/andysigler/nodela">Nodela interface</a> to use the mill.</li>
+						<li><a target="_blank" href="https://vimeo.com/119725323">Video tutorial</a> on using the interface and mill.</li>
+					</ul>
 				</div>
 				<div class="contentBlock">
 					<h2>Acid Etching</h2>
@@ -114,6 +185,14 @@
 				</div>
 				<div class="contentBlock">
 					<h2>Solder Mask</h2>
+					<ul>
+						<li>
+							<p><a target="_blank" href="https://www.youtube.com/watch?v=B0Syj4awcc8">Great video</a> on how to apply dry-film soldermask, step-by-step.</p>
+						</li>
+						<li>
+							<p>And here's a similar <a target="_blank" href="http://www.instructables.com/id/Dry-Film-Solder-Mask/?ALLSTEPS">Instructables</a> on how to apply dry-film soldermask.</p>
+						</li>
+					</ul>
 				</div>
 			</div>
 			<div class="footerSection">
