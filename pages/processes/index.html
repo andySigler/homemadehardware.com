@@ -30,6 +30,7 @@
 					<h3>Page contents</h3>
 					<ol>
 						<li><a href="#othermill">Using the Othermill</a></li>
+						<li><a href="#roland">Using the Roland Modela</a></li>
 						<li><a href="#toner-transfer">Toner Transfer</a></li>
 						<li><a href="#acid-etching">Acid Etching</a></li>
 						<li><a href="#solder-mask">Dry-Film Solder Mask</a></li>
@@ -63,6 +64,30 @@
 						<h3>8 - Remove and clean</h3>
 							<p>Once the job is finished, use a vacuum to clean both your board and the <strong>entire</strong> insides of the Othermill (including those hard-to-reach places in the top).</p>
 							<p>Scrub your board with a scour pad to remove any roughness and copper hairs, and test all connections with a multimeter</p>
+				</div>
+				<div class="contentBlock" id="roland">
+					<h2>Using the Rolend Modela</h2>
+						<h3>1 - Tape down the copper palte</h3>
+							<p>Apply double-sided tape to the bottom side of your copper plate. Place it it on the bed, and firmly press down. While pushing down, slide your hand along the plate to make sure all the tape is pressed flat.</p>
+						<h3>2 - Using the machine</h3>
+							<p>Press the top green button on the mill, and it will power on and home. There is a green LED next to the white button labelled VIEW. If the light is on, then VIEW is on, and the machine will ignore all messages sent to it. When VIEW is off, the machine will listen to messages and move around. You can use the VIEW button to pause and later resume a job.</p>
+							<p>When VIEW is off, you can use the UP and DOWN buttons to move the head along the Z axis. Single button presses will move the head one micron (1/1000 inch). Keep holding the button down, and the mill will move continuously until you release the button.</p>
+						<h3>3 - Start the interface</h3>
+							<p>Download the software from the <a target="_blank" href="https://github.com/andysigler/nodela">github repository</a>, the readme describes how to install. Open and run, and connect the mill's USB cable to your computer. Press the SCAN PORTS button to find the mill's serial port. Select the correct port, and press CONNECT.</p>
+							<p>Drag your Eagle .brd file onto the interface, and your design will load. Buttons will generate for the layers in your file. When a layer is selected, it's contents will turn red in the graphic, indicating which toolpaths will be sent to the mill.</p>
+						<h3>4 - Add and home a bit</h3>
+							<p>The machine will think that whatever height you set it the Z axis to is the top of your copper plate, so we have to touch our plate with the bit before running a job.</p>
+							<p>With the Z axis all the way up, slide your first bit into the collet, and tighten both the two hex screws.</p>
+							<p>With the Z axis still all the way up, use the arrows on the interface to move the bit along the X and Y axis until it's over the copper. Move the Z axis down until the tip of the bit touches the copper, even making a tiny mark on the surface.</p>
+						<h3>5 - Enter layer, but, and cut depth</h3>
+							<p>Select the first Eagle layer you want to mill by pressing it's button on the interface. Select from the menu what sized bit you will use. The bit you select will change the speed and plunge depth of the machine.</p>
+							<p>Then enter the depth you would like it to cut down to (in inches). If just removing copper for traces, set a small depth (like 0.01). If drilling holes or cutting dimension, enter the total thickness of your board (measure with calipers).</p>
+						<h3>6 - Running a job</h3>
+							<p>Double check your bit is touching the copper plate, and has an X and Y position that will fit your design. Press RUN JOB, and the selected layer will begin cutting. When the job is finished, the bit will move back to origin.</p>
+							<p>To pause a job will it's running, press the VIEW button. To resume the job, press the VIEW button again and the machine will start up immediately.</p>
+						<h3>7 - Erasing a job</h3>
+							<p>The job is being slowly fed from your laptop to the machine, so we have to first erase it in the mill, then we erase it in your laptop by quiting the interface.</p>
+							<p>To erase a job, first pause it by pressing the VIEW button. While in VIEW mode, press the UP and DOWN buttons <strong>at the same time</strong>, and the light will start flashing. Shut down the interface, and then the light will stop flashing. You have fully erased the job, and can now restart the interface.</p>
 				</div>
 				<div class="contentBlock" id="toner-transfer">
 					<h2>Toner Transfer</h2>
