@@ -73,6 +73,7 @@
 							<p>Press the top green button on the mill, and it will power on and home. There is a green LED next to the white button labelled VIEW. If the light is on, then VIEW is on, and the machine will ignore all messages sent to it. When VIEW is off, the machine will listen to messages and move around. You can use the VIEW button to pause and later resume a job.</p>
 							<p>When VIEW is off, you can use the UP and DOWN buttons to move the head along the Z axis. Single button presses will move the head one micron (1/1000 inch). Keep holding the button down, and the mill will move continuously until you release the button.</p>
 						<h3>3 - Start the interface</h3>
+							<p>The serial cable being used at ITP requires a driver to be installed on the laptop. <a href="http://sgcdn.startech.com/005329/media/sets/Prolific-PL-2303_Drivers/Prolific_PL2303.zip">You can find a driver here</a>.</p>
 							<p>Download the software from the <a target="_blank" href="https://github.com/andysigler/nodela">github repository</a>, the readme describes how to install. Open and run, and connect the mill's USB cable to your computer. Press the SCAN PORTS button to find the mill's serial port. Select the correct port, and press CONNECT.</p>
 							<p>Drag your Eagle .brd file onto the interface, and your design will load. Buttons will generate for the layers in your file. When a layer is selected, it's contents will turn red in the graphic, indicating which toolpaths will be sent to the mill.</p>
 						<h3>4 - Add and home a bit</h3>
