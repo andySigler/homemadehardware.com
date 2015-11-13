@@ -130,6 +130,118 @@
 					</ul>
 				</div>
 				<div class="contentBlock">
+					<h2>Wireless Modules</h2>
+					<p>
+						Below are three wireless modules to use with you DIY boards. They are good choices at this time because they use wireless protocols that are useful to most ITP projects, they are available for low-quantity purchase in the U.S., and they have Arduino support.
+					</p>
+					<h3>RFm69HW - (915 or 433 mHz)</h3>
+					<p>
+						The RFm69 is a simple radio module, great for mesh networking. This means your Arduino projects can communicated directly to each other in any configuration (one-one, one-many, many-one).
+					</p>
+					<ul>
+						<li>
+							<strong>Pros:</strong>
+							<ul>
+								<li>Mesh networking made simple</li>
+								<li>Connects to ATmega328, so you can run your normal Arduino Uno code</li>
+								<li>Low power options to save battery life</li>
+								<li>Long range (longer if 433mhz)</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Cons:</strong>
+							<ul>
+								<li>More parts needed, because it requires ATmega328 or similar IC</li>
+								<li>Cannot directly connect with phones and other computers</li>
+								<li>Longer antenna that you have to make</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Source:</strong> 
+							<ul>
+								<li><a target="_blank" href="http://www.ebay.com/sch/i.html?_from=R40&_trksid=p2050601.m570.l1313.TR0.TRC0.H0.Xrfm69.TRS0&_nkw=rfm69&_sacat=0">ebay</a></li>
+							</ul>
+						</li>
+						<li>
+							<strong>Documentation:</strong>
+							<ul>
+								<li><a target="_blank" href="https://github.com/lowpowerlab/rfm69">LowPowerLab's Arduino library</a></li>
+								<li><a target="_blank" href="https://github.com/andysigler/rfm69-examples">My code examples, made simple</a></li>
+								<li><a target="_blank" href="http://nathan.chantrell.net/downloads/arduino/tiny328/tiny328_schematic.png">Example schematic</a></li>
+							</ul>
+						</li>
+					</ul>
+					<h3>esp8266</h3>
+					<p>
+						The esp8266 is a very cheap WiFi IC that can also run Arduino code, and it comes in several breakout boards, modules, and prototyping boards.
+					</p>
+					<ul>
+						<li>
+							<strong>Pros:</strong>
+							<ul>
+								<li>Very low cost</li>
+								<li>Runs Arduino code, and uses the Arduino WiFi library</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Cons:</strong>
+							<ul>
+								<li>Must have access to the local WiFi network's name and password</li>
+								<li>WiFi requires more power, so this will kill batteries</li>
+								<li>WiFi connection and communication latency can be large (slow)</li>
+								<li>Only 1 analogRead pin, and all pins can use software PWM</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Source:</strong> 
+							<ul>
+								<li><a target="_blank" href="https://www.adafruit.com/product/2491">Adafruit</a></li>
+							</ul>
+						</li>
+						<li>
+							<strong>Documentation:</strong>
+							<ul>
+								<li><a target="_blank" href="https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout">Adafruit's HUZZAH Board documentation</a></li>
+								<li><a target="_blank" href="https://github.com/esp8266/arduino">The Arduino Add-On you must install</a></li>
+							</ul>
+						</li>
+					</ul>
+					<h3>nRF51822 (RFduino)</h3>
+					<p>
+						The nRF51822 is a powerful IC that can run Arduino code, and communicate over Bluetooth Low Energy (BLE). It also comes in many modules and breakouts, but is most available to us in New York as the RFduino module.
+					</p>
+					<ul>
+						<li>
+							<strong>Pros:</strong>
+							<ul>
+								<li>Hardware PWM and analogRead on all pins</li>
+								<li>Runs Arduino code and BLE stack on same chip</li>
+								<li>Capable of very low-power use</li>
+								<li>Connects to computers and phones directly, without any pairing or passwords</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Cons:</strong>
+							<ul>
+								<li>More expensive than other modules</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Source:</strong> 
+							<ul>
+								<li><a target="_blank" href="http://www.digikey.com/product-detail/en/RFD22301/1562-1016-ND/5056363">Digikey</a></li>
+							</ul>
+						</li>
+						<li>
+							<strong>Documentation:</strong>
+							<ul>
+								<li><a target="_blank" href="http://www.rfdigital.com/wp-content/uploads/2014/04/RFduino.Quick_.Start_.Guide_.pdf">RFduino quick-start guide</a></li>
+								<li><a target="_blank" href="https://github.com/RFduino/RFduino">The Arduino Add-On you must install</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
+				<div class="contentBlock">
 					<h2>Eagle</h2>
 					<p>
 						The first half of the semester, we'll be spending a lot of time working on Eagle together in class. But Eagle is a very popular program among DIY electronics, so you'll find tons of resources online.
