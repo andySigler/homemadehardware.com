@@ -1,0 +1,107 @@
+@font-face {
+    font-family: "Light";
+    src: url(../fonts/clear-sans/ClearSans-Light.ttf);
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url(../fonts/clear-sans/ClearSans-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Regular";
+    src: url(../fonts/clear-sans/ClearSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Bold";
+    src: url(../fonts/clear-sans/ClearSans-Bold.ttf);
+}
+
+h1,h2 {
+	font-family: Medium, Helvetica;
+}
+
+h3,h4,h5 {
+	font-family: Regular, Helvetica;
+}
+
+strong {
+	font-family: Bold, Helvetica;
+}
+
+p, li {
+	font-family: Light, Helvetica;
+}
+
+a {
+	font-family: Medium, Helvetica;
+	text-decoration: none;
+	color: #008EB2;
+}
+
+/* unvisited link */
+a:link {
+}
+
+/* visited link */
+a:visited {
+}
+
+/* mouse over link */
+a:hover {
+}
+
+/* selected link */
+a:active {
+}
+
+.container {
+	width: 100%;
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.headerSection {
+}
+
+.footerSection {
+	font-family: Light, Helvetica;
+	width:100%;
+	margin-top:50px;
+	margin-bottom:20px;
+	text-align: right;
+}
+
+.bodySection {
+}
+
+.bodyBlock {
+}
+
+.navUnit {
+	margin-right: 5px;
+	padding:2px 6px 4px 6px;
+	cursor: pointer;
+	font-family: Medium, Helvetica;
+	border-radius: 3px;
+}
+
+.navSelected {
+	color: white;
+	background-color: #008EB2;
+}
+
+.contentBlock {
+	padding: 20px 0px 0px 0px;
+}
+
+.classDate {
+	margin-top:-10px;
+	color:gray;
+}
+
+.homeworkDiv{
+	/*color: #DB3A34;*/
+}
