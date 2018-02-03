@@ -101,8 +101,74 @@
 					<h2>Class 2</h2>
 					<p class="classDate">Feb 1</p>
 					<h3>Soldering how-to</h3>
-					<h3>Eagle Schematics</h3>
-					<h3>Eagle Board Design</h3>
+					<p>
+						See the videos on how to do simple soldering in the <a href="./process/#soldering">in the soldering section</a> of the Process page
+					</p>
+					<p>
+						If you are interested in seeing some more advanced stuff, check out Sparkfuns series of tutorials on soldering. It's mostly surface-mount examples, but the basic principals on how solder moves and what the common issues are the same with through-holes parts.
+					</p>
+					<h3>Eagle Schematics and Board Design</h3>
+					<p>
+						We went through some commands in class. Here are what we talked about, and a basic description:
+						<ul>
+							<li>
+								<strong>ADD</strong>: Load a new part into you Schematic (not available in Board design)
+							</li>
+							<br />
+							<li>
+								<strong>DELETE</strong>: Delete anything from your Schematic (restricted in Board design)
+							</li>
+							<br />
+							<li>
+								<strong>MOVE</strong>: Move anything around, and right-click to rotate (same in Schematic and Board design)
+							</li>
+							<br />
+							<li>
+								<strong>ROTATE</strong>: Rotate a part (restricted to 90degree rotations in Schematic design)
+							</li>
+							<br />
+							<li>
+								<strong>NET</strong>: Create an electrical connection between two PINs in Schematic design (not available in Board design)
+							</li>
+							<br />
+							<li>
+								<strong>COPY</strong>: Copy a part in your Schematic design (restricted in Board design)
+							</li>
+							<br />
+							<li>
+								<strong>ROUTE</strong>: [Board design only] Draw an electrical connection as a copper trace (1mm is good thickness)
+							</li>
+							<br />
+							<li>
+								<strong>RIPUP</strong>: [Board design only] Undo or remove a ROUTE that you have previously drawn
+							</li>
+							<br />
+							<li>
+								<strong>[SPACE-BAR DURING ROUTE]</strong>: [Board design only] Drop a "VIA" (a hole) while routing, so that your copper trace jumps to the other side of the board.
+								<ul>
+									<p>
+										<strong class="green_color">NOTE</strong>: We will start with single-sided PCBs, so keep in mind that all "jumps" like this to the other side will end up being "air-wires"
+									</p>
+									<img src="../img/air_wire.jpg" />
+								</ul>
+							</li>
+						</ul>
+					</p>
+					<iframe src="https://player.vimeo.com/video/253974848" width="640" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<div class="green_color">
+						<h3>For next class:</h3>
+						<ul>
+							<li>
+								Finish your Arduino shield programming jig for the ATtiny85 so that you can use it next week on your project.
+							</li>
+							<li>
+								Create Eagle files for ATtiny85 sensor + LED. Take screenshots of both your schematic and board files, and upload them to your blog.
+							</li>
+							<li>
+								Nominate a 13 letter phrase <a target="_blank" href="https://docs.google.com/document/d/1YkrxB4-g1Dt10_pdaKSj8h7e4AQ55ebr0_FWUKmKM9s/edit?usp=sharing">on this shared document</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 				<div class="contentBlock" id="class-3">
 					<h2>Class 3</h2>

@@ -44,19 +44,19 @@
 						<li class="step">
 							<h4 style="margin-bottom:0px">Schematic</h4>
 							<ul>
-								<!-- <li><a href="#eagle-schematic">Eagle Schematic</a></li> -->
+								<li><a href="#eagle-schematic">Eagle Schematic</a></li>
 							</ul>
 						</li>
 						<li class="step">
 							<h4 style="margin-bottom:0px">Layout & Shape</h4>
 							<ul>
-								<!-- <li><a href="#eagle-board">Eagle Board View</a></li> -->
+								<li><a href="#eagle-board">Eagle Board View</a></li>
 							</ul>
 						</li>
 						<li class="step">
 							<h4 style="margin-bottom:0px">Design Copper</h4>
 							<ul>
-								<!-- <li><a href="#eagle-route">Eagle Routing</a></li> -->
+								<li><a href="#eagle-route">Eagle Routing</a></li>
 							</ul>
 						</li>
 					</ol>
@@ -89,8 +89,8 @@
 						<li class="step">
 							<h4 style="margin-bottom:0px">Populate & Reflow</h4>
 							<ul>
-								<!-- <li><a href="#soldering">Tutorials on Soldering</a></li>
-								<li><a href="#smt-station">Using the SMT Station</a></li>
+								<li><a href="#soldering">Tutorials on Soldering</a></li>
+								<!-- <li><a href="#smt-station">Using the SMT Station</a></li>
 								<li><a href="#heat-gun">Using the Heat Gun</a></li>
 								<li><a href="#adafruit-smd">Adafruit Tutorials on SMD Manufacturing</a></li>
 								<li><a href="#pnp">Using the Pick-and-Place Machine</a></li> -->
@@ -99,7 +99,7 @@
 						<li class="step">
 							<h4 style="margin-bottom:0px">Programming</h4>
 							<ul>
-								<!-- <li><a href="#programming-jigs">Programming Jigs</a></li> -->
+								<li><a href="#programming-jigs">Programming Jigs</a></li>
 								<li><a href="#bootloaders">Bootloaders</a></li>
 							</ul>
 						</li>
@@ -368,16 +368,18 @@
 							</ul>
 						</li>
 					</ul>
-				</div>
+				</div> -->
 				<div class="contentBlock design-3" id="eagle-schematic">
 					<h2>Eagle Schematic</h2>
 					<p class="classDate">Design #3</p>
-						<p>A simple list of the <a href="./eagleCommands.html">Eagle commands</a>, for quick reference. And here's a <a href="http://web.mit.edu/xavid/arch/i386_rhel4/help/24.htm">more thorough one</a> from MIT's course on Eagle.</p>
+						<p>Here's a <a href="http://web.mit.edu/xavid/arch/i386_rhel4/help/24.htm">thorough list of Eagle Commands</a> from MIT's course on Eagle.</p>
 						<h3>Adding Parts</h3>
 							<p>The <a href="https://github.com/adafruit/Adafruit-Eagle-Library">Adafruit</a> Eagle library and the <a href="https://github.com/sparkfun/SparkFun-Eagle-Libraries">Sparkfun</a> Eagle libraries have a ton of parts for you to use.</p>
 							<p>Here is a very helpful <a href="http://dangerousprototypes.com/parts/">search tool created by Dangerous Prototypes</a>. You enter a part number you need, and it searches GitHub for any Eagle files that contain that part, so you can simply copy/paste into your design.</p>
 						<h3>Making a Schematic</h3>
 							<p>Sparkfun tutorial on <a href="https://learn.sparkfun.com/tutorials/using-eagle-schematic">Eagle's schematic view</a>.
+						<h3>Video from Class #2:</h3>
+						<iframe src="https://player.vimeo.com/video/253974848" width="640" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				</div>
 				<div class="contentBlock design-4" id="eagle-board">
 					<h2>Eagle Board View</h2>
@@ -393,7 +395,7 @@
 					<h3>Drawing Routes</h3>
 						<p>Start at "Routing the Board" in the Sparkfun tutorial on <a href="https://learn.sparkfun.com/tutorials/using-eagle-board-layout">Eagle's board view</a>, <strong>stop when you get to "Generating Gerbers"</strong>.</p>
 				</div>
-				<div class="contentBlock production-1" id="othermill">
+				<!-- <div class="contentBlock production-1" id="othermill">
 					<h2>Using the OtherMill</h2>
 					<p class="classDate">Production #1</p>
 						<ul>
@@ -559,7 +561,7 @@
 					<h2>Milling a Solder Stencil on OtherMill</h2>
 					<p class="classDate">Production #3</p>
 						<p>Here is <a href="http://www.instructables.com/id/Solder-Stencils-on-the-Othermill/?ALLSTEPS">the link</a> using the OtherMill to mill a stencil for solder paste. I haven't tried this yet, but <a href="http://kinasmith.com/">Kina Smith</a> had success a couple years ago.</p>
-				</div>
+				</div> -->
 				<div class="contentBlock production-4" id="soldering">
 					<h2>Tutorials on Soldering</h2>
 					<p class="classDate">Production #4</p>
@@ -567,9 +569,9 @@
 							<iframe src="https://player.vimeo.com/video/102331731" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 							<iframe src="https://player.vimeo.com/video/102377316" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 						<h4>Sparkfun's Tutorials on SMD Soldering</h4>
-							<p><a href="https://www.sparkfun.com/tutorials/category/2"><img style="border:solid 1px black" src="./sparkfun-soldering.png" /><br />Sparkfun's tutorials</a> are focused on how to solder the parts down, whether using an iron, hot air gun, skillet, or toaster oven.</p>
+							<p><a href="https://www.sparkfun.com/tutorials/category/2"><img style="border:solid 1px black" src="../img/sparkfun-soldering.png" /><br />Sparkfun's tutorials</a> are focused on how to solder the parts down, whether using an iron, hot air gun, skillet, or toaster oven.</p>
 				</div>
-				<div class="contentBlock production-4" id="smt-station">
+				<!-- <div class="contentBlock production-4" id="smt-station">
 					<h2>Populate with the SMT Station</h2>
 					<p class="classDate">Production #4</p>
 						<h3>1 - Power on</h3>
@@ -612,7 +614,7 @@
 						<p>
 							<iframe src="https://player.vimeo.com/video/103022668" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 						</p>
-				</div>
+				</div> -->
 				<div class="contentBlock production-5" id="programming-jigs">
 					<h2>Programming Jigs</h2>
 					<p class="classDate">Production #5</p>
@@ -622,7 +624,7 @@
 								<li><a href="https://www.arduino.cc/en/Hacking/MiniBootloader">Here's an example</a> of someone hot-gluing some wire to program a dead Pro Mini. That's a jig too.</li>
 							</ul>
 						</p>
-				</div> -->
+				</div>
 				<div class="contentBlock production-5" id="bootloaders">
 					<h2>Bootloaders</h2>
 					<p class="classDate">Production #5</p>
