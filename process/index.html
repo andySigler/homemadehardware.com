@@ -65,23 +65,23 @@
 						<li class="step">
 							<h4 style="margin-bottom:0px">Cutout & Holes</h4>
 							<ul>
-								<!-- <li><a href="#othermill">Using the OtherMill</a></li>
-								<li><a href="#roland">Using the Roland Modela</a></li> -->
+								<li><a href="#othermill">Using the OtherMill</a></li>
+								<!-- <li><a href="#roland">Using the Roland Modela</a></li> -->
 							</ul>
 						</li>
 						<li class="step">
 							<h4 style="margin-bottom:0px">Remove Copper</h4>
 							<ul>
 								<!-- <li><a href="#toner-transfer">Toner Transfer</a></li>
-								<li><a href="#acid-etching">Acid Etching</a></li>
-								<li><a href="#bit-isolation">Engraving Bit Isolation Milling</a></li> -->
+								<li><a href="#acid-etching">Acid Etching</a></li> -->
+								<li><a href="#bit-isolation">Engraving Bit Isolation Milling</a></li>
 							</ul>
 						</li>
 						<li class="step">
 							<h4 style="margin-bottom:0px">Board Finishing</h4>
 							<ul>
-								<!-- <li><a href="#sand-copper">Cleaning a Milled Copper Plate</a></li>
-								<li><a href="#solder-mask">Dry-Film Solder Mask</a></li>
+								<li><a href="#sand-copper">Cleaning a Milled Copper Plate</a></li>
+								<!-- <li><a href="#solder-mask">Dry-Film Solder Mask</a></li>
 								<li><a href="#stencil">Laser Etch a Solder Stencil</a></li>
 								<li><a href="#stencil-milled">Milling a Solder Stencil on OtherMill</a></li> -->
 							</ul>
@@ -395,39 +395,43 @@
 					<h3>Drawing Routes</h3>
 						<p>Start at "Routing the Board" in the Sparkfun tutorial on <a href="https://learn.sparkfun.com/tutorials/using-eagle-board-layout">Eagle's board view</a>, <strong>stop when you get to "Generating Gerbers"</strong>.</p>
 				</div>
-				<!-- <div class="contentBlock production-1" id="othermill">
+				<div class="contentBlock production-1" id="othermill">
 					<h2>Using the OtherMill</h2>
 					<p class="classDate">Production #1</p>
 						<ul>
-							<li><a href="https://othermachine.co/support/othermill/maintenance/">Maintenance</a> and making sure ITP's mills don't break right when you want to use them</li>
-							<li><a href="http://www.instructables.com/id/Hello-World-Building-a-Simple-Circuit-with-the-Oth/?ALLSTEPS">Hello World</a>: milling a simple PCB</li>
-							<li><a href="http://www.instructables.com/id/Unlimited-Arduino-clones-the-Otherduino/?ALLSTEPS">Otherduino</a>: milling the Othermill's Arduino clone</li>
+							<li><a href="https://support.bantamtools.com/hc/en-us/articles/115001658214-Maintenance">Maintenance</a> and making sure ITP's mills don't break</li>
+							<li><a href="https://support.bantamtools.com/hc/en-us/articles/115003204926-Bantam-Tools-PCB-Badge">Hello World</a>: milling a simple PCB</li>
 						</ul>
-						<h3>1 - Setup material in Otherplan</h3>
-							<p>Select the copper plate you will be using, and measure it's width and height with a ruler. Then <span class="green_color">[IMPORTANT]</span> measure it's thickness with calipers.</p>
-							<p>In the top right corner of Otherplan, you can Setup Material. Select double-sided FR-1, and enter the dimensions you measured earlier.</p>
-						<h3>2 - Load design and bits</h3>
+						<h3>1 - Load design and bits</h3>
 							<p>Drag and drop your Eagle .brd file into Otherplan, and your design will appear in 3d model and as a new entry on the right side. Add all the bits you will be using for this board (aka 1/32", 1/16")</p>
-						<h3>3 - Inspect and adjust Eagle file</h3>
-							<p>With the correct bits selected, carefully look over your design and check to see if any traces are too close, or any holes are too small they won't be drilled</p>
+						<h3>2 - Inspect and adjust Eagle file</h3>
+							<p>With the correct bits selected, carefully look over your design and check to see if any traces are too close, or any holes are too small they won't be drilled. (<a href="https://support.bantamtools.com/hc/en-us/articles/115003453943-Design-Considerations">link to Bantam Tool's Design Considerations</a>)</p>
 							<p>To fix any problems, keep Otherplan open, and also open the Eagle file to edit. Adjust your traces, or drop new holes, and press SAVE in Eagle. You can then press the refresh key on your file in Otherplan, and the changes will appear.</p>
-						<h3>4 - Connect to Othermill</h3>
+						<h3>3 - Connect to Othermill</h3>
 							<p>Once your file is ready to be milled, you can start using the machine.</p>
 							<p>Power the Othermill on, and connect to your laptop over the USB cable. Otherplan should now say that you are connected to a mill, and can control it.</p>
+						<h3>4 - <span class="green_color">Optional: </span>Attach Bracket and Locate</h3>
+							<p>This is only needed if you are doing a <a href="https://support.bantamtools.com/hc/en-us/articles/115001658814-Double-Sided-Boards">double-sided PCB</a>. Read <a href="https://support.bantamtools.com/hc/en-us/articles/115001658274-Locating-the-Bracket">Bantam Tool's guide for how to probe the bracket</a>.</p>
 						<h3>5 - Prepare copper plate</h3>
 							<p>The Othermill is designed to hold plates 5"x4". If your board is larger than this, you can cut it to size in the shop.</p>
 							<p>Apply double-sided tape to the bottom of your board, and press if firmly down onto the Othermill's bed. Press firmly and for about 30 seconds, making sure that the tape fully stuck and <strong>flat</strong> to the aluminum bed.
-						<h3>6 - Change Tool and home</h3>
+						<h3>6 - Change Tool and Locate</h3>
 							<p>The top-right of Otherplan will show what bit it <strong>thinks</strong> is currently connected. This might not be a bit your using, or could just be completely wrong, the machine's not that smart.</p>
-							<p>Select Change Tool, and follow the instructions. You should add the smallest bit your job is using (aka 1/32"), and follow the instructions for homing. The Z-axis must be homed every time after a new bit is inserted.</p>
-						<h3>7 - Run Job</h3>
+							<p>Select Change Tool, and follow the instructions. You should add the smallest bit your job is using (aka 1/32"), and follow the instructions for locating. The bits must be located every time after they're inserted.</p>
+						<h3>7 - [New Feature] PCB Probe</h3>
+							<p>This is great. If you have the <a href="https://support.bantamtools.com/hc/en-us/articles/115001829134-Installing-and-Using-the-PCB-Probing-System">PCB Probing System</a>, then the machine can measure the thickness of your board for you. <a href="https://support.bantamtools.com/hc/en-us/articles/115001829134-Installing-and-Using-the-PCB-Probing-System">Read Bantam's guide</a> for how to use it.</p>
+							<p>Simply though, with the PCB probe touching your copper plate, go to <strong>Menu_Bar->BitBreaker->Probe_Material_Thickess</strong>.</p>
+							<p>
+								If your bit doesn't cut through the copper while cutting, it means some spots on your plate are thinner than others. When this happens, cancel your job, and got up to the <strong>Material</strong> box in the software and open the <strong>Size</strong> section. Lower the thickness by 0.05-0.1mm, so if mine was 1.52mm before, I'll change it to 1.50 or even 1.47. Press <strong>ENTER</strong> so the value is saved, then try milling again.
+							</p>
+						<h3>8 - Run Job</h3>
 							<p>Once correct bit is setup, and your material is ok, you can press "Start Cutting!". While the job is running, do not listen to headphones, and do not leave the machine alone.</p>
 							<p>If your job is using multiple bits, the machine will automatically stop and ask you to change bits. Follow the instructions just like before, and it will continue with the job.
-						<h3>8 - Remove and clean</h3>
+						<h3>9 - Remove and clean</h3>
 							<p>Once the job is finished, use a vacuum to clean both your board and the <strong>entire</strong> insides of the Othermill (including those hard-to-reach places in the top).</p>
 							<p>Scrub your board with a scour pad to remove any roughness and copper hairs, and test all connections with a multimeter</p>
 				</div>
-				<div class="contentBlock production-1" id="roland">
+				<!-- <div class="contentBlock production-1" id="roland">
 					<h2>Using the Rolend Modela</h2>
 					<p class="classDate">Production #1</p>
 						<p>
@@ -491,7 +495,7 @@
 						<h3>4 - Clean up and finish</h3>
 							<p>When your board is finished etching, remove it from the acid and put it in your water container. Pour your used acid into one of the "old acid" buckets. That stuff is now filled with copper, and is bad for the environment and cannot simply be thrown away.</p>
 							<p>Rinse out your tupperware containers and board in the slop sink, making sure to rinse away any tiny amounts of acid that might be in the sink. Dry your board with a hair dryer, then remove the black ink with a scour pad.</p>
-				</div>
+				</div> -->
 				<div class="contentBlock production-2" id="bit-isolation">
 					<h2>Engraving Bit Isolation Milling</h2>
 					<p class="classDate">Production #2</p>
@@ -499,7 +503,7 @@
 							<iframe width="560" height="315" src="https://www.youtube.com/embed/Mal78e-GJBU" frameborder="0" allowfullscreen></iframe>
 						</p>
 						<p>
-							OtherMill's new software has the feature of using an engraving bit to millout the a circuits traces. This is an amazing new feature I'm going to try once the new OtherMill's come to ITP
+							Bantam Tool's has the feature of using an 30 degreen engraving bit to millout the a circuits traces. This is an amazing new feature that allows us to mill much much smaller traces and component pads.
 						</p>
 						<p>
 							<a href="https://othermachine.co/support/pcb/engraving-bit-isolation-milling/">Here's a link to their tutorial</a> on using the new feature.
@@ -511,7 +515,7 @@
 						<p><strong>[WARNING]</strong> The below video is old, and we now can mill double sided boards on the same plate. However, the same rules apply when cleaning it.</p>
 						<iframe src="https://player.vimeo.com/video/102285535" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				</div>
-				<div class="contentBlock production-3" id="solder-mask">
+				<!-- <div class="contentBlock production-3" id="solder-mask">
 					<h2>Dry-Film Solder Mask</h2>
 					<p class="classDate">Production #3</p>
 						<p>Great video on using the dry-film solder mask, step-by-step.</p>
