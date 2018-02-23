@@ -38,7 +38,7 @@
 							<h4 style="margin-bottom:0px">Bill of Materials</h4>
 							<ul>
 								<li><a href="#microcontrollers">Microcontrollers</a></li>
-								<!-- <li><a href="#modules">Wireless Modules</a></li> -->
+								<li><a href="#modules">Wireless Modules</a></li>
 							</ul>
 						</li>
 						<li class="step">
@@ -256,13 +256,14 @@
 						</li>
 					</ul>
 				</div>
-				<!-- <div class="contentBlock design-2" id="modules">
+				<div class="contentBlock design-2" id="modules">
 					<h2>Wireless Modules</h2>
 					<p class="classDate">Design #2</p>
 					<p>
-						Below are three wireless modules to use with you DIY boards. They are good choices at this time because they use wireless protocols that are useful to most ITP projects, they are available for low-quantity purchase in the U.S., and they have Arduino support.
+						Below are some wireless modules to use with you DIY boards. They are good choices at this time because they use wireless protocols that are useful to most ITP projects, they are available for low-quantity purchase in the U.S., and they have Arduino support.
 					</p>
 					<h3>RFm69HW - (915 or 433 mHz)</h3>
+					<img src="../img/rfm69.png" style="width:200px"/>
 					<p>
 						The RFm69 is a simple radio module, great for mesh networking. This means your Arduino projects can communicated directly to each other in any configuration (one-one, one-many, many-one).
 					</p>
@@ -287,7 +288,7 @@
 						<li>
 							<strong>Source:</strong>
 							<ul>
-								<li><a href="http://www.ebay.com/sch/i.html?_from=R40&_trksid=p2050601.m570.l1313.TR0.TRC0.H0.Xrfm69.TRS0&_nkw=rfm69&_sacat=0">ebay</a></li>
+								<li><a href="https://www.digikey.com/products/en?mpart=COM-13910&v=1568">Digikey</a></li>
 							</ul>
 						</li>
 						<li>
@@ -300,6 +301,7 @@
 						</li>
 					</ul>
 					<h3>esp8266</h3>
+					<img src="../img/esp8266.jpg" style="width:200px"/>
 					<p>
 						The esp8266 is a very cheap WiFi IC that can also run Arduino code, and it comes in several breakout boards, modules, and prototyping boards.
 					</p>
@@ -323,7 +325,7 @@
 						<li>
 							<strong>Source:</strong>
 							<ul>
-								<li><a href="https://www.amazon.com/Diymall%C2%AE-Esp8266-Esp-12e-Wireless-Transceiver/dp/B00RJJHWLA">Amazon</a></li>
+								<li><a href="https://www.adafruit.com/product/2491">Adafruit</a></li>
 							</ul>
 						</li>
 						<li>
@@ -334,9 +336,44 @@
 							</ul>
 						</li>
 					</ul>
-					<h3>nRF51822 (RFduino)</h3>
+					<h3>esp32</h3>
+					<img src="../img/esp32.jpg" style="width:200px"/>
 					<p>
-						The nRF51822 is a powerful IC that can run Arduino code, and communicate over Bluetooth Low Energy (BLE). It also comes in many modules and breakouts, but is most available to us in New York as the RFduino module.
+						The esp32 and new update over the esp8266. Like the older one, it can do WiFi, as well as BLE (!!). However it's much newer, so the open-source firmware community hasn't finished writing all the software for it.
+					</p>
+					<ul>
+						<li>
+							<strong>Pros:</strong>
+							<ul>
+								<li>Very low cost</li>
+								<li>Runs Arduino code, and uses the Arduino WiFi library</li>
+								<li>Can run as a BLE peripheral and central (waiting on software...)</li>
+								<li>Has WAY more pins than the esp8266, inluding capacitive-touch inputs</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Cons:</strong>
+							<ul>
+								<li>Firmware (Arduino support) is not fully implemented because it's so new</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Source:</strong>
+							<ul>
+								<li><a href="https://www.adafruit.com/product/3320">Adafruit</a></li>
+							</ul>
+						</li>
+						<li>
+							<strong>Documentation:</strong>
+							<ul>
+								<li><a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather?view=all">Adafruit's HUZZAH32 Board documentation</a></li>
+							</ul>
+						</li>
+					</ul>
+					<h3>RFduino</h3>
+					<img src="../img/rfduino.png" style="width:200px"/>
+					<p>
+						The nRF51 is can run Arduino code, and communicate over Bluetooth Low Energy (BLE). It also comes in many modules and breakouts, but is most available to us in New York as the RFduino module.
 					</p>
 					<ul>
 						<li>
@@ -368,7 +405,42 @@
 							</ul>
 						</li>
 					</ul>
-				</div> -->
+					<h3>nRF52</h3>
+					<img src="../img/nrf52.png" style="width:200px"/>
+					<p>
+						The nRF52 is the newer BLE IC from nordic (older version is nRF51). The module we use (from Raytac/Seeed) is smaller so it's harder to solder, but the IC is a great improvement over the older nRF51.
+					</p>
+					<ul>
+						<li>
+							<strong>Pros:</strong>
+							<ul>
+								<li>Hardware PWM and analogRead on all pins</li>
+								<li>Runs Arduino code and BLE stack on same chip</li>
+								<li>Capable of very low-power use</li>
+								<li>Connects to computers and phones directly, without any pairing or passwords</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Cons:</strong>
+							<ul>
+								<li>Harder to solder down that other module</li>
+								<li>Requires a J-Link in order to flash the bootloader</li>
+							</ul>
+						</li>
+						<li>
+							<strong>Source:</strong>
+							<ul>
+								<li><a href="https://www.digikey.com/products/en/rf-if-and-rfid/rf-transceiver-modules/872?k=nrf52&k=&pkeyword=nrf52&v=1597&FV=ffe00368&quantity=0&ColumnSort=0&page=1&pageSize=25">Digikey</a></li>
+							</ul>
+						</li>
+						<li>
+							<strong>Documentation:</strong>
+							<ul>
+								<li><a href="https://learn.adafruit.com/bluefruit-nrf52-feather-learning-guide?view=all">Adafruit's nRF52 Feature board</a></li>
+							</ul>
+						</li>
+					</ul>
+				</div>
 				<div class="contentBlock design-3" id="eagle-schematic">
 					<h2>Eagle Schematic</h2>
 					<p class="classDate">Design #3</p>
