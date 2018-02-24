@@ -187,30 +187,54 @@
 				</div>
 				<div class="contentBlock" id="class-4">
 					<h2>Class 4</h2>
-					<p class="classDate">Feb 15</p>
+					<p class="classDate">Feb 22</p>
 					<iframe src="https://player.vimeo.com/video/257062802" width="640" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 					<h3>Assemble our Marquee Sign</h3>
 					<p>Great jog everyone, everyone's PCBs work!!! Find the sign assembled and hanging on the wall.</p>
-					<h3>Advanced Eagle Schematics</h3>
+					<h3>Larger AVR Microcontrollers</h3>
 					<p>
-						<!-- wireless nets -->
-						<!-- jumpers to help programming -->
+						<a href="./boards/class_4.zip">Here is a zip file containing the boards from class, containing each of the below microcontrollers</a>
+					</p>
+					<p>
+						The <strong>ATtiny84</strong> (<a href="https://www.digikey.com/products/en/integrated-circuits-ics/embedded-microcontrollers/685?k=ATtiny84&k=&pkeyword=ATtiny84&pv252=735&FV=1c0002%2C1f140000%2Cffe002ad%2C40196f&quantity=0&ColumnSort=0&page=1&stock=1&pageSize=25">on digikey</a>) is just like the ATtiny85, except it has more pins. The ATtiny84/85 are both fairly easy to solder down compared with other microcontrollers and modules.
+					</p>
+					<p>
+						The <strong>ATMega328p</strong> (<a href="https://www.digikey.com/product-detail/en/microchip-technology/ATMEGA328P-AUR/ATMEGA328P-AURCT-ND/3789455">on digikey</a>) is the most popular microcontroller around, it's what powers the Uno, Pro Mini, Adafruit Metro, and many others. It is difficult to solder down, but it's such a great chip that maybe you'll want to give it a try. Also, it does not support an "internal" clock, so you need to add a crystal or resonator to you circuit (we have 8mhz resonators in the cage).
+					</p>
+					<p>
+						The <strong>ATMega32u4</strong> (<a href="https://www.digikey.com/product-detail/en/microchip-technology/ATMEGA32U4-AUR/ATMEGA32U4-AURCT-ND/3440960">on digikey</a>) is very similar to the 328p, except it has hardware USB support, so it can act as a USB device.
+					</p>
+					<h3>Surface-Mount Packages</h3>
+					<img src="./img/smd-size-chart.jpg" style="max-width: 100%" />
+					<p>
+						When selecting surface mount (SMD) components, it is important to pay close attention to the <strong>package</strong> (the shape) that the part comes in. If your components are not the same shape as in your Eagle file, then they will not be able to fit onto your PCB.
+					</p>
+					<p>
+						In the image above, you can see that the ATtiny85's package is what's called an <strong>SO-8</strong> or <strong>SOIC-8</strong>. The ATtiny84's package is similar but with more pins, it's called an <strong>SO-14</strong> or <strong>SOIC-14</strong>
+					</p>
+					<p>
+						Also, the 3.3v 0.5A regulator that we have in the cage is an <strong>SOT-223</strong> package like in the picture above.
+					</p>
+					<p>
+						Passive components are things like resistors, capacitors, and LEDs. We have many reels of these parts in the cage, all of which are <strong>0603</strong> SMD part sizes. So when ADD'ing parts to you schematic, make sure your passive components are 0603.
+					</p>
+					<h3>"Wireless" NETs in Schematic Files</h3>
+					<p>
+						NETS in Eagle Schematic files are the green lines that connect PINS together. Each NET has a unique name, like for example "VCC" and "GND". If two NETS are given the same name, then they are connected to each other, allowing you to "connect" PINS in your schematic without having to draw those lines.
+						<ol>
+							<li>Starting with an unconnected PIN, draw a small NET coming out of it connected to nothing else</li>
+							<li>Right-click the NET, and select "Label" from the menu that pops up</li>
+							<li>The name of that net will now show up and you can place it</li>
+							<li>Right-click the NET again, and select "Name" from the menu</li>
+							<li>Name it the same name as another NET in your schematic, and now they are connected</li>
+						</ol>
 					</p>
 					<h3>Wireless Modules</h3>
-					<p>
-						<!-- attiny85 -->
-						<!-- attiny84 -->
-						<!-- atmega328p -->
-						<!-- atmega32u4 -->
-						<!-- esp8266 -->
-						<!-- esp32 -->
-						<!-- rfduino -->
-						<!-- nrf52 -->
-					</p>
+					<p>See all information on modules in the <a href="./process#modules">modules section on the process page</a></p>
 				</div>
 				<div class="contentBlock" id="class-5">
 					<h2>Class 5</h2>
-					<p class="classDate">Feb 22</p>
+					<p class="classDate">Feb 26 (rescheduled for 9am)</p>
 					<h3>Mill and Solder with SMD parts</h3>
 					<h3>Acid Etching PCBs</h3>
 					<h3>Advanced Eagle Board Design</h3>

@@ -274,7 +274,6 @@
 								<li>Mesh networking made simple</li>
 								<li>Connects to ATmega328, so you can run your normal Arduino Uno code</li>
 								<li>Low power options to save battery life</li>
-								<li>Long range (longer if 433mhz)</li>
 							</ul>
 						</li>
 						<li>
@@ -282,7 +281,7 @@
 							<ul>
 								<li>More parts needed, because it requires ATmega328 or similar IC</li>
 								<li>Cannot directly connect with phones and other computers</li>
-								<li>Longer antenna that you have to make</li>
+								<li>Long antenna, which you have to cut yourself from a wire</li>
 							</ul>
 						</li>
 						<li>
@@ -316,10 +315,7 @@
 						<li>
 							<strong>Cons:</strong>
 							<ul>
-								<li>Must have access to the local WiFi network's name and password</li>
-								<li>WiFi requires more power, so this will kill batteries</li>
-								<li>WiFi connection and communication latency can be large (slow)</li>
-								<li>Only 1 analogRead pin, and all pins can use software PWM</li>
+								<li>Only 1 analogRead pin, and all pins use software PWM</li>
 							</ul>
 						</li>
 						<li>
@@ -339,15 +335,15 @@
 					<h3>esp32</h3>
 					<img src="../img/esp32.jpg" style="width:200px"/>
 					<p>
-						The esp32 and new update over the esp8266. Like the older one, it can do WiFi, as well as BLE (!!). However it's much newer, so the open-source firmware community hasn't finished writing all the software for it.
+						The esp32 and new update over the esp8266. Like the older one, it can do WiFi, and can advertise over BLE. However it's much newer, so as of now (Spring '18) it <a href="https://github.com/espressif/arduino-esp32#development-status">doesn't have all Arduino functions</a>, like analogWrite for example.
 					</p>
 					<ul>
 						<li>
 							<strong>Pros:</strong>
 							<ul>
-								<li>Very low cost</li>
+								<li>Low cost</li>
 								<li>Runs Arduino code, and uses the Arduino WiFi library</li>
-								<li>Can run as a BLE peripheral and central (waiting on software...)</li>
+								<li>Can advertise as a BLE peripheral (no GATT support yet)</li>
 								<li>Has WAY more pins than the esp8266, inluding capacitive-touch inputs</li>
 							</ul>
 						</li>
@@ -379,16 +375,15 @@
 						<li>
 							<strong>Pros:</strong>
 							<ul>
+								<li>Has BLE GATT/GAP support</li>
 								<li>Hardware PWM and analogRead on all pins</li>
 								<li>Runs Arduino code and BLE stack on same chip</li>
-								<li>Capable of very low-power use</li>
-								<li>Connects to computers and phones directly, without any pairing or passwords</li>
 							</ul>
 						</li>
 						<li>
 							<strong>Cons:</strong>
 							<ul>
-								<li>More expensive than other modules</li>
+								<li>The RFduino is on the expensive end for modules</li>
 							</ul>
 						</li>
 						<li>
@@ -414,17 +409,15 @@
 						<li>
 							<strong>Pros:</strong>
 							<ul>
-								<li>Hardware PWM and analogRead on all pins</li>
-								<li>Runs Arduino code and BLE stack on same chip</li>
-								<li>Capable of very low-power use</li>
-								<li>Connects to computers and phones directly, without any pairing or passwords</li>
+								<li>Same pros as nRF51 listed above ^^^</li>
+								<li>The module is new, but there is much better Arduino support and more to come!</li>
 							</ul>
 						</li>
 						<li>
 							<strong>Cons:</strong>
 							<ul>
-								<li>Harder to solder down that other module</li>
-								<li>Requires a J-Link in order to flash the bootloader</li>
+								<li>Harder to solder down that other module because the pins are small</li>
+								<li><a href="https://learn.adafruit.com/bluefruit-nrf52-feather-learning-guide?view=all#flashing-the-bootloader">Requires a J-Link in order to flash the bootloader</a></li>
 							</ul>
 						</li>
 						<li>
