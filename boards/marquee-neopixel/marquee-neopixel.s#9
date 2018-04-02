@@ -13499,6 +13499,8 @@ Source: http://download.siliconexpert.com/pdfs/2005/02/24/Semi_Ap/2/VSH/Resistor
 <part name="C39" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="153CLV-0605" package3d_urn="urn:adsk.eagle:package:23398/1"/>
 <part name="C40" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="153CLV-0605" package3d_urn="urn:adsk.eagle:package:23398/1"/>
 <part name="C41" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="153CLV-0605" package3d_urn="urn:adsk.eagle:package:23398/1"/>
+<part name="C42" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="153CLV-0605" package3d_urn="urn:adsk.eagle:package:23398/1"/>
+<part name="C43" library="rcl" library_urn="urn:adsk.eagle:library:334" deviceset="CPOL-US" device="153CLV-0605" package3d_urn="urn:adsk.eagle:package:23398/1"/>
 </parts>
 <sheets>
 <sheet>
@@ -13742,6 +13744,8 @@ Source: http://download.siliconexpert.com/pdfs/2005/02/24/Semi_Ap/2/VSH/Resistor
 <instance part="C39" gate="G$1" x="-48.26" y="180.34"/>
 <instance part="C40" gate="G$1" x="-60.96" y="180.34"/>
 <instance part="C41" gate="G$1" x="-73.66" y="180.34"/>
+<instance part="C42" gate="G$1" x="-86.36" y="180.34"/>
+<instance part="C43" gate="G$1" x="-101.6" y="180.34"/>
 </instances>
 <busses>
 </busses>

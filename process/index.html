@@ -72,8 +72,8 @@
 						<li class="step">
 							<h4 style="margin-bottom:0px">Remove Copper</h4>
 							<ul>
-								<!-- <li><a href="#toner-transfer">Toner Transfer</a></li>
-								<li><a href="#acid-etching">Acid Etching</a></li> -->
+								<li><a href="#toner-transfer">Toner Transfer</a></li>
+								<li><a href="#acid-etching">Acid Etching</a></li>
 								<li><a href="#bit-isolation">Engraving Bit Isolation Milling</a></li>
 							</ul>
 						</li>
@@ -81,19 +81,19 @@
 							<h4 style="margin-bottom:0px">Board Finishing</h4>
 							<ul>
 								<li><a href="#sand-copper">Cleaning a Milled Copper Plate</a></li>
-								<!-- <li><a href="#solder-mask">Dry-Film Solder Mask</a></li>
+								<!-- <li><a href="#solder-mask">Dry-Film Solder Mask</a></li> -->
 								<li><a href="#stencil">Laser Etch a Solder Stencil</a></li>
-								<li><a href="#stencil-milled">Milling a Solder Stencil on OtherMill</a></li> -->
+								<!-- <li><a href="#stencil-milled">Milling a Solder Stencil on OtherMill</a></li> -->
 							</ul>
 						</li>
 						<li class="step">
 							<h4 style="margin-bottom:0px">Populate & Reflow</h4>
 							<ul>
 								<li><a href="#soldering">Tutorials on Soldering</a></li>
-								<!-- <li><a href="#smt-station">Using the SMT Station</a></li>
+								<li><a href="#smt-station">Using the SMT Station</a></li>
 								<li><a href="#heat-gun">Using the Heat Gun</a></li>
 								<li><a href="#adafruit-smd">Adafruit Tutorials on SMD Manufacturing</a></li>
-								<li><a href="#pnp">Using the Pick-and-Place Machine</a></li> -->
+								<!-- <li><a href="#pnp">Using the Pick-and-Place Machine</a></li> -->
 							</ul>
 						</li>
 						<li class="step">
@@ -459,6 +459,36 @@
 					<p>A simple list of the <a href="http://web.mit.edu/xavid/arch/i386_rhel4/help/24.htm">Eagle commands</a>, for quick reference.</p>
 					<h3>Drawing Routes</h3>
 						<p>Start at "Routing the Board" in the Sparkfun tutorial on <a href="https://learn.sparkfun.com/tutorials/using-eagle-board-layout">Eagle's board view</a>, <strong>stop when you get to "Generating Gerbers"</strong>.</p>
+					<h3>Adding Ground-Plane in Eagle</h3>
+					<p>
+						A "ground-plane" is when, instead of ROUTE'ing your GND connections, you can draw a POLYGON that fills in the entire PCB with your GND signal. Ground-planes help shielding noise, cooling your circuit, and often times making production a little simpler.
+					</p>
+					<p>
+						The steps to draw a ground plane in your Eagle board file:
+						<ol>
+							<li>
+								Select the <strong>POLYGON</strong> tool in your Eagle board view
+							</li>
+							<li>
+								Set your grid to something not too small, I like 1mm. This is important because to complete a <strong>POLYGON</strong>, the final line must finish at the exact same point as the first line began.
+							</li>
+							<li>
+								Draw your <strong>POLYGON</strong> around your entire PCB, following the <strong>DIMENSION</strong> lines if you have already drawn those.
+							</li>
+							<li>
+								Finish by completing the shape (click the first line), and the <strong>POLYGON</strong> will turn into a dotted-line
+							</li>
+							<li>
+								Select the <strong>NAME</strong> tool, and name the <strong>POLYGON</strong> "GND" so it is "connected" to your GND signals.
+							</li>
+							<li>
+								To fill in your ground plane, enter the command <strong>RATSNEST</strong>. This will fill all possible ground signals with a plane of copper.
+							</li>
+							<li>
+								Check to make sure that all <strong>GND</strong> pads/pins are touching the ground-plane. If a pad/pin is isolated from the other grounds, then you will either need to re-route, or use VIAs to have all GND pads/pins touching the ground-plane.
+							</li>
+						</ol>
+					</p>
 				</div>
 				<div class="contentBlock production-1" id="othermill">
 					<h2>Using the OtherMill</h2>
@@ -525,7 +555,7 @@
 						<h3>7 - Erasing a job</h3>
 							<p>The job is being slowly fed from your laptop to the machine, so we have to first erase it in the mill, then we erase it in your laptop by quiting the interface.</p>
 							<p>To erase a job, first pause it by pressing the VIEW button. While in VIEW mode, press the UP and DOWN buttons <strong>at the same time</strong>, and the light will start flashing. Shut down the interface, and then the light will stop flashing. You have fully erased the job, and can now restart the interface.</p>
-				</div>
+				</div> -->
 				<div class="contentBlock production-2" id="toner-transfer">
 					<h2>Toner Transfer</h2>
 					<p class="classDate">Production #2</p>
@@ -533,10 +563,11 @@
 							<p>Hide all layers in your Eagle .brd file, and only show the layers that you want to remain after acid etching. These usually include Top (or Bottom), Pads, Vias, and Dimension.</p>
 							<p>When only those are visible, File->Print and save as a PDF file. Make sure you have the "Solid" and "Black" options checked. If you are etching onto the Top of your board, also select "Mirror" and your design will flip horizontally. If you are etching onto the Bottom of your board, leave it unselected.</p>
 							<p>Use Illustrator or similar software to place your design on the sheet, or to make multiple copies of your design for one sheet. Print your design onto transfer paper using the laser printer in the hard-lab. If using the blue transfer paper, make sure you are printing onto the glossy side of the sheet.</p>
-						<h3>2 - Laminate</h3>
+						<h3>2 - Heat with Laminate and Iron</h3>
 							<p>Before applying ink to your copper plate, make sure your board is shiny and clean. Scrub off any dirt with a scour pad, and then clean it with isopropyl rubbing alcohol and dry off.</p>
 							<p>Place your printed design face-down onto your copper place and align with any holes you might have already drilled. Once aligned, add a small piece of tape to one side of the paper so that it doesn't shift in the laminator.</p>
 							<p>Heat the laminator up to it's 5-mil setting. This takes about 5 minutes, so start heating it up early. Firmly hold your paper to the board so it doesn't move, and slowly feed it through the laminator. Do this 5-10 times (sometimes longer!)</p>
+							<p>Once the transfer paper/vinyl is firmware stuck to the copper pad, you can stop laminating it and move on to a clothes iron. Put the iron on HIGH heat setting, and heat your toner paper/vinyl for 1-3 minutes under the iron. If you are heating a larger PCB that doesn't entirely fit under the iron, do an additional 1-3 minutes for each section of your PCB.</p>
 						<h3>3 - Water and remove paper</h3>
 							<p>When done laminating, place the board and paper still stuck together in a tupperware container with <strong>cold</strong> water in it. Leave for a couple minutes, or until the transfer paper floats away from the copper plate. Peel back the paper, and your traces should be written in black ink on your copper plate.</p>
 							<p>What happened is you heated copper plate and ink so that it melts onto the copper. Not hot enough, and only part of your design will transfer to the copper. Too hot, and the ink will start to bubble on the copper. If you don't heat it for the right amount of time and the transfer doesn't work, simply rub off the ink with a scour pad, and start again.</p>
@@ -560,7 +591,7 @@
 						<h3>4 - Clean up and finish</h3>
 							<p>When your board is finished etching, remove it from the acid and put it in your water container. Pour your used acid into one of the "old acid" buckets. That stuff is now filled with copper, and is bad for the environment and cannot simply be thrown away.</p>
 							<p>Rinse out your tupperware containers and board in the slop sink, making sure to rinse away any tiny amounts of acid that might be in the sink. Dry your board with a hair dryer, then remove the black ink with a scour pad.</p>
-				</div> -->
+				</div>
 				<div class="contentBlock production-2" id="bit-isolation">
 					<h2>Engraving Bit Isolation Milling</h2>
 					<p class="classDate">Production #2</p>
@@ -607,7 +638,7 @@
 							<p>When done, remove from the developer, clean under a water faucet, and dry with a hair dryer. Do not touch the solder mask, as it is still soft and can fall off.</p>
 						<h3>8 - Cure under UV</h3>
 							<p>To fully cure the solder mask, put it back under UV light for 5-20 minutes. This will make your solder mask dry and crispy. Aftewards, solder mask can be removed by simply scrapping at it with a sharp tool to expose the copper underneath.</p>
-				</div>
+				</div> -->
 				<div class="contentBlock production-3" id="stencil">
 					<h2>Laser Etch a Solder Stencil</h2>
 					<p class="classDate">Production #3</p>
@@ -626,7 +657,7 @@
 						<h3>5 - Adjust with needle</h3>
 							<p>If small changes need to be made, either removing or adding paste, you can use a sewing needle to adjust and move solder paste around. You could even apply paste to an entire board just using a needle, no stencil needed, but this takes a bit longer and is of less quality.</p>
 				</div>
-				<div class="contentBlock production-3" id="stencil-milled">
+				<!-- <div class="contentBlock production-3" id="stencil-milled">
 					<h2>Milling a Solder Stencil on OtherMill</h2>
 					<p class="classDate">Production #3</p>
 						<p>Here is <a href="http://www.instructables.com/id/Solder-Stencils-on-the-Othermill/?ALLSTEPS">the link</a> using the OtherMill to mill a stencil for solder paste. I haven't tried this yet, but <a href="http://kinasmith.com/">Kina Smith</a> had success a couple years ago.</p>
@@ -640,7 +671,7 @@
 						<h4>Sparkfun's Tutorials on SMD Soldering</h4>
 							<p><a href="https://www.sparkfun.com/tutorials/category/2"><img style="border:solid 1px black" src="../img/sparkfun-soldering.png" /><br />Sparkfun's tutorials</a> are focused on how to solder the parts down, whether using an iron, hot air gun, skillet, or toaster oven.</p>
 				</div>
-				<!-- <div class="contentBlock production-4" id="smt-station">
+				<div class="contentBlock production-4" id="smt-station">
 					<h2>Populate with the SMT Station</h2>
 					<p class="classDate">Production #4</p>
 						<h3>1 - Power on</h3>
@@ -671,9 +702,9 @@
 				<div class="contentBlock production-4" id="adafruit-smd">
 					<h2>Adafruit Tutorials on SMD Manufacturing</h2>
 					<p class="classDate">Production #4</p>
-						<p><a href="https://learn.adafruit.com/smt-manufacturing/overview"><img style="border:solid 1px black" src="./adafruit-smd.png" /><br />Adafruit has a great set of tutorials</a> for handling SMD parts, but they're aimed at manufacturers rather than prototypers. Also we do things a little differently here, but still worth a read for if you end up doing small-scale manufacturing in the future.</p>
+						<p><a href="https://learn.adafruit.com/smt-manufacturing/overview"><img style="border:solid 1px black" src="../img/adafruit-smd.png" /><br />Adafruit has a great set of tutorials</a> for handling SMD parts, but they're aimed at manufacturers rather than prototypers. Also we do things a little differently here, but still worth a read for if you end up doing small-scale manufacturing in the future.</p>
 				</div>
-				<div class="contentBlock production-4" id="pnp">
+				<!-- <div class="contentBlock production-4" id="pnp">
 					<h2>Using the Pick-and-Place Machine</h2>
 					<p class="classDate">Production #4</p>
 						<p>This machine is not useful until you are populating at least 20-100 boards in one day. I have a hard time believing that will ever happen during an ITP semester.</p>
