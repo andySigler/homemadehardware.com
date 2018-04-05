@@ -1624,19 +1624,20 @@ You are welcome to use this library for commercial purposes. For attribution, we
 <signal name="RXD">
 <contactref element="X1" pad="15"/>
 <contactref element="RX" pad="TP"/>
-<wire x1="22.232" y1="24.471" x2="18.971" y2="24.471" width="0.6096" layer="1"/>
-<wire x1="18.971" y1="24.471" x2="17.5" y2="23" width="0.6096" layer="1"/>
-<wire x1="17.5" y1="23" x2="17.5" y2="9.36" width="0.6096" layer="1"/>
-<wire x1="17.5" y1="9.36" x2="22.542" y2="4.318" width="0.6096" layer="1"/>
+<wire x1="22.542" y1="4.318" x2="18.19639375" y2="8.66360625" width="0.6096" layer="1"/>
+<wire x1="20.671" y1="24.471" x2="22.232" y2="24.471" width="0.6096" layer="1"/>
+<wire x1="18.19639375" y1="8.66360625" x2="18.19639375" y2="21.99639375" width="0.6096" layer="1"/>
+<wire x1="18.19639375" y1="21.99639375" x2="20.671" y2="24.471" width="0.6096" layer="1"/>
 </signal>
 <signal name="TXD">
 <contactref element="X1" pad="16"/>
 <contactref element="TX" pad="TP"/>
-<wire x1="18.097" y1="4.318" x2="15.7" y2="6.715" width="0.6096" layer="1"/>
-<wire x1="15.7" y1="23.7" x2="18.5" y2="26.5" width="0.6096" layer="1"/>
-<wire x1="18.5" y1="26.5" x2="18.529" y2="26.471" width="0.6096" layer="1"/>
-<wire x1="18.529" y1="26.471" x2="22.232" y2="26.471" width="0.6096" layer="1"/>
-<wire x1="15.7" y1="6.715" x2="15.7" y2="23.7" width="0.6096" layer="1"/>
+<wire x1="21.9308" y1="26.1698" x2="22.232" y2="26.471" width="0.6096" layer="1"/>
+<wire x1="20.3848" y1="26.1698" x2="21.9308" y2="26.1698" width="0.6096" layer="1"/>
+<wire x1="18.097" y1="4.318" x2="18.097" y2="6.778" width="0.6096" layer="1"/>
+<wire x1="18.097" y1="6.778" x2="16.7927875" y2="8.0822125" width="0.6096" layer="1"/>
+<wire x1="16.7927875" y1="8.0822125" x2="16.7927875" y2="22.5777875" width="0.6096" layer="1"/>
+<wire x1="16.7927875" y1="22.5777875" x2="20.3848" y2="26.1698" width="0.6096" layer="1"/>
 </signal>
 <signal name="VCC">
 <contactref element="X1" pad="8"/>
