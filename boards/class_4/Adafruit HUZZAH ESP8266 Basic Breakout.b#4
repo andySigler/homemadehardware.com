@@ -163,7 +163,6 @@
 <wire x1="0" y1="37" x2="31" y2="37" width="0.1524" layer="20"/>
 <wire x1="31" y1="37" x2="31" y2="0" width="0.1524" layer="20"/>
 <wire x1="31" y1="0" x2="0" y2="0" width="0.1524" layer="20"/>
-<text x="1" y="35.1" size="1.778" layer="21">No GND under ANTENNA</text>
 </plain>
 <libraries>
 <library name="microbuilder">
@@ -1460,15 +1459,15 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <element name="X1" library="microbuilder" package="ESP-12" value="ESP-12" x="14.732" y="21.971" smashed="yes"/>
 <element name="R3" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="10k" x="3.81" y="26.416" smashed="yes" rot="R180">
 <attribute name="SPICEPREFIX" value="R" x="3.81" y="26.416" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="2.455" y="27.579" size="1.27" layer="27"/>
+<attribute name="VALUE" x="0.379" y="27.845" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="R5" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="10k" x="26.162" y="16.637" smashed="yes">
 <attribute name="SPICEPREFIX" value="R" x="26.162" y="16.637" size="1.778" layer="27" display="off"/>
-<attribute name="VALUE" x="24.827" y="17.932" size="1.27" layer="27"/>
+<attribute name="VALUE" x="28.732" y="18.173" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="R8" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="10k" x="4.064" y="22.479" smashed="yes" rot="R180">
 <attribute name="SPICEPREFIX" value="R" x="4.064" y="22.479" size="1.778" layer="27" rot="R180" display="off"/>
-<attribute name="VALUE" x="3.201" y="23.516" size="1.27" layer="27"/>
+<attribute name="VALUE" x="0.316" y="23.799" size="1.27" layer="27" rot="R270"/>
 </element>
 <element name="R9" library="rcl" library_urn="urn:adsk.eagle:library:334" package="R0603" package3d_urn="urn:adsk.eagle:package:23555/2" value="10k" x="25.4" y="13.335" smashed="yes" rot="R90">
 <attribute name="SPICEPREFIX" value="R" x="25.4" y="13.335" size="1.778" layer="27" rot="R90" display="off"/>
@@ -1527,6 +1526,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="13.652" y1="22.448" x2="9.6" y2="26.5" width="0.6096" layer="1"/>
 <wire x1="9.6" y1="26.5" x2="9.571" y2="26.471" width="0.6096" layer="1"/>
 <wire x1="9.571" y1="26.471" x2="7.232" y2="26.471" width="0.6096" layer="1"/>
+</signal>
+<signal name="ADC">
+<contactref element="X1" pad="2"/>
 </signal>
 <signal name="CH_PD">
 <contactref element="X1" pad="3"/>

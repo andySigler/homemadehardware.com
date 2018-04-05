@@ -1528,6 +1528,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="9.6" y1="26.5" x2="9.571" y2="26.471" width="0.6096" layer="1"/>
 <wire x1="9.571" y1="26.471" x2="7.232" y2="26.471" width="0.6096" layer="1"/>
 </signal>
+<signal name="ADC">
+<contactref element="X1" pad="2"/>
+</signal>
 <signal name="CH_PD">
 <contactref element="X1" pad="3"/>
 <contactref element="R8" pad="1"/>

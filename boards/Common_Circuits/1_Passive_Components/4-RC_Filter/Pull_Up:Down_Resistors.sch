@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE eagle SYSTEM "eagle.dtd">
-<eagle version="8.6.1">
+<eagle version="8.6.0">
 <drawing>
 <settings>
 <setting alwaysvectorfont="no"/>
@@ -5813,8 +5813,8 @@ need about 500kHz cutoff frequency</text>
 <wire x1="121.92" y1="210.82" x2="121.92" y2="114.3" width="0.1016" layer="94"/>
 <text x="20.32" y="91.44" size="5.08" layer="94">Data Line Filters</text>
 <text x="106.68" y="91.44" size="5.08" layer="94">High-Pass Filter</text>
-<text x="116.84" y="71.12" size="1.778" layer="91">High-frequency "spikes" are
-removed with LOW-PASS FILTERS</text>
+<text x="116.84" y="71.12" size="1.778" layer="91">Low-frequency "waves" are
+removed with HIGH-PASS FILTERS</text>
 <circle x="152.4" y="43.18" radius="12.7" width="0.1016" layer="94"/>
 <text x="106.68" y="83.82" size="1.778" layer="94">RC High-Pass Filter Calculator:
 http://www.learningaboutelectronics.com/Articles/High-pass-filter-calculator.php</text>

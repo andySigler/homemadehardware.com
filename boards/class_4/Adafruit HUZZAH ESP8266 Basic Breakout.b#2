@@ -163,7 +163,6 @@
 <wire x1="0" y1="37" x2="31" y2="37" width="0.1524" layer="20"/>
 <wire x1="31" y1="37" x2="31" y2="0" width="0.1524" layer="20"/>
 <wire x1="31" y1="0" x2="0" y2="0" width="0.1524" layer="20"/>
-<text x="1" y="35.1" size="1.778" layer="21">No GND under ANTENNA</text>
 </plain>
 <libraries>
 <library name="microbuilder">
@@ -1527,6 +1526,9 @@ new: Attribute TP_SIGNAL_NAME&lt;br&gt;
 <wire x1="13.652" y1="22.448" x2="9.6" y2="26.5" width="0.6096" layer="1"/>
 <wire x1="9.6" y1="26.5" x2="9.571" y2="26.471" width="0.6096" layer="1"/>
 <wire x1="9.571" y1="26.471" x2="7.232" y2="26.471" width="0.6096" layer="1"/>
+</signal>
+<signal name="ADC">
+<contactref element="X1" pad="2"/>
 </signal>
 <signal name="CH_PD">
 <contactref element="X1" pad="3"/>
