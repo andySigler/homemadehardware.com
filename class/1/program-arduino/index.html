@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../../css/main.css">
+        <link rel="icon" href="../../../../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../../../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <h1>
+                    Homemade Hardware
+                </h1>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit" href="../../..">Syllabus</a>
+                    <a class="navUnit" href="../../../students/">Students</a>
+                    <a class="navUnit" href="../../../archives">Archives</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h3>Stuff</h3>
+                    <ul>
+                        <li>
+                            <p>Sparkfun's explaination of <a href="https://learn.sparkfun.com/tutorials/integrated-circuits">what an Integrated Circuit (IC) is</a>.</p>
+                        </li>
+                        <li>
+                            <p>Arduino's explaination of <a href="https://www.arduino.cc/en/Hacking/BuildProcess">what happens when you hit Upload</a>.</p>
+                        </li>
+                        <li>
+                            <p>Here's an <a href="https://learn.adafruit.com/add-boards-arduino-v164/overview">overview from Adafruit on using the Board Manager</a> to install third-party boards. This tutorial tells you to download Adafruit's boards, but can be applied to all other boards.</p>
+                        </li>
+                        <li>
+                            <p>Here is a <a href="https://github.com/arduino/Arduino/wiki/Unofficial-list-of-3rd-party-boards-support-urls">list of all third-party boards</a> supported by Arduino. Simple use the URL's from this page (they end in a <strong>.json</strong>) and paste them into the Preferences input, as explained in the tutorial above.</p>
+                        </li>
+                        <li>
+                            <p><a href="https://github.com/SpenceKonde/ATTinyCore/blob/master/Installation.md">Install ATtiny85 into your Arduino IDE</a>, using the Board Manager.</p>
+                        </li>
+                    </ul>
+                    <h3>Bootload and Code on the ATtiny</h3>
+                    <ol>
+                        <li>
+                            <p>Turn your Uno into an In-System-Programmer (ISP) that can flash other AVR microcontrollers.
+                            <ul>
+                                <li><p>Select <strong>Arduino Uno</strong> in the IDE</p></li>
+                                <li><p><strong>upload</strong> the example sketch <strong>"File/Examples/ArduinoISP"</strong>.</p></li>
+                                <li>
+                                    <p>Go to the menu <strong>Tools->Programmer:</strong> and select <strong>Arduino as ISP</strong> (do <strong class="green_color">NOT</strong> select "ArduinoISP", that is totally different).</p>
+                                </li>
+                            </ul>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Select "ATtiny25/45/85" from <strong>Tools->Board</strong>
+                            <ul><li>You need "ATTinyCore" installed, see link above to install if you don't see it in your menu</li></ul>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Check that the settings are correct:
+                                <ul>
+                                    <li>
+                                        <strong>processor</strong> = ATtiny85
+                                    </li>
+                                    <li>
+                                        <strong>clock</strong> = internal 1mhz
+                                        <ul><li>... or 8mhz or 16mhz are OK. Just make sure it's the same when both "flashing the bootloader" and uploading your code later on.</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Wire your ATtiny85's SPI and RESET pins to the Arduino Uno's SPI and D10 pins:</p>
+                            <img src="../../../img/attiny85_program_wiring.jpg" style="width:100%">
+                        </li>
+                        <li>
+                            <p>Flash the bootloader! This will set the ATtiny85 to the clock speed you selected. Go to <strong>Tools->Burn Bootloader</strong> (make sure ATtiny85 is the target board, and you have "Arduino as ISP" as your programmer). If you get an <strong class="green_color">ERROR</strong>, either:
+                            <ol>
+                                <li>you're not <strong>powering</strong> the ATtiny85 correctly</li>
+                                <li>you have incorrect <strong>wiring</strong> or a broken cable</li>
+                                <li>you don't have "Tools/Programmer/Arduino as ISP" selected as your <strong>programmer</strong> (not "ArduinoISP")</li>
+                                <li>you don't have the <strong>"File/Examples/ArduinoISP"</strong> sketch uploaded to your Arduino Uno</li>
+                                <li>you don't have the <strong>ATtiny85</strong> selected as your target board</li>
+                                <li>you accidentally <strong>broke</strong> you ATtiny85 or the Arduino Uno. Try another, and if it still errors, see reasons above.</p></li>
+                            </ol>
+                            </p>
+                        </li>
+                        <li>
+                            <p>Make something :) <a href="https://github.com/SpenceKonde/ATTinyCore/blob/master/avr/extras/ATtiny_x5.md">Here is a link to ATtiny85 pin description</a> (Arduino pins are labelled blue in the picture), and also other hardware descriptions for connecting to different sensors and outputs.</p>
+                            <img src="../../../img/attiny85_pinout.png" style="width:100%">
+                        </li>
+                    </ol>
+                    <h3>[FYI] ATmega328p on a Breadboard</h3>
+                    <ul>
+                        <li>
+                            <p>Arduino's tutorial on <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">bootloading an ATmega328p on a breadboard</a> using an Arduino Uno as the programmer</p>
+                        </li>
+                        <li>
+                            <p>Arduino's tutorial on <a href="https://www.arduino.cc/en/Main/Standalone">making a breadboard Arduino</a>, which includes the supporting power, timing, and communications circuitry.</p>
+                        </li>
+                    </ul>
+                    <h2>Bootloaders</h2>
+                    <p class="classDate">Production #5</p>
+                        <p>
+                            A Bootloader is a small piece of code that we usually need to put on our microcontrollers <strong>before</strong> we can program them with Arduino. Any board that works with the Arduino IDE has an "Arduino" bootloader inside it, giving it the ability to load code from the Arduino IDE.
+                        </p>
+                        <p>
+                            <a href="https://learn.sparkfun.com/tutorials/installing-an-arduino-bootloader">Here's an explanation</a> of what the Arduino Bootloader is from Sparkfun.
+                        </p>
+                        <p>
+                            Whenever code is transfered from a computer to a microcontroller, something must be in the middle acting as a converter. This is a usb-to-serial converter, or a usb-to-spi converter, or something similar. These middle devices are call In-System Programmers (ISP).
+                        </p>
+                        <p>
+                            <a href="https://www.arduino.cc/en/Tutorial/ArduinoISP">Here's a tutorial</a> on using Arduino as an ISP (In System Programmer)
+                        </p>
+                        <p>
+                            <a href="https://github.com/RedBearLab/nRF51822-Arduino#burn-bootloader">Here's an example</a> of adding a bootloader to an nRF51822, so that we can program it with Arduino. Unlike Atmel chips which use the <a href="https://www.amazon.com/Compatible-AVRISP-System-Programmer-interface/dp/B00C7VV6E4">mkii</a> as an ISP, the nRF5x chips use the <a href="https://www.adafruit.com/product/1369">J-Link</a> as an ISP.
+                        </p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
