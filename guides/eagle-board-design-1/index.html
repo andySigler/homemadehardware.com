@@ -34,7 +34,6 @@
                         This guide begins with a short overview of Eagle board design, and then ends of the guide describes board design commands in more detail.
                     </p>
                     <ol>
-                        <li><a href="#setup">Setup Directories and DRC</a></li>
                         <li><a href="#board-schematic-links">Board and Schematic Links</a></li>
                         <li><a href="#grid">Design Grid</a></li>
                         <li><a href="#layers">Board Layers</a></li>
@@ -55,35 +54,6 @@
                     <p>
                         <strong class="code">gits clone https://github.com/andySigler/homemade-hardware.git</strong>
                     </p>
-                </div>
-                <div class="contentBlock" id="drc">
-                    <h3>Setup Directories and DRC</h3>
-                    <p>
-                        After first installing Eagle, you'll want to link the <strong class="code">homemade-hardware</strong> repository you downloaded. If we do this, then Eagle will be able to see the parts library, as well as everything else in the repo.
-                    </p>
-                    <p>
-                        Open Eagle, and you will see the Eagle Control Panel. If you close this window, Eagle will quit.
-                    </p>
-                    <p>
-                        I honestly don't use the Control Panel for anything, so feel free to hide the entire window from sight (minimize it).
-                    </p>
-                    <a href="../../img/eagle-control-panel.png"><img style="max-width:100%" src="../../img/eagle-control-panel.png" /></a>
-                    <p>
-                        At the top menu, go to <strong class="code">Options -> Directories...</strong>, and a window will open. This window is where we want to add the file location of the <strong class="code">homemade-hardware</strong> repository you downloaded.
-                    </p>
-                    <a href="../../img/eagle-directories-1.png"><img style="max-width:100%" src="../../img/eagle-directories-1.png" /></a>
-                    <p>
-                        With the Libraries section selected, click the Browse... button. Go to the <strong class="code">homemade-hardware</strong> folder, select the "libraries" folder, and click "Open".
-                    </p>
-                    <a href="../../img/eagle-directories-2.png"><img style="max-width:100%" src="../../img/eagle-directories-2.png" /></a>
-                    <p>
-                        Now, the file path to your <strong class="code">homemade-hardware/libraries</strong> folder has been added to the list of Libraries directories.
-                    </p>
-                    <a href="../../img/eagle-directories-3.png"><img style="max-width:100%" src="../../img/eagle-directories-3.png" /></a>
-                    <p>
-                        Do the same for the <strong class="code">design rules</strong> and <strong class="code">projects</strong> folders. When you are done, your Directories window should look like below:
-                    </p>
-                    <a href="../../img/eagle-directories-4.png"><img style="max-width:100%" src="../../img/eagle-directories-4.png" /></a>
                 </div>
                 <div class="contentBlock" id="board-schematic-links">
                     <h3>Board and Schematic Links</h3>

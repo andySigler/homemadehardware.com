@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <h1>
+                    Homemade Hardware
+                </h1>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit" href="../..">Syllabus</a>
+                    <a class="navUnit navSelected" href="../../guides/">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../students/">Students(2019)</a>
+                    <a class="navUnit" href="../../archives">Archives</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Eagle Setup</h2>
+                    <p>
+                        This guide goes through Eagle download, install, and configuration with the Homemade Hardware repository.
+                    </p>
+                    <p>
+                        Before you get started, make sure you have downloaded the <a href="https://github.com/andysigler/homemade-hardware">Homemade Hardware github repository</a>. It contains examples, a parts library, and DRC files.
+                    </p>
+                    <p>
+                        If you use <strong class="code">git</strong>, you can instead clone the repository:
+                    </p>
+                    <p>
+                        <strong class="code">gits clone https://github.com/andySigler/homemade-hardware.git</strong>
+                    </p>
+                </div>
+                <div class="contentBlock" id="directories">
+                    <h3>Setup Directories</h3>
+                    <p>
+                        After first installing Eagle, you'll want to link the <strong class="code">homemade-hardware</strong> repository you downloaded. If we do this, then Eagle will be able to see the parts library, as well as everything else in the repo.
+                    </p>
+                    <p>
+                        Open Eagle, and you will see the Eagle Control Panel. If you close this window, Eagle will quit.
+                    </p>
+                    <p>
+                        I honestly don't use the Control Panel for anything, so feel free to hide the entire window from sight (minimize it).
+                    </p>
+                    <a href="../../img/eagle-control-panel.png"><img style="max-width:100%" src="../../img/eagle-control-panel.png" /></a>
+                    <p>
+                        At the top menu, go to <strong class="code">Options -> Directories...</strong>, and a window will open. This window is where we want to add the file location of the <strong class="code">homemade-hardware</strong> repository you downloaded.
+                    </p>
+                    <a href="../../img/eagle-directories-1.png"><img style="max-width:100%" src="../../img/eagle-directories-1.png" /></a>
+                    <p>
+                        With the Libraries section selected, click the Browse... button. Go to the <strong class="code">homemade-hardware</strong> folder, select the "libraries" folder, and click "Open".
+                    </p>
+                    <a href="../../img/eagle-directories-2.png"><img style="max-width:100%" src="../../img/eagle-directories-2.png" /></a>
+                    <p>
+                        Now, the file path to your <strong class="code">homemade-hardware/libraries</strong> folder has been added to the list of Libraries directories.
+                    </p>
+                    <a href="../../img/eagle-directories-3.png"><img style="max-width:100%" src="../../img/eagle-directories-3.png" /></a>
+                    <p>
+                        Do the same for the <strong class="code">design rules</strong> and <strong class="code">projects</strong> folders. When you are done, your Directories window should look like below:
+                    </p>
+                    <a href="../../img/eagle-directories-4.png"><img style="max-width:100%" src="../../img/eagle-directories-4.png" /></a>
+                </div>
+                <div class="contentBlock" id="directories">
+                    <h3>Change Default DRU</h3>
+                    <p>
+                        There are some default settings Eagle uses when you draw routes (traces). Before we start designing, let's change these defaults so our boards can be made on a Bantam milling machine.
+                    </p>
+                    <p>
+                        Take a look at the Directories page described in the above section. You should see the section named "Design Rules".
+                    </p>
+                    <p>
+                        Notice the name of the default folder (created by Eagle) to store it's default "Design Rules". On my computer, the folder location is <strong class="code">/Users/andy/Documents/eagle/design rules</strong>.
+                    </p>
+                    <p>
+                        Go to this location on your computer, and you will find a file named <strong class="code">default.dru</strong>.
+                    </p>
+                    <a href="../../img/eagle-default-dru-1.png"><img style="max-width:100%" src="../../img/eagle-default-dru-1.png" /></a>
+                    <p>
+                        Rename that file so it's called "default_OLD.dru" or something like that. So you know it's old, but you're not deleting it.
+                    </p>
+                    <a href="../../img/eagle-default-dru-2.png"><img style="max-width:100%" src="../../img/eagle-default-dru-2.png" /></a>
+                    <p>
+                        Go to the Homemade Hardware repo folder, go to the design rules section, and you'll find a file named <strong class="code">Endmill-1-32-Bantam.dru</strong>
+                    </p>
+                    <a href="../../img/eagle-default-dru-3.png"><img style="max-width:100%" src="../../img/eagle-default-dru-3.png" /></a>
+                    <p>
+                        Now <strong>COPY</strong> this file over to Eagle's "design rules" folder.
+                    </p>
+                    <a href="../../img/eagle-default-dru-4.png"><img style="max-width:100%" src="../../img/eagle-default-dru-4.png" /></a>
+                    <p>
+                        Rename the file you just copied, naming it <strong class="code">default.dru</strong>
+                    </p>
+                    <a href="../../img/eagle-default-dru-5.png"><img style="max-width:100%" src="../../img/eagle-default-dru-5.png" /></a>
+                    <p>
+                        If you have Eagle open, restart it.
+                    </p>
+                </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
