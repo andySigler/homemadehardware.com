@@ -149,3 +149,8 @@ a:active {
 	border: 1px solid gray;
 	border-radius: 3px;
 }
+
+.code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 85%;
+}
