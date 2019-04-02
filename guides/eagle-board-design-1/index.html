@@ -33,94 +33,317 @@
                     <p>
                         This guide begins with a short overview of Eagle board design, and then ends of the guide describes board design commands in more detail.
                     </p>
-                    <ol>
-                        <li><a href="#board-schematic-links">Board and Schematic Links</a></li>
-                        <li><a href="#grid">Design Grid</a></li>
-                        <li><a href="#layers">Board Layers</a></li>
-                        <li><a href="#move">Command: Move</a></li>
-                        <li><a href="#rotate">Command: Rotate</a></li>
-                        <li><a href="#cuttout">Creating a Board Cuttout</a></li>
-                        <li><a href="#route">Command: Route</a></li>
-                        <li><a href="#ripup">Command: Ripup</a></li>
-                        <li><a href="#ratsnest">Command: Ratsnest</a></li>
-                        <li><a href="#list-of-common-commands">List of Other Common Commands</a></li>
-                    </ol>
                     <p>
-                        Before you get started, make sure you have downloaded the <a href="https://github.com/andysigler/homemade-hardware">Homemade Hardware github repository</a>. It contains examples, a parts library, and DRC files.
+                        Before you get started, make sure you have downloaded gone through the <a href="https://github.com/andysigler/homemade-hardware">Eagle Setup</a> tutorial. Do that first, and you will have the example files used in this guide, as well as the correct Eagle settings for you design files to be milled on a Bantam milling machine.
                     </p>
                     <p>
-                        If you use <strong class="code">git</strong>, you can instead clone the repository:
-                    </p>
-                    <p>
-                        <strong class="code">gits clone https://github.com/andySigler/homemade-hardware.git</strong>
+                        Guide Contents:
+                        <ol>
+                            <li><a href="#board-schematic-files">Board and Schematic Files</a></li>
+                            <li><a href="#grid">Design Grid</a></li>
+                            <li><a href="#layers">Board Layers</a></li>
+                            <li><a href="#move">Command: Move</a></li>
+                            <li><a href="#rotate">Command: Rotate</a></li>
+                            <li><a href="#cuttout">Creating a Board Cuttout</a></li>
+                            <li><a href="#route">Command: Route</a></li>
+                            <li><a href="#ripup">Command: Ripup</a></li>
+                            <li><a href="#via">Command: Via</a></li>
+                        </ol>
                     </p>
                 </div>
-                <div class="contentBlock" id="board-schematic-links">
+                <div class="contentBlock" id="board-schematic-files">
                     <h3>Board and Schematic Links</h3>
+                    <p>
+                        In the Homemade Hardware repository folder, go to:
+                    </p>
+                    <p>
+                        <strong class="code">homemade-hardware/projects/eagle-board-design/1_attiny85_jig</strong>
+                    </p>
+                    <p>
+                        There you will find two files, <strong class="code">attiny85_jig.brd</strong> and <strong class="code">attiny85_jig.sch</strong>
+                    </p>
+                    <a href="../../img/eagle-attiny85-jig-files.png"><img style="max-width: 100%" src="../../img/eagle-attiny85-jig-files.png" /></a>
+                    <p>
+                        Eagle designs are split between two files; the schematic file (<strong class="code">.sch</strong>), and the board file (<strong class="code">.brd</strong>). These two files are linked together. When you open one, the other will be automatically opened.
+                    </p>
+                    <p>
+                        These two files <strong>must</strong> have the same name, or else they will lose their link. Once a link is broken, it can be impossible to link them again. Therefore, always:
+                        <ol>
+                            <li>
+                                Create separate folders for all designs, with only one pair of <strong class="code">.sch</strong> and <strong class="code">.brd</strong> files inside
+                            </li>
+                            <li>
+                                Make sure there is a backup of your design files, and that old versions are stored somewhere
+                            </li>
+                        </ol>
+                    </p>
+                    <p>
+                        In the schematic, you add and remove parts in the circuit, and you create the connections between them. This tutorial does not discuss the schematic file, but starts with some already designed schematics.
+                    </p>
+                    <p>
+                        Open the file <strong class="code">attiny85_jig.brd</strong> by double-clicking it. Eagle will then show you it's contents.
+                    </p>
+                    <a href="../../img/eagle-attiny85-jig-1.png"><img style="max-width: 100%" src="../../img/eagle-attiny85-jig-1.png" /></a>
+                    <p>
+                        In the top-left corner, you'll find a button to the right of a printer icon. Hover over it, and you'll see this button is the "Switch to schematic" button.
+                    </p>
+                    <a href="../../img/eagle-attiny85-jig-2.png"><img style="max-width: 100%" src="../../img/eagle-attiny85-jig-2.png" /></a>
+                    <p>
+                        Click it, and it will switch over to the schematic file.
+                    </p>
+                    <a href="../../img/eagle-attiny85-jig-3.png"><img style="max-width: 100%" src="../../img/eagle-attiny85-jig-3.png" /></a>
+                    <p>
+                        Press that same button again, and you will switch over to your board file.
+                    </p>
+                    <p>
+                        If a board file has not been created (there is only a <strong class="code">.sch</strong> file), then pressing this button will generate a brand new <strong class="code">.brd</strong> with the same name as the <strong class="code">.sch</strong> file. Magic!
+                    </p>
                 </div>
                 <div class="contentBlock" id="grid">
                     <h3>Design Grid</h3>
+                    <p>
+                        In the board file, we are moving things around a lot, or drawing things. To help us do this, Eagle has a grid system that constrains your movements. For example, if your grid is set to 1 millimeter, then you will only be able to move or draw things in 1 millimeter increments.
+                    </p>
+                    <p>
+                        Go to the board file, and look back up at the top-left corner. There is a button called "Grid". Click it, and you will see a window open.
+                    </p>
+                    <a href="../../img/eagle-board-design-grid-1.png"><img style="max-width: 100%" src="../../img/eagle-board-design-grid-1.png" /></a>
+                    <br />
+                    <p>
+                        This window has different settings for the grid. If you want to see a change take affect, press the OK button.
+                    </p>
+                    <a href="../../img/eagle-board-design-grid-2.png"><img style="max-width: 100%" src="../../img/eagle-board-design-grid-2.png" /></a>
+                    <p>
+                        The "Display (On/Off)" setting allows you to turn on/off the visibility of the grid. If you turn it off, the grid will still be there, but you won't be able to see it.
+                    </p>
+                    <p>
+                        The "Style (Dots/Lines)" setting allows you to set the style of your grids visibility.
+                    </p>
+                    <p>
+                        The "Size" setting is what you will be changing all the time, because it controls the resolution of the grid. You can choose your units (mic, mm, mil, inch), as well as the grid step-size.
+                    </p>
+                    <p>
+                        Smaller grid sizes (0.025-0.25mm) are good for when drawing traces, and larger step sizes (0.25-2mm) are good for placing parts and drawing your board cutout.
+                    </p>
                 </div>
                 <div class="contentBlock" id="layers">
                     <h3>Board Layers</h3>
+                    <p>
+                        The board designer uses layers to separate different parts of the drawing. For example, copper is on the <strong class="code">1 Top</strong> layer, and the board cutout is on the <strong class="code">20 Dimension</strong> layer.
+                    </p>
+                    <p>
+                        When designing a board, you can:
+                        <ol>
+                            <li>
+                                change which layers are visible or hidden
+                            </li>
+                            <li>
+                                change which layer you are drawing on
+                            </li>
+                        </ol>
+                    </p>
+                    <p>
+                        To change wich layer you are drawing on, click the dropdown menu at the top-left of the screen.
+                    </p>
+                    <a href="../../img/eagle-board-design-layers-1.png"><img style="max-width: 100%" src="../../img/eagle-board-design-layers-1.png" /></a>
+                    <p>
+                        It will open a menu like this (rotated 90 degrees):
+                    </p>
+                    <a href="../../img/eagle-board-design-layers-2.png"><img style="max-width: 100%" src="../../img/eagle-board-design-layers-2.png" /></a>
+                    <p>
+                        There are a lot of layers! We usually only care about maybe 10 of these, and they're near the top of the list. A few are
+                    </p>
+                    <p>
+                        <ul>
+                            <li><strong class="code">1 Top</strong>: the copper on the top-side of the PCB</li>
+                            <li><strong class="code">16 Bottom</strong>: the copper on the bottom-side of the PCB (if double-sided)</li>
+                            <li><strong class="code">19 Unrouted</strong>: the thin yellow lines, that represent the electrical connections in the schematic</li>
+                            <li><strong class="code">20 Dimension</strong>: the lines that create your board cutout</li>
+                            <li><strong class="code">23 tOrigins</strong>: the origin crosses of each part, where you can grab and select them</li>
+                        </ul>
+                    </p>
+                    <p>
+                        For now, click <strong class="code">1 Top</strong> to keep the top layer selected.
+                    </p>
+                    <p>
+                        You can also change which layers are visible by clicking the "Layer settings..." button.
+                    </p>
+                    <a href="../../img/eagle-board-design-layers-3.png"><img style="max-width: 100%" src="../../img/eagle-board-design-layers-3.png" /></a>
+                    <p>
+                        Here you can show/hide individual layers, or hide/show them all.
+                    </p>
+                    <p>
+                        This is useful if, for example, you want to move all of the parts on your board, but not the cutout lines. You could hide the <strong class="code">20 Dimension</strong> layer, then group-move all your parts.
+                    </p>
+                    <a href="../../img/eagle-board-design-layers-4.png"><img style="max-width: 100%" src="../../img/eagle-board-design-layers-4.png" /></a>
                 </div>
                 <div class="contentBlock" id="move">
                     <h3>Command: Move</h3>
+                    <p>
+                        To move a part, click to "Move" button on the left, underneath the "Layers settings..." button.
+                    </p>
+                    <a href="../../img/eagle-board-design-move-1.png"><img style="max-width: 100%" src="../../img/eagle-board-design-move-1.png" /></a>
+                    <p>
+                        To move a part, click the part's origin (the cross or "t" ). Most parts have the origin at their center, but some have their origin elsewhere, so watch out.
+                    </p>
+                    <p>
+                        Once you click the origin, you can let go of the mouse, and freely move the part around. Click again to drop it.
+                    </p>
+                    <a href="../../img/eagle-board-design-move-2.png"><img style="max-width: 100%" src="../../img/eagle-board-design-move-2.png" /></a>
                 </div>
                 <div class="contentBlock" id="rotate">
                     <h3>Command: Rotate</h3>
+                    <p>
+                        Click to "Rotate" button, below the "Move" button, to rotate an part around it's origin.
+                    </p>
+                    <a href="../../img/eagle-board-design-rotate-1.png"><img style="max-width: 100%" src="../../img/eagle-board-design-rotate-1.png" /></a>
+                    <p>
+                        Click any part's origin cross, and it will rotate 90 degrees around that origin.
+                    </p>
+                    <a href="../../img/eagle-board-design-rotate-2.png"><img style="max-width: 100%" src="../../img/eagle-board-design-rotate-2.png" /></a>
+                    <p>
+                        You can change the angle by entering a new number in the input at the top.
+                    </p>
+                    <a href="../../img/eagle-board-design-rotate-3.png"><img style="max-width: 100%" src="../../img/eagle-board-design-rotate-3.png" /></a>
+                    <p>
+                        And, you can rotate while running a move command (only 90 degrees). While in the middle of a move command, press <strong class="code">ctrl-CLICK</strong> (or <strong class="code">RIGHT-CLICK</strong> on a mouse), and the part with rotate 90 degrees while still moving with your cursor.
+                    </p>
                 </div>
                 <div class="contentBlock" id="cuttout">
                     <h3>Creating a Board Cuttout</h3>
+                    <p>
+                        If you draw a line on layer <strong class="code">20 Dimension</strong>, then that line will be part of your board cutout. When you first create a new <strong class="code">.brd</strong> file, there will already be a square drawn that is 100x100 millimeters.
+                    </p>
+                    <p>
+                        Notice how the inside of the square is automatically black, and the outside is grey.
+                    </p>
+                    <a href="../../img/eagle-board-design-dimension-1.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-1.png" /></a>
+                    <p>
+                        Let's delete one of those lines. Click the "Delete" button (near the middle of the toolbar).
+                    </p>
+                    <a href="../../img/eagle-board-design-dimension-2.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-2.png" /></a>
+                    <p>
+                        Click one of the lines on the Dimension layer, and the square will no longer be complete. The entire background is now black, because there is no enclosed cutout for the board.
+                    </p>
+                    <a href="../../img/eagle-board-design-dimension-3.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-3.png" /></a>
+                    <p>
+                        To draw a new line, completing the cutout, use the "Line" tool (near the bottom of the toolbar).
+                    </p>
+                    <a href="../../img/eagle-board-design-dimension-4.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-4.png" /></a>
+                    <p>
+                        Change the layer to <strong class="code">20 Dimension</strong>, and set the width to 0.
+                    </p>
+                    <a href="../../img/eagle-board-design-dimension-5.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-5.png" /></a>
+                    <p>
+                        Set your grid to 10mm. This is so the line you draw lines up perfectly with the old lines. Eagle does not have any snapping vertices feature when drawing simple lines, so you have to connect lines with some effort.
+                    </p>
+                    <a href="../../img/eagle-board-design-dimension-6.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-6.png" /></a>
+                    <p>
+                        Now the square is complete again, so the outside of it is grey again.
+                    </p>
+                    <a href="../../img/eagle-board-design-dimension-7.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-7.png" /></a>
+                    <p>
+                        Dimension lines can also be moved, using the "move" command. If you click the center of a line, the whole line with move. If you click a point where two lines means, you will move that shared point.
+                    </p>
+                    <a href="../../img/eagle-board-design-dimension-8.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-8.png" /></a>
                 </div>
                 <div class="contentBlock" id="route">
                     <h3>Command: Route</h3>
+                    <p>
+                        All those thin yellow lines in the <strong class="code">19 Unrouted</strong> are showing you what connections you need to draw. These yellow connections were made in the schematic, so you can't delete them from the board design.
+                    </p>
+                    <p>
+                        To complete a yellow line, use the "Route" command.
+                    </p>
+                    <a href="../../img/eagle-board-design-route-1.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-1.png" /></a>
+                    <p>
+                        Click-release on a yellow line, and you will start drawing a copper trace. By default, the line will create a 45 degree angle while you move it.
+                    </p>
+                    <a href="../../img/eagle-board-design-route-2.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-2.png" /></a>
+                    <p>
+                        You can create an anchor point by clicking
+                    </p>
+                    <a href="../../img/eagle-board-design-route-3.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-3.png" /></a>
+                    <p>
+                        You can stop drawing a route by pressing the <strong class="code">ESC</strong> key.
+                    </p>
+                    <p>
+                        The width of the routes is set in an input field at the top. A safe range for DIY PCBs is <strong class="code">0.6-1.0</strong> millimeters, and to keep the widths no smaller than <strong class="code">0.4</strong> millimeters
+                    </p>
+                    <a href="../../img/eagle-board-design-route-4.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-4.png" /></a>
+                     <p>
+                        The bigger the width, the easier it is for a milling machine (or anything else) to make the trace. So if a trace can be bigger, definitely do it.
+                    </p>
+                    <a href="../../img/eagle-board-design-route-5.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-5.png" /></a>
+                    <p>
+                        You can also change the shape of your routes with the "Bend", "Radius", and "Miter" settings.
+                    </p>
+                    <a href="../../img/eagle-board-design-route-6.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-6.png" /></a>
+                    <p>
+                        The "Bend" setting changes how the route makes turns. You have a few options, including 90 degree angle, circular arc, and just a straight line.
+                    </p>
+                    <a href="../../img/eagle-board-design-route-7.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-7.png" /></a>
+                    <p>
+                        The "Radius" setting change how sharply it can make turns. Zero means it turns immediately, and 5 millimeters would mean it completely turns after 5 millimeters.
+                    </p>
+                    <a href="../../img/eagle-board-design-route-8.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-8.png" /></a>
+                    <p>
+                        The "Miter" setting lets you pick if the turns in a route should be either 1) rounded corners, or 2) 45 degree straight lines.
+                    </p>
+                    <p>The new route below uses the 45 degree "Bend", a 5 millimeter "Radius", and a rounded "Miter"</p>
+                    <a href="../../img/eagle-board-design-route-9.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-9.png" /></a>
+                    <p>
+                        A cool new feature in Eagle is that you can have your routes interact <strong>with other routes</strong> in three different ways: 1) ignore, 2) avoid, and 3) push.
+                    </p>
+                    <p>
+                        By default, route will start out in avoid mode. You can change the mode by selecting the button at the top of the screen.
+                    </p>
+                    <a href="../../img/eagle-board-design-route-10.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-10.png" /></a>
+                    <a href="../../img/eagle-board-design-route-11.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-11.png" /></a>
+                    <a href="../../img/eagle-board-design-route-12.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-12.png" /></a>
+                    <p>
+                        <strong>Note:</strong> the "push" mode will <strong>not</strong> work on routes with rounded edges (radius). It only works with 45 and 90 degree (no radius) routes.
+                    </p>
+                    <p>
+                        Here's an image showing the "push" mode in action.
+                    </p>
+                    <a href="../../img/eagle-board-design-route-13.png"><img style="max-width: 100%" src="../../img/eagle-board-design-route-13.png" /></a>
                 </div>
                 <div class="contentBlock" id="ripup">
                     <h3>Command: Ripup</h3>
-                </div>
-                <div class="contentBlock" id="ratsnest">
-                    <h3>Command: Ratsnest</h3>
-                </div>
-                <div class="contentBlock" id="list-of-common-commands">
-                    <h3>List of Common Commands</h3>
-                    <a href="../../img/board-design-toolbar.png"><img style="max-width: 100%" src="../../img/board-design-toolbar.png" /></a>
                     <p>
-                        The image above has covered some of the tool icons I do not think are useful (or I don't understand how to use it). What are left are core commands to designing a board layout.
+                        You cannot delete a route (because that happens in the schematic), bit you can use the "Ripup" command to undo a route's drawing.
+                    </p>
+                    <a href="../../img/eagle-board-design-ripup-1.png"><img style="max-width: 100%" src="../../img/eagle-board-design-ripup-1.png" /></a>
+                    <p>
+                        Click the "Ripup" icon, and clicking a drawn route will undo it and show the yellow line again.
+                    </p>
+                    <a href="../../img/eagle-board-design-ripup-2.png"><img style="max-width: 100%" src="../../img/eagle-board-design-ripup-2.png" /></a>
+                    <p>
+                        There are some options at the top to control how much the "Ripup" commands removes at once. When you click, you can change these to have it remove an entire route, or different sections of it.
+                    </p>
+                    <a href="../../img/eagle-board-design-ripup-3.png"><img style="max-width: 100%" src="../../img/eagle-board-design-ripup-3.png" /></a>
+                </div>
+                <div class="contentBlock" id="via">
+                    <h3>Command: Via</h3>
+                    <p>
+                        PCBs often have two layers of copper, one on the top of the board, and the other on the bottom. A "Via" is a hole place inside a route, that connects the top layer to the bottom layer. This allows a route to pass back and forth between the top and bottom of our PCB.
                     </p>
                     <p>
-                        Here are more detailed descriptions of some of those commands.
+                        Vias might be the biggest differences between DIY PCBs and professional PCBs. On DIY PCBs, they can add a little to a lot of complexity to making it, so try and avoid creating vias whenever you can.
                     </p>
-                    <h4><strong>Info</strong></h4>
-                    <p></p>
-                    <h4><strong>Show</strong></h4>
-                    <p></p>
-                    <h4><strong>Mirror</strong></h4>
-                    <p></p>
-                    <h4><strong>Align</strong></h4>
-                    <p></p>
-                    <h4><strong>Via</strong></h4>
-                    <p></p>
-                    <h4><strong>Hole</strong></h4>
-                    <p></p>
-                    <h4><strong>Polygon</strong></h4>
-                    <p></p>
-                    <h4><strong>Text</strong></h4>
-                    <p></p>
-                    <h4><strong>Name</strong></h4>
-                    <p></p>
-                    <h4><strong>Value</strong></h4>
-                    <p></p>
-                    <h4><strong>Change</strong></h4>
-                    <p></p>
-                    <h4><strong>Paintroller</strong></h4>
-                    <p></p>
-                    <h4><strong>Pattern</strong></h4>
-                    <p></p>
-                    <h4><strong>Dimension</strong></h4>
-                    <p></p>
-                    <h4><strong>DRC</strong></h4>
-                    <p></p>
+                    <p>
+                        A via is most commonly created while running the "Route" command. Start drawing a route, and while moving the route around, press the <strong class="code">SPACE</strong> bar. A green circle will appear on your route.
+                    </p>
+                    <a href="../../img/eagle-board-design-via-1.png"><img style="max-width: 100%" src="../../img/eagle-board-design-via-1.png" /></a>
+                    <p>
+                        This hole can be place by clicking. Then, you will now be drawing a route on the <strong class="code">16 Bottom</strong> (blue) layer.
+                    </p>
+                    <a href="../../img/eagle-board-design-via-2.png"><img style="max-width: 100%" src="../../img/eagle-board-design-via-2.png" /></a>
+                    <p>
+                        On the bottom layer, we do not have to worry about crossing over routes on the <strong class="code">1 Top</strong> (red) layer. Draw the bottom route, and create another via to bring the route back to the top.
+                    </p>
+                    <a href="../../img/eagle-board-design-via-3.png"><img style="max-width: 100%" src="../../img/eagle-board-design-via-3.png" /></a>
                 </div>
             </div>
             <div class="footerSection">
