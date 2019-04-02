@@ -45,6 +45,9 @@
                         <li><a href="#upload">Uploading Code</a></li>
                         <li><a href="#jig">Programming Jig</a></li>
                     </ol>
+                    <p>
+                        Before you get started, make sure you have the ATtiny85 Arduino core installed from <a href="https://github.com/SpenceKonde/ATTinyCore/blob/master/Installation.md">SpenceKonde on GitHub</a>
+                    </p>
                 </div>
                 <div class="contentBlock" id="pinout">
                     <h3>ATtiny85 Pinout</h3>
@@ -148,6 +151,17 @@
                         To avoid these human errors, you can solder together a "programming jig", using simply perfboard, wire, a 10uF capacitor, an 8-pin socket, and some header pins. You can use one of these to both burn the bootloader, AND to upload your sketch to the ATtiny85. So easy!
                     </p>
                     <a href="../../img/attiny85_programming_jig.jpg"><img src="../../img/attiny85_programming_jig.jpg" style="max-width:100%"/></a>
+                    <p>
+                        In the image above, the wires I soldered are <strong>underneath</strong> the perfboard. So you can't see them.
+                    </p>
+                    <a href="../../img/attiny85_programming_jig_lifted.jpg"><img src="../../img/attiny85_programming_jig_lifted.jpg" style="max-width:100%"/></a>
+                    <p>Also, below is a diagram showing where to solder connections with your wires.</p>
+                    <a href="../../img/attiny85_programming_jig_wires.png"><img src="../../img/attiny85_programming_jig_wires.png" style="max-width:100%"/></a>
+                    <a href="../../img/correct-way-to-solder.png"><img src="../../img/correct-way-to-solder.png" style="max-width:100%"/></a>
+                    <a href="../../img/beep-test.png"><img src="../../img/beep-test.png" style="max-width:100%"/></a>
+                    <p>
+                        Now you can program the ATtiny85 <strong>outside</strong> of your breadboard. These makes it easier to upload code, <strong>and</strong> it means you have more ATtiny85 pins to use on your breadboard (awesome!).
+                    </p>
                     <p>
                         Once the bootloader is burned, and the code is uploaded, you can then (gently) remove the ATtiny85 from the socket, and put it in your breadboard.
                     </p>
