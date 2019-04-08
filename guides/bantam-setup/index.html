@@ -38,7 +38,7 @@
                         This guide must be followed <strong>every time</strong> using the Bantam milling machine. You will always need to do these steps before using the machine.
                     </p>
                     <ol>
-                        <li><a href="#download-app-and-connect">Download App and Connect</a></li>
+                        <li><a href="#download-app-and-connect">Power On and Connect</a></li>
                         <li><a href="#clean-the-rails">Clean the Rails</a></li>
                         <li><a href="#locate-the-probe-bit">Locate the Probe Bit</a></li>
                         <li><a href="#locate-the-bracket">Locate the Bracket</a></li>
@@ -46,14 +46,14 @@
                         <li><a href="#enter-pcb-board-shape">Enter PCB Board Shape</a></li>
                         <li><a href="#probe-pcb-thickness">Probe PCB Thickness</a></li>
                     </ol>
+                    <p>
+                        The Bantam app can be downloaded <a href="https://resources.bantamtools.com/software-download?_ga=2.234326174.1864289868.1554673979-230552501.1551832308">at this link</a>, for macos or Windows. Download and open.
+                    </p>
                 </div>
                 <div class="contentBlock" id="download-app-and-connect">
                     <h3>
-                        Download App and Connect
+                        Power On and Connect
                     </h3>
-                    <p>
-                        The Bantam software can be found <a href="https://resources.bantamtools.com/software-download?_ga=2.234326174.1864289868.1554673979-230552501.1551832308">at this link</a>. Download it for your operating system, and open.
-                    </p>
                     <p>
                         Power on the Bantam milling machine by first connecting the power adapter, and flipping switch in the back of the machine.
                     </p>
@@ -66,9 +66,19 @@
                         To connect your computer, plug in the USB cable between the machine and your computer. The Bantam software will automatically connect to the machine
                     </p>
                     <p>
-                        When you first connect to the machine, the sofware tells you that you mush "home" the machine. "Home" is when all the axes (X, Y, and Z), move to back-left corner of the machine, until they press against 3 small switches (one for each axis).
+                        When you first connect to the machine, the sofware tells you that you mush "Home" the machine.
+                    </p>
+                    <p>
+                        "Homing" is how the machine can know <strong>where</strong> it is. "Homing" is when all the axes (X, Y, and Z) press against 3 small switches (one switch for each axis).
                     </p>
                     <img src="../../../img/bantam_connect_home.png" />
+                    <p>
+                        If a motor (X, Y, or Z) tries to move but then can not move (like if something blocks it or if the machine is too dirty), then the motor is "skipping". The motor will make a loud noise, and not move.
+                    </p>
+                    <p>
+                        If a motor ever "skips", the machine will <strong>not</strong> know it happened. There are no sensors to detect a "skipping" motor. So, the <strong>position</strong> will be <strong>wrong</strong> until you "Re-Home" the machine.
+                    </p>
+                    <img src="../../../img/bantam_move_ui_home.png" />
                 </div>
                 <div class="contentBlock" id="clean-the-rails">
                     <h3>
@@ -126,7 +136,7 @@
                     <p>
                         At the top-right corner of the app, in the Configure box, click the "Change" button to start changing your tool.
                     </p>
-                    <img src="../../../img/bantam_config_ui_bracket_change.png">
+                    <img src="../../../img/bantam_config_ui_tool_change.png">
                     <p>
                         The machine will move to the center, so it is easy for you to access the collete (where the bit is inserted).
                     </p>
@@ -301,13 +311,17 @@
                     <p>
                         When it finishes, it will show you the thickness that it measured. In the picture below, it is saying it measured <strong class="code">1.88mm</strong>, and it is asking me if I trust it.
                     </p>
-                    <p>
-                        Our PCB boards are around 1.5-1.8 millimeters thick. If you see a number that is not close to this range, then you might want to "Re-Home" and try again.
-                    </p>
-                    <p>
-                        If you accept the thickness, then the Material thickness will now be set to what it measured (for me it's 1.88mm).
-                    </p>
                     <img src="../../../img/bantam_probe_thickness_accept.png">
+                    <p>
+                        Our PCB boards are around 1.4-1.9 millimeters thick (with tape underneath). If you see a number that is not in the 1.4-1.9 mm range, then you might want to "Re-Home" and try again.
+                    </p>
+                    <img src="../../../img/bantam_move_ui_home.png" />
+                    <p>
+                        If you accept the thickness, then the "Material" thickness will now be set (to 1.88 mm).
+                    </p>
+                    <p>
+                        You are now ready to load your Eagle design and start milling. Read the <a href="../bantam-1">Bantam - 1 guide here</a>.
+                    </p>
                 </div>
             </div>
             <div class="footerSection">
