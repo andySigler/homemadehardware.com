@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <h1>
+                    Homemade Hardware
+                </h1>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit" href="../..">Syllabus</a>
+                    <a class="navUnit navSelected" href="../../guides/">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../students/">Students(2019)</a>
+                    <a class="navUnit" href="../../archives">Archives</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>SMD Soldering</h2>
+                    <p>
+                        This guide describes how to do SMD soldering, using tweezers, solder paste, and a heat gun.
+                    </p>
+                    <ol>
+                        <li><a href="#organizing-smd-parts">Organizing SMD Parts</a></li>
+                        <li><a href="#add-solder-paste">Add Solder Paste</a></li>
+                        <li><a href="#place-smd-parts">Place SMD Parts</a></li>
+                        <li><a href="#reflow-with-heat-gun">Reflow with Heat Gun</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="organizing-smd-parts">
+                    <h3>Organizing SMD Parts</h3>
+                    <p>
+                        Before you get started, you'll want to organize all the SMD parts on the circuit. The solder paste we use will dry quickly, so we want to be ready to add the SMD parts to the paste right away.
+                    </p>
+                    <p>
+                        Get a piece of printer paper, and stick on a long piece of double-sided tape.
+                    </p>
+                    <img style="max-width: 48.5%" src="../../../img/soldering_smd_tape_paper.jpg">
+                    <img style="max-width: 48.5%" src="../../../img/soldering_smd_parts_on_tape_zoom.jpg">
+                    <p>
+                        Take each of the parts that will be on your circuit, and place them on the tape (using tweezers). Then with a pen, write down the value of the part.
+                    </p>
+                    <img src="../../../img/soldering_smd_parts_on_tape.jpg">
+                    <p>
+                        The LEDs in this circuit have a polarity, one side is positive and the other side is negative. We need to mark which side is which, so that we place it correctly on our circuit.
+                    </p>
+                    <img src="../../../img/soldering_smd_leds_on_tape.jpg">
+                    <p>
+                        SMD LEDs have a marking on them that labels the negative (cathode) side. The marking could be anything (ink, cutout, on top, on bottom), but it is always on the negative side.
+                    </p>
+                    <p>
+                        If I look closely, I see that my LEDs have a small marking on the top side. Those marks mean that is the negative side.
+                    </p>
+                    <img src="../../../img/soldering_smd_led_closeup.jpg">
+                </div>
+                <div class="contentBlock" id="add-solder-paste">
+                    <h3>Add Solder Paste</h3>
+                    <p>
+                        A soldering iron is too big for these small parts, so we'll use solder paste to weld them to the copper board.
+                    </p>
+                    <p>
+                        Remove a small amount of paste (I used a plastic knife), and place it on your paper.
+                    </p>
+                    <img style="max-width: 44%" src="../../../img/soldering_smd_paste_jar.jpg">
+                    <img style="max-width: 52%" src="../../../img/soldering_smd_paste_paper.jpg">
+                    <p>
+                        Use a push-pin or sewing needle to place solder paste on your circuit's pads.
+                    </p>
+                    <p>
+                        Try to only have solder paste on each copper pad, and no where else. Not the spaces between, and not the copper traces between pads.
+                    </p>
+                    <p>
+                        Here is a video of me placing solder paste with a push-pin.
+                    </p>
+                    <iframe src="https://player.vimeo.com/video/329234681" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                    <p>
+                        If you ever want to start over, you can easily clean the board with 91% isopropyl alcohol and a paper towel.
+                    </p>
+                </div>
+                <div class="contentBlock" id="place-smd-parts">
+                    <h3>Place SMD Parts</h3>
+                    <p>
+                        Before the solder paste gets dry, we need to put our SMD parts onto their correct pads. We'll use tweezers and our hands to do this.
+                    </p>
+                    <p>
+                        One by one, go through teach part on your double-side tape. Pick them up from the tape using precision tweezers.
+                    </p>
+                    <video style="max-width:100%; height:auto; border:1px solid #aaa" width="1280" height="720" controls loop muted id="vid_tweezer_pickup">
+                        <source src="../../../img/soldering_smd_tweezer_pickup.webm" type="video/webm">
+                        <source src="../../../img/soldering_smd_tweezer_pickup.ogv" type="video/ogg">
+                        <source src="../../../img/soldering_smd_tweezer_pickup.mp4" type="video/mp4">
+                    </video>
+                    <script type="text/javascript">
+                        var vid_tweezer_pickup = document.getElementById('vid_tweezer_pickup');
+                        vid_tweezer_pickup.removeAttribute('controls');
+                        vid_tweezer_pickup.addEventListener('canplaythrough', function(e){
+                            vid_tweezer_pickup.play();
+                        })
+                    </script>
+                    <p>
+                        Here is a video of each SMD part being placed down onto it's correct pad.
+                    </p>
+                    <p>
+                        When you are placing an SMD part, there are three steps:
+                        <ol>
+                            <li><strong>Hold</strong> the part 1 mm above its pad (don't shake!)</li>
+                            <li><strong>Release</strong> the tweezers, allowing the part to fall 1 mm into its pad</li>
+                            <li><strong>Gently tap</strong> the top of the part, to push it further into the solder paste</li>
+                        </ol>
+                    </p>
+                    <p>
+                        (sorry for the shaky video, the paper underneath was moving a lot)
+                    </p>
+                    <iframe src="https://player.vimeo.com/video/329234706" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+                </div>
+                <div class="contentBlock" id="reflow-with-heat-gun">
+                    <h3>Reflow with Heat Gun</h3>
+                    <p>
+                        Very gently place your PCB on a heated coffee mug heater. This thing will bring your board to about 85 Celsius.
+                    </p>
+                    <p>
+                        Keep your board there for 1-2 minutes. You will notice the solder paste gets a little puffy.
+                    </p>
+                    <img src="../../../img/soldering_smd_mug_warmer.jpg">
+                    <p>
+                        After 1-2 minutes on the mug heater, it's time to use the heat gun.
+                    </p>
+                    <p>
+                        Heat guns have different sized nozzles that. When heating all the parts on a PCB, use no nozzle so the hole is wide.
+                    </p>
+                    <p>
+                        You would really only use the smaller nozzle if you are trying to heat just one small spot.
+                    </p>
+                    <img style="max-width: 48%" src="../../../img/reflow_heatgun_no_nozzle.jpg">
+                    <img style="max-width: 48%" src="../../../img/reflow_heatgun_small_nozzle.jpg">
+                    <p>
+                        With no nozzle attached, turn the heat gun on with the settings:
+                        <ul>
+                            <li><strong>Air</strong>: 0 (none)</li>
+                            <li><strong>Temperature</strong>: 250 Celsius</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Solder paste melts at around 250 Celsius. If your solder does not melt within 10 seconds, try raising it up to 275 Celsius.
+                    </p>
+                    <img src="../../../img/reflow_heatgun_temperature.jpg">
+                    <p>
+                        The PCB should have been on the hot mug heater for 1-2 minutes now. Hold the heat gun straing down (90 degrees), just over the PCB. Move the nozzle from side to side, to heat up all areas of the board.
+                    </p>
+                    <p>
+                        When the solder paste turns shiny and silver, it is done melting. Move the heat gun closer to un-melted solder. Do not heat any SMD parts for more than 10-20 seconds, as you might damage them.
+                    </p>
+                    <video style="max-width:100%; height:auto; border:1px solid #aaa" width="1280" height="720" controls loop muted id="vid_reflow">
+                        <source src="../../../img/soldering_smd_reflow.webm" type="video/webm">
+                        <source src="../../../img/soldering_smd_reflow.ogv" type="video/ogg">
+                        <source src="../../../img/soldering_smd_reflow.mp4" type="video/mp4">
+                    </video>
+                    <script type="text/javascript">
+                        var vid_reflow = document.getElementById('vid_reflow');
+                        vid_reflow.removeAttribute('controls');
+                        vid_reflow.addEventListener('canplaythrough', function(e){
+                            vid_reflow.play();
+                        })
+                    </script>
+                    <p>
+                        Take a look at your PCB, with your eyes or under a microscope. Make sure all the pads have fully melted solder paste (silver and shiny), and that all your parts did not accidentally move while the past was melting.
+                    </p>
+                    <img src="../../../img/soldering_smd_finished.jpg">
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

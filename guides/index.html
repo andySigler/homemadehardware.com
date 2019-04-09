@@ -6,6 +6,13 @@
         <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
         <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
         <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            .guideDescription {
+                margin-left:30px;
+                margin-right:30px;
+                font-size: 90%;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
@@ -28,24 +35,21 @@
                         Guides to help you get started with microcontrollers, breadboarding, bootloading, and understanding electricity.
                     </p>
                     <div class="contentBlock">
-                        <h3>Arduino to Breadboard</h3>
-                        <p>&#8594; <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">Link to guide</a></p>
-                        <p>An excellent guide from the Arduino website. However, I would recommend using <a href="https://github.com/MCUdude/MiniCore">this Arduino core</a>, so you can use the internal 8MHz clock on the ATmega328 (plus other options)</p>
+                        <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard"><h3 style="display:inline">Arduino to Breadboard</h3></a>
+                        <p class="guideDescription">An excellent guide from the Arduino website. However, I would recommend using <a href="https://github.com/MCUdude/MiniCore">this Arduino core</a>, so you can use the internal 8MHz clock on the ATmega328 (plus other options)
                     </div>
                     <div class="contentBlock">
-                        <h3>Programming an ATtiny85</h3>
-                        <p>&#8594; <a href="./programming-an-attiny85/">Link to guide</a></p>
-                        <p>Getting a brand new ATtiny85 microcontroller to run you Arduino code, on a breadboard</p>
+                        <a href="./programming-an-attiny85/"><h3 style="display:inline">Programming an ATtiny85</h3></a>
+                        <p class="guideDescription">Getting a brand new ATtiny85 microcontroller to run you Arduino code, on a breadboard</p>
                     </div>
                     <!-- <div class="contentBlock">
-                        <h3>Soldering a Programming Jig</h3>
-                        <p>&#8594; <a href="./soldering-a-programming-jig/">Link to guide</a></p>
+                        <h3 style="display:inline">Soldering a Programming Jig</h3>
+                        <span>&#8594; <a href="./soldering-a-programming-jig/">Link to guide</a></span>
                         <p>Solering perfboard, wire, and a socket to make bootloading easier</p>
                     </div> -->
                     <div class="contentBlock">
-                        <h3>Rules of Electricity</h3>
-                        <p>&#8594; <a href="./rules-of-electricity/">Link to guide</a></p>
-                        <p>A slide show describing some basic rules and observations on electricity</p>
+                        <a href="./rules-of-electricity/"><h3 style="display:inline">Rules of Electricity</h3></a>
+                        <p class="guideDescription">A slide show describing some basic rules and observations on electricity</p>
                     </div>
                 </div>
                 <div class="contentBlock">
@@ -54,23 +58,20 @@
                         Guides on setting up Eagle, and using it to design our schematics and board layouts.
                     </p>
                     <div class="contentBlock">
-                        <h3>Eagle Setup</h3>
-                        <p>&#8594; <a href="./eagle-setup/">Link to guide</a></p>
-                        <p>Getting Eagle setup with the Homemade Hardware github repository</p>
+                        <a href="./eagle-setup/"><h3 style="display:inline">Eagle Setup</h3></a>
+                        <p class="guideDescription">Getting Eagle setup with the Homemade Hardware github repository</p>
                     </div>
                     <div class="contentBlock">
-                        <h3>Eagle Schematic Design</h3>
-                        <p>&#8594; <a href="./eagle-schematic/">Link to guide</a></p>
-                        <p>A guide on using the Schematic editor to add parts, and connect them together to make your circuit</p>
+                        <a href="./eagle-schematic-design-1/"><h3 style="display:inline">Eagle Schematic Design - 1</h3></a>
+                        <p class="guideDescription">A guide on using the Schematic editor to add parts, and connect them together to make your circuit</p>
                     </div>
                     <div class="contentBlock">
-                        <h3>Eagle Board Design - 1</h3>
-                        <p>&#8594; <a href="./eagle-board-design-1/">Link to guide</a></p>
-                        <p>Beginning to design traces, layouts, and cuttouts in Eagle</p>
+                        <a href="./eagle-board-design-1/"><h3 style="display:inline">Eagle Board Design - 1</h3></a>
+                        <p class="guideDescription">Beginning to design traces, layouts, and cuttouts in Eagle</p>
                     </div>
                     <!-- <div class="contentBlock">
-                        <h3>Eagle Board Design - 2</h3>
-                        <p>&#8594; <a href="./eagle-board-design-2/">Link to guide</a></p>
+                        <h3 style="display:inline">Eagle Board Design - 2</h3>
+                        <span>&#8594; <a href="./eagle-board-design-2/">Link to guide</a></span>
                         <p>A more in-depth look at the Eagle board designer</p>
                     </div> -->
                 </div>
@@ -80,25 +81,29 @@
                         Guides on using fabrication techniques and tools when making DIY PCBs at ITP.
                     </p>
                     <div class="contentBlock">
-                        <h3>Bantam Setup</h3>
-                        <p>&#8594; <a href="./bantam-setup/">Link to guide</a></p>
-                        <p>How to setup the Bantam milling machine for making PCBs</p>
+                        <a href="./bantam-setup/"><h3 style="display:inline">Bantam Setup</h3></a>
+                        <p class="guideDescription">How to setup the Bantam milling machine for making PCBs</p>
                     </div>
                     <div class="contentBlock">
-                        <h3>Bantam - 1</h3>
-                        <p>&#8594; <a href="./bantam-1/">Link to guide</a></p>
-                        <p>Milling your Eagle CAD PCB design on the Bantam milling machine</p>
+                        <a href="./bantam-milling-1/"><h3 style="display:inline">Bantam Milling - 1</h3></a>
+                        <p class="guideDescription">Milling your Eagle CAD PCB design on the Bantam milling machine</p>
                     </div>
+                    <!-- <div class="contentBlock">
+                        <a href="./bantam-milling-2/"><h3 style="display:inline">Bantam Milling - 2</h3></a>
+                        <p class="guideDescription">Milling double-sided PCBs, and SVG drawings</p>
+                    </div> -->
                     <div class="contentBlock">
-                        <h3><strike>SMD Soldering</strike></h3>
-                        <p>&#8594; <a href="./bantam-1/">Link to guide</a></p>
-                        <p>Basic guide on using solder paste, tweezers, and heat-gun to reflow an SMD board</p>
+                        <a href="./smd-soldering/"><h3 style="display:inline">SMD Soldering</h3></a>
+                        <p class="guideDescription">Basic guide on using solder paste, tweezers, and heat-gun to reflow an SMD board</p>
                     </div>
-                    <div class="contentBlock">
-                        <h3><strike>Manual Pick-and-Place</strike></h3>
-                        <p>&#8594; <a href="./manual-pick-and-place/">Link to guide</a></p>
-                        <p>A quick guide on using the SMT Station manual pick-and-place machine (instead of using tweezers)</p>
-                    </div>
+                    <!-- <div class="contentBlock">
+                        <a href="./manual-pick-and-place/"><h3 style="display:inline">Manual Pick-and-Place</h3></a>
+                        <p class="guideDescription">A quick guide on using the SMT Station manual pick-and-place machine (instead of using tweezers)</p>
+                    </div> -->
+                    <!-- <div class="contentBlock">
+                        <a href="./test-and-debug/"><h3 style="display:inline"><strike>Test and Debug</strike></h3></a>
+                        <p class="guideDescription">How to test and debug PCBs, and circuits in general</p>
+                    </div> -->
                 </div>
             </div>
             <div class="footerSection">
