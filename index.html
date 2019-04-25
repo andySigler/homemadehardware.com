@@ -4,7 +4,7 @@
 		<title>Homemade Hardware</title>
 		<link rel="stylesheet" href="./css/main.css">
 		<link rel="icon" href="./img/favicon.ico" type="image/x-icon">
-		<link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
 		<meta name=viewport content="width=device-width, initial-scale=1">
 	</head>
 	<body>
@@ -14,15 +14,344 @@
 					Homemade Hardware
 				</h1>
 				<div class="navBar" style="margin-left:-5px">
-					<a class="navUnit navSelected" href="./">About</a>
+					<a class="navUnit navSelected" href=".">Syllabus(2019)</a>
 					<a class="navUnit" href="./guides">Guides</a>
 					<a class="navUnit" href="./things/">Tools/Materials</a>
-					<a class="navUnit" href="./syllabus/">Syllabus(2019)</a>
 				</div>
 			</div>
 			<div class="bodySection">
+				<div class="contentBlock dot_border">
+					<h2>Overview</h2>
+					<p>
+						This is a 7-week, 2-point course at ITP during the second half of the Spring '19 semester.
+					</p>
+					<p>
+						Also here are <a href="./archives/">archives from previous semesters</a>
+					</p>
+					<p>
+						<strong>Instructor:</strong> Andy Sigler
+					</p>
+					<p>
+						<strong>Email:</strong> andrewsigler1@gmail.com
+					</p>
+					<p>
+						<strong>Class Time:</strong> Tuesday mornings, 9:00-11:30
+					</p>
+					<p>
+						<strong>Office Hours:</strong> 20 minutes <a href="https://calendar.google.com/calendar/selfsched?sstoken=UUVvSGJUc25pYzVyfGRlZmF1bHR8YTA1YjAxMWQ1YTczNDNlY2Y4MDE1ZmM3NzExNTZkOGQ">Sign up here</a>
+					</p>
+					<p>
+						<strong>Grading:</strong>
+						<p>
+							ITP is pass/fail, but you do still get graded. To pass, students must document and show work and progress through out the semester, and cannot miss more than 2 classes without prior notice.
+						</p>
+						<ul>
+							<li>
+								Attendance and Participation: 30%
+							</li>
+							<br />
+							<li>
+								Blogging and Assignments: 30%
+							</li>
+							<br />
+							<li>
+								Final Project: 40%
+							</li>
+						</ul>
+					</p>
+				</div>
 				<div class="contentBlock">
-					<h2>Making PCBs is Hard</h2>
+					<h2>Spring 2019 Students</h2>
+					<ul>
+						<li><a href="http://www.samuelchasan.com/homemade-hardware/">
+							Sam Chasan
+						</a></li>
+						<li><a href="https://www.nickwallace.us/blog?tag=Homemade+Hardware">
+							Nick Wallace
+						</a></li>
+						<li><a href="https://generallyplayful.com/category/itp/hardware/">
+							James Hosken
+						</a></li>
+						<li><a href="https://luminghao.com/blog/#homehard">
+							Luming Hao
+						</a></li>
+						<li><a href="https://rashidakamal.com/tag/homemade_hardware">
+							Rashida Kamal
+						</a></li>
+						<li><a href="https://www.are.na/hannah-tardie/homemade-hardware">
+							Hannah Tardie
+						</a></li>
+						<li><a href="https://www.caraneel.com/itp?category=HomemadeHardware">
+							Caroline Neel
+						</a></li>
+						<li><a href="https://www.davidazar.mx/blog/categories/homemade-hardware">
+							David Azar Serur
+						</a></li>
+						<li><a href="https://wp.nyu.edu/iditbarak/category/class-work/homemade-hardware/">
+							Idith Barak
+						</a></li>
+						<li><a href="https://defneonenitp.tumblr.com/tagged/homemadehardware">
+							Defne Onen
+						</a></li>
+						<li><a href="https://wp.nyu.edu/anita17/category/homemade-hardware/">
+							Anita Mbabazi
+						</a></li>
+						<li><a href="https://www.stefanskripak.com/blog?category=Homemade+Hardware">
+							Stefan Skripak
+						</a></li>
+						<li><a href="https://github.com/boatshaman/HomemadeHardware">
+							Joseph Hensersky
+						</a></li>
+						<li><a href="https://itp.jordan-rickman.net/homemade-hardware-attiny-sketch/">
+							Jordan Rickman
+						</a></li>
+						<li><a href="https://wp.nyu.edu/yuanyuanwang/category/2019-spring/homemadehardware/">
+							Yuanyuan Wang
+						</a></li>
+					</ul>
+				</div>
+				<div class="contentBlock" id="class-1">
+					<h2>Class 1</h2>
+					<p class="classDate">March 26</p>
+					<img src="./img/class-1-header.jpg" class="headerImage"/>
+					<h3>Arduino Uno Breakdown</h3>
+					<p>
+						<a href="https://docs.google.com/presentation/d/1JLoqYEL2dO5taQ-vP98ka-v1hieynkkr4Gv2zuAlsho/edit?usp=sharing">Slides from class</a> on breaking down the Arduino Uno
+					</p>
+					<p>
+						[Guide] &#8594; <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard">Breadboarding an ATmega328</a>
+						<ul>
+							<li>
+								Use <a href="https://github.com/MCUdude/MiniCore">this Arduino core</a> to program ATmega328 with internal 8MHz
+							</li>
+						</ul>
+					</p>
+					<!-- <p>
+						[Guide] &#8594; <a href="./guides/bootloader-basics">Bootloader basics</a>
+					</p> -->
+					<h3>Programming ATtiny85</h3>
+					<p>
+						<a href="https://docs.google.com/presentation/d/1d-Ulbwy4fHQaLBs5dfjIEXRITkXgIm5nClu75-TgRCI/edit?usp=sharing">Slides from class</a> on programming the ATtiny85, and soldering a programming jig for it
+					</p>
+					<p>
+						[Guide] &#8594; <a href="./guides/programming-an-attiny85">Programming an ATtiny85</a>
+					</p>
+					<h3>Homework for next class</h3>
+					<ol>
+						<li>
+							Finish soldering your jig
+						</li>
+						<li>
+							Breadboard an interaction, using the ATtiny85. You can use any sensor and output you want
+						</li>
+						<li>
+							Create a section on your website for this class, and send me the link
+						</li>
+						<li>
+							Post a video of your interaction to your website
+						</li>
+						<li>
+							Install Autodesk's Eagle CAD (<a href="https://www.autodesk.com/products/eagle/free-download">the free version</a>)
+						</li>
+						<li>
+							Order everything you don't already own from the <a href="./things">"required" section</a> of tools/materials
+						</li>
+						<li>
+							Bring your tweezers to next class
+						</li>
+					</ol>
+				</div>
+				<br /><br />
+				<div class="contentBlock" id="class-2">
+					<h2>Class 2</h2>
+					<p class="classDate">April 2</p>
+					<img src="./img/class-2-header.jpg" class="headerImage"/>
+					<h3>Download Repository</h3>
+					<p>
+                        For this class, please download the <a href="https://github.com/andysigler/homemade-hardware">Homemade Hardware github repository</a>. It contains examples, a parts library, and DRC files.
+                    </p>
+                    <p>
+                        If you use <strong class="code">git</strong>, you can instead clone the repository:
+                    </p>
+                    <p>
+                        <strong class="code">gits clone https://github.com/andySigler/homemade-hardware.git</strong>
+                    </p>
+					<h3>SMD Soldering</h3>
+<!-- 					<p>
+						<a href="https://docs.google.com/presentation/d/1Ng798X0jc2s9coKVMYaUbGbGe6sDNIhOjtnaLJnXM3g/edit?usp=sharing">Slides from class</a> on SMD soldering
+					</p> -->
+					<p>
+						In class, we'll be assembling some Lipo Battery charging boards, which can plug directly into a USB-A port.
+					</p>
+					<p>
+						The design files are located in:
+						<ul>
+							<li><strong class="code">homemade-hardware/projects/lipo_charger</strong></li>
+						</ul>
+					</p>
+					<a href="./img/lipo_charger.jpg">
+						<img style="max-width:500px" src="./img/lipo_charger.jpg" />
+					</a>
+<!-- 					<p>
+						[Guide] &#8594; <a href="./guides/smd-soldering">SMD Soldering</a>
+					</p> -->
+					<h3>Eagle CAD: Board Design</h3>
+<!-- 					<p>
+						<a href="https://docs.google.com/presentation/d/1tv1Pl73bE5dnTeuiLnitvuW7kK8Zxj0PIfxPSVMdlsU/edit?usp=sharing">Slides from class</a> on PCB layout and traces in Eagle
+					</p> -->
+					<p>
+						[Guide] &#8594; <a href="./guides/eagle-setup">Eagle Setup</a> <strong></strong>
+					</p>
+					<p>
+						[Guide] &#8594; <a href="./guides/eagle-board-design-1">Eagle Board Design</a> <strong></strong>
+					</p>
+					<p>
+						Use the guide to finish up your homework for next week (finishing the Eagle designs). This guide contain descriptions for all the commands you will need to do basic trace routing, layout, and cuttout.
+					</p>
+					<h3>Homework for next class</h3>
+					<ol>
+						<li>
+							Finish designing the Eagle Board files from class:
+							<ol>
+								<li><strong class="code">homemade-hardware/projects/eagle-board-design/1_attiny85_jig</strong></li>
+								<li><strong class="code">homemade-hardware/projects/eagle-board-design/2_attiny85_LED</strong></li>
+								<li><strong class="code">homemade-hardware/projects/eagle-board-design/3_attiny85_transistor</strong></li>
+							</ol>
+						</li>
+						<li>
+							Make sure to have endmill bits next week. You will not need them during next class, but they are required your have for the assignment due week 4.
+						</li>
+						<li>
+							Nominate some 15-character phrases to the <a href="https://docs.google.com/document/d/1wNDUkDJ4ZnvJiA1zYYFZCJLFFRm1jr4-8tZE54hDg-k/edit?usp=sharing">marquee sign document</a>. We will vote on our favorite phrase next week, so think of some good ones!
+						</li>
+					</ol>
+				</div>
+				<br /><br />
+				<div class="contentBlock" id="class-3">
+					<h2>Class 3</h2>
+					<p class="classDate">April 9</p>
+					<img src="./img/class-3-header.jpg" class="headerImage"/>
+					<h3>Eagle CAD: Schematic Design</h3>
+					<p>
+						[Guide] &#8594; <a href="./guides/eagle-schematic-design-1">Eagle Schematic Design - 1</a> <strong></strong>
+					</p>
+					<h3>Milling PCBs on Bantam</h3>
+					<p>
+						[Guide] &#8594; <a href="./guides/bantam-setup">Bantam Setup</a> <strong></strong>
+					</p>
+					<p>
+						[Guide] &#8594; <a href="./guides/bantam-milling-1">Bantam Milling - 1</a> <strong></strong>
+					</p>
+					<h3>Homework for next class</h3>
+					<ul>
+						<li>
+							Finish the Marquee Letter PCB
+							<ol>
+								<li>
+								Design your letter PCB in Eagle schematic and board files
+							</li>
+							<li>
+								Mill your letter PCB on the Bantam milling machine
+							</li>
+							<li>
+								Solder your SMD parts (you can use tweezers or the SMT station)
+							</li>
+							<li>
+								Test that your circuit board has no errors
+							</li>
+							<li>
+								Program your ATtiny85, so that the sensor controls the LED PWM in any way you like
+							</li>
+							</ol>
+						</li>
+						<li>
+							Post a video of your PCB working (with the sensor), and include the video and your design files in your blog post
+						</li>
+						<li>
+							Bring your working PCB to next class. I will take each PCB and assemble the full Marquee sign.
+						</li>
+					</ul>
+				</div>
+				<br /><br />
+				<div class="contentBlock" id="class-4">
+					<h2>Class 4</h2>
+					<p class="classDate">April 16</p>
+					<img src="./img/class-4-header.jpg" class="headerImage"/>
+					<h3>Recommended Parts</h3>
+					<p>
+						Go through the guide below to see what packages are small yet still big enough for us to make. Also use this list to come up with a final BOM.
+					</p>
+					<p>
+						[Guide] &#8594; <a href="./guides/recommended-parts">Recommended Parts</a>
+					</p>
+					<h3>Finishing up Eagle</h3>
+					<p>
+						These two Eagle guides contain the last information you will need on Eagle to move forward. There are details about organizing a schematic, symbols, ground planes, and double-sided boards.
+					</p>
+					<p>
+						[Guide] &#8594; <a href="./guides/eagle-schematic-design-2">Eagle Schematic Design - 2</a>
+					</p>
+					<p>
+						[Guide] &#8594; <a href="./guides/eagle-board-design-2">Eagle Board Design - 2</a>
+					</p>
+					<h3>Homework for next class</h3>
+					<ul>
+						<li>Create a bill of materials (BOM) for your final PCB</li>
+						<li>This list of parts should contain how you plan to breadboard (what breakout are you using)</li>
+						<li>Post the BOM and project description to your blog</li>
+					</ul>
+				</div>
+				<br /><br />
+				<div class="contentBlock" id="class-5">
+					<h2>Class 5</h2>
+					<p class="classDate">April 23</p>
+					<img src="./img/class-5-header.jpg" class="headerImage"/>
+					<h3>Sourcing Parts</h3>
+					<p>
+						How to search for, filter, and select parts from Digikey and Mouser.
+					</p>
+					<h3>Bantam: Double-Sided and SVGs</h3>
+					<p>
+						Milling a two-sided copper plate on the Bantam, as well as using SVG files to mill greater detail and images.
+					</p>
+					<p>
+						[guide coming soon]
+					</p>
+					<h3>Soldering Vias and Programming Wires</h3>
+					<p>
+						How to connect the top and bottom layers of a via, and soldering on programming wires to test pads.
+					</p>
+					<p>
+						[guide coming soon]
+					</p>
+					<h3>Homework for next class</h3>
+					<ul>
+						<li>Order (today or tomorrow) your breadboarding parts and any PCB parts for your final that we don't have at ITP</li>
+						<li>Read through the <a href="./guides/redesign-online-circuits">guide on redesigning online circuits</a>.</li>
+						<li>Create your breadboarded project, and bring a working breadboard to next class</li>
+						<li>Design your final project's Eagle schematic and board file. During next class, I will be able to review with you the schematic and breadboard.</li>
+					</ul>
+				</div>
+				<br /><br />
+				<div class="contentBlock" id="class-6">
+					<h2>Class 6</h2>
+					<p class="classDate">April 30</p>
+					<img src="./img/class-6-header.jpg" class="headerImage"/>
+					<h3>In-Class Work Session</h3>
+					<p>
+
+					</p>
+					<h3>Homework for next class</h3>
+				</div>
+				<br /><br />
+				<div class="contentBlock" id="class-7">
+					<h2>Class 7</h2>
+					<p class="classDate">May 7</p>
+					<img src="./img/class-7-header.jpg" class="headerImage"/>
+					<h3>Final Presentations</h3>
+					<p>
+
+					</p>
 				</div>
 			</div>
 			<div class="footerSection">
