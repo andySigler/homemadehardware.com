@@ -14,22 +14,29 @@
                     Homemade Hardware
                 </h1>
                 <div class="navBar" style="margin-left:-5px">
-                    <a class="navUnit" href="..">Syllabus</a>
-                    <a class="navUnit navSelected" href="../guides/">Guides</a>
+                    <a class="navUnit" href="../">About</a>
+                    <a class="navUnit navSelected" href="../guides">Guides</a>
                     <a class="navUnit" href="../things/">Tools/Materials</a>
-                    <a class="navUnit" href="../students/">Students(2019)</a>
-                    <a class="navUnit" href="../archives">Archives</a>
+                    <a class="navUnit" href="../syllabus">Syllabus(2019)</a>
                 </div>
             </div>
             <div class="bodySection">
+                <div class="contentBlock">
+                    <p>
+                        This page contains some step-by-step guides to being able to make homemade PCBs.
+                    </p>
+                    <p>
+                        These guides assume previous experience with Arduino, and time spent handling some basic electronic components while working with Arduino.
+                    </p>
+                </div>
                 <div class="contentBlock">
                     <h2>Prototyping and Electronics</h2>
                     <p>
                         Guides to help you get started with microcontrollers, breadboarding, bootloading, and understanding electricity
                     </p>
                     <div class="contentBlock">
-                        <a href="https://www.arduino.cc/en/Tutorial/ArduinoToBreadboard"><h3 style="display:inline">Arduino to Breadboard</h3></a>
-                        <p class="guideDescription">An excellent guide from the Arduino website. However, I would recommend using <a href="https://github.com/MCUdude/MiniCore">this Arduino core</a>, so you can use the internal 8MHz clock on the ATmega328 (plus other options)
+                        <a href="./rules-of-electricity/"><h3 style="display:inline">Rules of Electricity</h3></a>
+                        <p class="guideDescription">A slide show describing some basic rules and observations on electricity</p>
                     </div>
                     <div class="contentBlock">
                         <a href="./programming-an-attiny85/"><h3 style="display:inline">Programming an ATtiny85</h3></a>
@@ -40,13 +47,13 @@
                         <p>Soldering perfboard, wire, and a socket</p>
                     </div> -->
                     <div class="contentBlock">
-                        <a href="./rules-of-electricity/"><h3 style="display:inline">Rules of Electricity</h3></a>
-                        <p class="guideDescription">A slide show describing some basic rules and observations on electricity</p>
-                    </div>
-                    <div class="contentBlock">
                         <a href="./recommended-parts/"><h3 style="display:inline">Recommended Parts</h3></a>
                         <p class="guideDescription">ICs and other parts that work well on a DIY circuit board</p>
                     </div>
+                    <!-- <div class="contentBlock">
+                        <a href="./breadboard-smd-parts/"><h3 style="display:inline"><strike>Breadboard SMD Parts</strike></h3></a>
+                        <p class="guideDescription">How to connect SMD parts to a breadboard, for prototyping final circuits</p>
+                    </div> -->
                 </div>
                 <div class="contentBlock">
                     <h2>PCB Design in Eagle CAD</h2>
@@ -77,10 +84,10 @@
                         <a href="./redesign-online-circuits/"><h3 style="display:inline">Redesign Online Circuits</h3></a>
                         <p class="guideDescription">How to start your design from one or multiple open source Eagle files online, and redesign to make it easier to fabricate</p>
                     </div>
-                    <!-- <div class="contentBlock">
+                    <div class="contentBlock">
                         <a href="./eagle-part-design/"><h3 style="display:inline"><strike>Eagle Part Design</strike></h3></a>
                         <p class="guideDescription">Making a custom part in Eagle Library editor</p>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="contentBlock">
                     <h2>DIY Fabrication</h2>
@@ -93,28 +100,32 @@
                     </div>
                     <div class="contentBlock">
                         <a href="./bantam-milling-1/"><h3 style="display:inline">Bantam Milling - 1</h3></a>
-                        <p class="guideDescription">Milling your Eagle CAD PCB design on the Bantam milling machine</p>
+                        <p class="guideDescription">Part 1 of milling a PCB design on the Bantam milling machine</p>
+                    </div>
+                    <div class="contentBlock">
+                        <a href="./bantam-milling-2/"><h3 style="display:inline">Bantam Milling - 2</h3></a>
+                        <p class="guideDescription">Part 2 milling with the Bantam machine, includes double-sided PCBs and SVG drawings</p>
                     </div>
                     <!-- <div class="contentBlock">
-                        <a href="./bantam-milling-2/"><h3 style="display:inline"><strike>Bantam Milling - 2</strike></h3></a>
-                        <p class="guideDescription">Milling double-sided PCBs, and SVG drawings</p>
+                        <a href="./solder-mask/"><h3 style="display:inline"><strike>Solder Mask</strike></h3></a>
+                        <p class="guideDescription">Give your PCB some color, and protecting the copper, with a solder mask</p>
                     </div> -->
                     <div class="contentBlock">
                         <a href="./smd-soldering/"><h3 style="display:inline">SMD Soldering</h3></a>
                         <p class="guideDescription">Basic guide on using solder paste, tweezers, and heat-gun to reflow an SMD board</p>
                     </div>
                     <!-- <div class="contentBlock">
-                        <a href="./vias-and-through-hole-parts/"><h3 style="display:inline"><strike>Vias and Through Hole Parts</strike></h3></a>
-                        <p class="guideDescription">Connecting the top and bottom copper with soldered vias, and adding any through hole components to your milled PCB</p>
-                    </div> -->
-                    <!-- <div class="contentBlock">
                         <a href="./solder-stencil/"><h3 style="display:inline"><strike>Solder Stencil</strike></h3></a>
-                        <p class="guideDescription">Using a solder stencil made from soda cans to spread solder paste on your PCB</p>
+                        <p class="guideDescription">How to make and use a solder stencil, spreading all the solder paste on a PCB in one step</p>
                     </div> -->
                     <!-- <div class="contentBlock">
                         <a href="./manual-pick-and-place/"><h3 style="display:inline"><strike>Manual Pick-and-Place</strike></h3></a>
                         <p class="guideDescription">A quick guide on using the SMT Station manual pick-and-place machine (instead of using tweezers)</p>
                     </div> -->
+                    <div class="contentBlock">
+                        <a href="./soldering-vias-with-wire/"><h3 style="display:inline">Soldering Vias with Wire</h3></a>
+                        <p class="guideDescription">Connecting the top and bottom copper by soldering a small wire through a via hole</p>
+                    </div>
                     <!-- <div class="contentBlock">
                         <a href="./test-and-debug/"><h3 style="display:inline"><strike>Test and Debug</strike></h3></a>
                         <p class="guideDescription">How to test and debug PCBs, and circuits in general</p>

@@ -20,11 +20,10 @@
                     Homemade Hardware
                 </h1>
                 <div class="navBar" style="margin-left:-5px">
-                    <a class="navUnit" href="../..">Syllabus</a>
-                    <a class="navUnit navSelected" href="../../guides/">Guides</a>
+                    <a class="navUnit" href="../../">About</a>
+                    <a class="navUnit navSelected" href="..">Guides</a>
                     <a class="navUnit" href="../../things/">Tools/Materials</a>
-                    <a class="navUnit" href="../../students/">Students(2019)</a>
-                    <a class="navUnit" href="../../archives">Archives</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2019)</a>
                 </div>
             </div>
             <div class="bodySection">
@@ -44,7 +43,8 @@
                             <li><a href="#layers">Board Layers</a></li>
                             <li><a href="#move">Command: Move</a></li>
                             <li><a href="#rotate">Command: Rotate</a></li>
-                            <li><a href="#cuttout">Creating a Board Cuttout</a></li>
+                            <li><a href="#cuttout">Board Cutout: Create</a></li>
+                            <li><a href="#import">Board Cutout: Import</a></li>
                             <li><a href="#route">Command: Route</a></li>
                             <li><a href="#ripup">Command: Ripup</a></li>
                             <li><a href="#via">Command: Via</a></li>
@@ -210,7 +210,7 @@
                     </p>
                 </div>
                 <div class="contentBlock" id="cuttout">
-                    <h3>Creating a Board Cuttout</h3>
+                    <h3>Board Cutout: Create</h3>
                     <p>
                         If you draw a line on layer <strong class="code">20 Dimension</strong>, then that line will be part of your board cutout. When you first create a new <strong class="code">.brd</strong> file, there will already be a square drawn that is 100x100 millimeters.
                     </p>
@@ -246,6 +246,89 @@
                         Dimension lines can also be moved, using the "move" command. If you click the center of a line, the whole line with move. If you click a point where two lines means, you will move that shared point.
                     </p>
                     <a href="../../img/eagle-board-design-dimension-8.png"><img style="max-width: 100%" src="../../img/eagle-board-design-dimension-8.png" /></a>
+                </div>
+                <div class="contentBlock" id="import">
+                    <h3>Board Cutout: Import</h3>
+                    <p>
+                        In addition to drawing an board cutout in Eagle, you can also import a DXF file which draws the shape of your PCB.
+                    </p>
+                    <p>
+                        I will be using Adobe Illustrator to draw a vector image, then will export to DXF, and final import to Eagle's <strong class="code">20 Dimension</strong> layer.
+                    </p>
+                    <p>
+                        First in Illustrator, I'll start with a new document. I'll use the Pen tool to draw both straight and curved lines.
+                    </p>
+                    <p>
+                        (Don't judge me, I'm not a visual designer)
+                    </p>
+                    <img src="../../../img/eagle-board-design-draw-illustrator.png">
+                    <p>
+                        Before we export to a DXF file, we first need to <strong>Add Anchor Points</strong> to the curved portions, and then <strong>Simplify</strong> everything to create straight lines.
+                    </p>
+                    <p>
+                        I'll use the Add Anchor Point tool to draw a bunch of anchor points on the curves in my line.
+                    </p>
+                    <img src="../../../img/eagle-board-design-draw-anchor-points.png">
+                    <p>
+                        Then I'll highlight everything in the drawing.
+                    </p>
+                    <p>
+                        With everything highlighted, I go to <strong>Object -> Path -> Simplify...</strong>
+                    </p>
+                    <p>
+                        In the window that opens, select the <strong>Straight lines</strong> checkbox
+                    </p>
+                    <p>
+                        Press OK to simplify the drawing.
+                    </p>
+                    <img src="../../../img/eagle-board-design-draw-simplify-window.png">
+                    <p>
+                        Now all the arcs are made of straight lines. If the straight lines ruined your curves, undo and draw more anchor points.
+                    </p>
+                    <img src="../../../img/eagle-board-design-draw-simplify-results.png">
+                    <p>
+                        Now it's time to export. Go to <strong>File -> Export</strong>, and be sure to select the <strong>DXF</strong> file format as the output.
+                    </p>
+                    <img src="../../../img/eagle-board-design-draw-export-dxf.png">
+                    <p>
+                        Now we are done with Illustrator, and going back to Eagle.
+                    </p>
+                    <p>
+                        At the top of the board editor, there is a button labelled <strong class="code">ULP</strong>, near the zoom tools.
+                    </p>
+                    <img src="../../../img/eagle-board-design-ulp-button.png">
+                    <p>
+                        Clicking this button will open a window showing many scripts that are available. These are scripts either written by Eagle developers, or Eagle users, that can import, export, and edit parts of your Eagle file.
+                    </p>
+                    <p>
+                        Scroll down until you find the <strong class="code">import-dxf</strong> script. Highlight it, and press OK.
+                    </p>
+                    <img src="../../../img/eagle-board-design-ulp-import-dxf.png">
+                    <p>
+                        After running the script, a new window will open with options for how to import the DXF file.
+                    </p>
+                    <p>
+                        First, select the correct DXF file source. Then, select the <strong class="code">20 Dimension</strong> layer as the "Target layer" (because I want this to be my board cutout).
+                    </p>
+                    <p>
+                        Then finally, select the correct "Input Units", to make sure the DXF file is scaled to the correct size. If your Illustrator file was using millimeters, select millimeters. If it was using inches, select inches.
+                    </p>
+                    <p>
+                        Then, click OK.
+                    </p>
+                    <img src="../../../img/eagle-board-design-import-dxf-window.png">
+                    <p>
+                        After you click OK, a new window will appear. This new window is filled with all the individual Eagle drawing command to create your drawing (Eagle is weird).
+                    </p>
+                    <p>
+                        Press RUN to execute the drawing commands.
+                    </p>
+                    <img src="../../../img/eagle-board-design-import-dxf-run.png">
+                    <p>
+                        The drawing will now be drawn on layer <strong class="code">20 Dimension</strong>, creating a strange looking board cutout for this PCB.
+                    </p>
+                    <p>Maybe I should draw something different...</p>
+                    <img src="../../../img/eagle-board-design-import-dxf-results.png">
                 </div>
                 <div class="contentBlock" id="route">
                     <h3>Command: Route</h3>

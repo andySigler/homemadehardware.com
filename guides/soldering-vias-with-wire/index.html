@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <h1>
+                    Homemade Hardware
+                </h1>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit" href="../../">About</a>
+                    <a class="navUnit navSelected" href="..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2019)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Soldering Vias with Wire</h2>
+                    <p>
+                        This short guide shows to to connect a PCB's top and bottom copper layers, using some wire and a soldering iron.
+                    </p>
+                    <p>
+                        A double-sided circuit board will be milled with via holes, however those holes do not have any copper inside them. Professional PCB houses use a technique called electro-plating, which fills those holes with a copper layer.
+                    </p>
+                    <p>
+                        For DIY boards, the easiest way to connect the top and bottom of a via is to simply loop a wire through and solder both ends.
+                    </p>
+                    <p>
+                        A common question is:
+                    </p>
+                    <p>
+                        <em>"can I melt just solder through the hole, and connect both sides without a wire?"</em>
+                    </p>
+                    <p>
+                        No, that might work temporarily, but if you ever need to re-heat the board (from soldering), then that solder will melt and drip out. A wire is better because it can be held in place.
+                    </p>
+                    <p>
+                        As an example, here is a double-sided PCB that has been milled and SMD soldered.
+                    </p>
+                    <img style="max-width: 48%" src="../../../img/solder-vias-holes-top.jpg">
+                    <img style="max-width: 48%" src="../../../img/solder-vias-holes-bottom.jpg">
+                    <p>
+                        To create the first via, strip off the insulation from a <strong>solid gauge</strong> wire, and loop it through a via.
+                    </p>
+                    <p>
+                        After it is in the via, pinch the wire so that it creates bends in the wire. These bends are near the PCB, preventing the wire from ever falling out of the hole.
+                    </p>
+                    <img src="../../../img/solder-vias-loop-wire.jpg">
+                    <p>
+                        Solder the bent wire to the copper.
+                    </p>
+                    <img src="../../../img/solder-vias-solder-wire.jpg">
+                    <p>
+                        Use a good pair of wire cutters to remove the excess wire. A good pair of wire cutters will create a flat, smooth cut.
+                    </p>
+                    <p>
+                        Do not cut off too much of the wire, however. You want enough wire so that there is still a bend holding it from falling out. If you cut off too much wire, then it might be easy to fall out when re-heated.
+                    </p>
+                    <img src="../../../img/solder-vias-cut-wire.jpg">
+                    <p>
+                        The final via should have the wire bent, and soldered at an angle (so it won't fall out in the future).
+                    </p>
+                    <p>
+                        The blob of cooled solder can be cut with wire cutters as so there are no sharp points.
+                    </p>
+                    <img src="../../../img/solder-vias-one-done.jpg">
+                    <p>
+                        You can solder your vias one at a time, or you can loop a wire through all the vias at once.
+                    </p>
+                    <p>
+                        Remember to bend the wires before you solder them, so they cannot fall out after being cut.
+                    </p>
+                    <img src="../../../img/solder-vias-wire-all-holes.jpg">
+                    <p>
+                        When finished, the PCB will have some (not-very-pretty) solder blobs around it.
+                    </p>
+                    <p>
+                        Now, the PCB's top and bottom copper layers are fully connected.
+                    </p>
+                    <img style="max-width: 46.5%" src="../../../img/solder-vias-finished-top.jpg">
+                    <img style="max-width: 49.5%" src="../../../img/solder-vias-finished-bottom.jpg">
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
