@@ -146,22 +146,34 @@
                 <div class="contentBlock" id="milling-transparency-stencils">
                     <h3>Milling Transparency Stencils</h3>
                     <p>
-                        Remove any film that might be on the transparency.
+                        Install an engraving bit into the Bantam milling machine.
                     </p>
                     <p>
-                        Tape the transparency down onto the plate.
+                        Also, attach a PCB board (single or double sided) onto the Bantam's bed. We will be using this as a "spoilboard".
                     </p>
                     <p>
-                        Change the material Z placement to be the boards thickness
+                        Run the "Tool Locate" process, to probe the location of the bit. And then, measure the thickness of your PCB board with the <strong>BitBreak -> Probe Material Thickness</strong> process.
                     </p>
                     <p>
-                        Change the material thickness to be 0.5 millimeters
+                        The transparency sheet we will cut will eventually be taped down on top of the PCB board.
                     </p>
                     <p>
-                        Mill
+                        So, we are going to tell the Bantam software that our material (the transparency) has a <strong class="code">Z</strong> position equal to the thickness of the PCB board. Usually we do not touch this <strong class="code">Z</strong> setting, this is a rare time when it is helpful.
                     </p>
                     <p>
-                        If it didn't cut the copper, make lower the Z placement by 0.1mm
+                        Then, because the transparency is thin, we will say the material's thickness is <strong class="code">0.5mm</strong> (this does not need to be too perfect, the <strong class="code">Z</strong> position is more important).
+                    </p>
+                    <p>
+                        Tape the transparency down onto the PCB board, using double-sided tape.
+                    </p>
+                    <p>
+                        Mill the SVG file (milling only the <strong>Cutout</strong> with the "Advanced" cutout setting <strong>Inside</strong>)
+                    </p>
+                    <p>
+                        Watch the cuts closely. If you do not think the engraving bit is reaching down to the copper on the PCB plate, then stop the job and decrease the material's <strong class="code">Z</strong> position by <strong>0.1</strong> millimeters. Then try again.
+                    </p>
+                    <p>
+                        When it is done, you will have a transparency solder stencil.
                     </p>
                 </div>
                 <div class="contentBlock" id="setup-the-stencil">
