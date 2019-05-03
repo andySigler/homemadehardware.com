@@ -70,6 +70,13 @@
                         Open the file in Adobe Illustrator (or similar software), and then save it as an SVG file.
                     </p>
                     <img src="../../../img/stencil-save-as-svg.png">
+                    <p>
+                        Before the SVG is generated, Illustrator gives you some options specific to SVG files. Select the SVG version <strong>1.0</strong> from the dropdown menu before saving.
+                    </p>
+                    <img src="../../../img/illustrator-svg-version-1.png">
+                    <p>
+                        <strong>NOTE:</strong> the Bantam app expects SVG version <strong>1.0</strong>, if it is not <strong>1.0</strong> then some pieces of the design may be missing.
+                    </p>
                 </div>
                 <div class="contentBlock" id="prepare-toolpaths">
                     <h3>Prepare Toolpaths</h3>
@@ -94,54 +101,6 @@
                         Here is a picture with all the settings:
                     </p>
                     <img src="../../../img/stencil-milling-settings.png">
-                    <p>
-                        We are not done yet, however. There is a small bug in Bantam's software that we need to work around.
-                    </p>
-                    <p>
-                        Zoom in on your design in Bantam, and you might see some (or even all) of your square and/or rectanges missing.
-                    </p>
-                    <p>
-                        Here is an image of the Bantam software ignoring half of my squares.
-                    </p>
-                    <p>
-                        I see red lines, but you might not see anything at all (!!!) so be very careful when you check.
-                    </p>
-                    <img src="../../../img/stencil-bantam-ignores-squares.png">
-                    <p>
-                        There are two things happening to create this:
-                        <ol>
-                            <li>When Eagle exports a PDF, it creates two paths for each square, one that is filled and another that has no fill</li>
-                            <li>Bantam will ignore any square that has two squares stacked on top each other (I don't know why).</li>
-                        </ol>
-                    </p>
-                    <p>
-                        So, in Illustrator, I'll first highlight the filled squares. I'm being careful not to select and highlight the borders of these squares.
-                    </p>
-                    <img src="../../../img/stencil-illustrator-highlight-squares.png">
-                    <p>
-                        Now, with those filled squares highlighted, I'll delete them.
-                    </p>
-                    <p>
-                        After deleting the filled squares, I can see the outlined squares that were behind them.
-                    </p>
-                    <p>
-                        (It's a bit hard to see in the picture, the lines are thin)
-                    </p>
-                    <img src="../../../img/stencil-illustrator-delete-squares.png">
-                    <p>
-                        Finally, I highlight those outlined squared, and give them all a black fill.
-                    </p>
-                    <p>
-                        Save the file.
-                    </p>
-                    <img src="../../../img/stencil-illustrator-fill-squares.png">
-                    <p>
-                        Then, back in Bantam, refresh the file, and you should see those missing squares now.
-                    </p>
-                    <img src="../../../img/stencil-bantam-shows-squares.png">
-                    <p>
-                        Weird bug! If you having a hard time getting squares to show up in Bantam, try copy/pasting a square that does work, and use that to replace the "bad" squares.
-                    </p>
                 </div>
                 <div class="contentBlock" id="milling-transparency-stencils">
                     <h3>Milling Transparency Stencils</h3>
