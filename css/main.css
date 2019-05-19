@@ -163,3 +163,19 @@ a:active {
     margin-right:30px;
     font-size: 90%;
 }
+
+.websiteTitleDiv {
+    position:relative;
+}
+
+.websiteTitle {
+    display:inline-block;
+    color: black;
+}
+
+.personalLink {
+    display:inline;
+    position:absolute;
+    right:0%;
+    top:26%;
+}
