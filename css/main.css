@@ -174,7 +174,7 @@ a:active {
 }
 
 .personalLink {
-    display:inline;
+    display:none;
     position:absolute;
     right:0%;
     top:26%;
