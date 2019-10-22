@@ -30,7 +30,7 @@
                 <div class="navBar" style="margin-left:-5px">
                     <a class="navUnit navSelected" href="../..">Guides</a>
                     <a class="navUnit" href="../../things/">Tools/Materials</a>
-                    <a class="navUnit" href="../../syllabus">Syllabus(2019)</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
                 </div>
             </div>
             <div class="bodySection">
@@ -68,10 +68,10 @@
                     <p>
                         Here is that process, in a sequence of pictures
                     </p>
-                    <img style="max-width:48%" src="../../../img/eagle-board-group-sequence-1.png">
-                    <img style="max-width:48%" src="../../../img/eagle-board-group-sequence-2.png">
-                    <img style="max-width:48%" src="../../../img/eagle-board-group-sequence-3.png">
-                    <img style="max-width:40%" src="../../../img/eagle-board-group-sequence-4.png">
+                    <img style="max-width:48%" src="../../img/eagle-board-group-sequence-1.png">
+                    <img style="max-width:48%" src="../../img/eagle-board-group-sequence-2.png">
+                    <img style="max-width:48%" src="../../img/eagle-board-group-sequence-3.png">
+                    <img style="max-width:40%" src="../../img/eagle-board-group-sequence-4.png">
                 </div>
                 <div class="contentBlock" id="info-window">
                     <h3>Info Window</h3>
@@ -81,18 +81,18 @@
                     <p>
                         You can view all the properties something in your design using the <strong class="code">INFO</strong> command. Select the command, and click the a part's origin on your board.
                     </p>
-                    <img src="../../../img/eagle-board-info-button.png">
+                    <img src="../../img/eagle-board-info-button.png">
                     <p>
                         You will be shown a window containing all that part's properties.
                     </p>
                     <p>
                         Here you can also update some of these properites, like the XY position or the angle of rotation.
                     </p>
-                    <img src="../../../img/eagle-board-info-window-part.png">
+                    <img src="../../img/eagle-board-info-window-part.png">
                     <p>
                         If you use the <strong class="code">INFO</strong> command on a line or route, you will be shown the width of that line
                     </p>
-                    <img src="../../../img/eagle-board-info-window-line.png">
+                    <img src="../../img/eagle-board-info-window-line.png">
                 </div>
                 <div class="contentBlock" id="flip-sides-with-mirror">
                     <h3>Flip Sides with Mirror</h3>
@@ -105,28 +105,28 @@
                     <p>
                         Use the <strong class="code">INFO</strong> command on a part, and in the Properties window you will see a checkbox for <strong class="code">Mirror</strong>
                     </p>
-                    <img src="../../../img/eagle-board-mirror-unchecked.png">
+                    <img src="../../img/eagle-board-mirror-unchecked.png">
                     <p>
                         Click the checkbox, and the part will now be "mirrored" and flipped over to the bottom side of the PCB.
                     </p>
                     <p>
                         Because it is an SMD part, it's pads will turn from red to now blue (because it's copper pads or on the blue <strong class="code">16 Bottom</strong> layer now)
                     </p>
-                    <img src="../../../img/eagle-board-mirror-checked.png">
+                    <img src="../../img/eagle-board-mirror-checked.png">
                     <p>
                         Through-hole (DIP) parts have green copper pads on the <strong class="code">17 Pads</strong> layer, so they are more difficult to tell if they are mirrored or not.
                     </p>
                     <p>
                         In order to tell if a through-hole part is mirrored, you <strong>must</strong> use the <strong class="code">INFO</strong> command and see if "Mirror" is checked or not.
                     </p>
-                    <img src="../../../img/eagle-board-mirror-dip-check.png">
+                    <img src="../../img/eagle-board-mirror-dip-check.png">
                     <p>
                         This is very important, because if a part is mirrored and you do not know, then you might assemble it wrong and the circuit won't work.
                     </p>
                     <p>
                         If you want, you could have the entire PCB holding parts and traces on the bottom. Here is a picture showing all parts mirroed, and all traces on the bottom layer.
                     </p>
-                    <img src="../../../img/eagle-board-completely-mirrored.png">
+                    <img src="../../img/eagle-board-completely-mirrored.png">
                 </div>
                 <div class="contentBlock" id="create-a-ground-plane">
                     <h3>Create a Ground Plane</h3>
@@ -139,76 +139,76 @@
                     <p>
                         Look at the two pictures below. The top one does not use a ground plane:
                     </p>
-                    <img src="../../../img/eagle-board-ungrounded.png">
+                    <img src="../../img/eagle-board-ungrounded.png">
                     <p>
                         And this next picture <strong>does</strong> use a ground plane:
                     </p>
-                    <img src="../../../img/eagle-board-grounded.png">
+                    <img src="../../img/eagle-board-grounded.png">
                     <p>
                         A ground plane is made from a <strong>POLYGON</strong>, which is a completed shape that fills itself in.
                     </p>
-                    <img src="../../../img/eagle-board-polygon-button.png">
+                    <img src="../../img/eagle-board-polygon-button.png">
                     <p>
                         Because the starting coordinate of the polygon <strong>must be the exact same coordinate</strong> as the last, I'm going to set my grid to be 2 millimeters. That's big enough that it's not hard for me to click the same point.
                     </p>
-                    <img src="../../../img/eagle-board-polygon-grid-big.png">
+                    <img src="../../img/eagle-board-polygon-grid-big.png">
                     <p>
                         Now, use the <strong>POLYGON</strong> tool to draw a square around your design. You want the polygon to be <strong>bigger</strong> than the cutout of your PCB (layer <strong class="code">20 Dimension</strong>)
                     </p>
-                    <img src="../../../img/eagle-board-draw-polygon.png">
+                    <img src="../../img/eagle-board-draw-polygon.png">
                     <p>
                         Once you complete the polygon, Eagle will automatically show you a window which asks you to give a name to the polygon.
                     </p>
                     <p>
                         Since we are creating a ground plane, we want to give it the same name as the ground connection in our schematic: <strong class="code">GND</strong>
                     </p>
-                    <img src="../../../img/eagle-board-name-polygon.png">
+                    <img src="../../img/eagle-board-name-polygon.png">
                     <p>
                         When you save the name, the screen now shows a dotted line going around the entire PCB. That is the polygon.
                     </p>
-                    <img src="../../../img/eagle-board-finished-polygon.png">
+                    <img src="../../img/eagle-board-finished-polygon.png">
                     <p>
                         Before we make the ground plane, first let's get rid of all those <strong class="code">GND</strong> routes I drew before. Because the ground plane will replace all those <strong class="code">GND</strong> routes, we can just get rid of them.
                     </p>
                     <p>
                         In the command input, type <strong class="code">ripup gnd</strong> and press ENTER.
                     </p>
-                    <img src="../../../img/eagle-board-ripup-gnd.png">
+                    <img src="../../img/eagle-board-ripup-gnd.png">
                     <p>
                         This will "ripup" all the routes that have the name <strong class="code">GND</strong>, and now shows those thin yellow "unrouted" lines.
                     </p>
-                    <img src="../../../img/eagle-board-ripup-gnd-zoom.png">
+                    <img src="../../img/eagle-board-ripup-gnd-zoom.png">
                     <p>
                         Now, the exciting part!
                     </p>
                     <p>
                         Run the command <strong class="code">RATSNEST</strong>, and the ground plane will be created from the polygon.
                     </p>
-                    <img src="../../../img/eagle-board-ratsnest-button.png">
+                    <img src="../../img/eagle-board-ratsnest-button.png">
                     <p>
                         The copper touching ground (<strong class="code">GND</strong>) will now spread out and fill in empty areas.
                     </p>
-                    <img src="../../../img/eagle-board-ground-plane-thermals.png">
+                    <img src="../../img/eagle-board-ground-plane-thermals.png">
                     <p>
                         There are a few important option on the ground plane, which you can change by using the (<strong class="code">INFO</strong> command and clicking one of the polygon's sides.
                     </p>
-                    <img src="../../../img/eagle-board-polygon-info.png">
+                    <img src="../../img/eagle-board-polygon-info.png">
                     <p>
                         The "width" amount will set the <strong>minimum</strong> width that the polygon will create, in order to try and fit between things.
                     </p>
-                    <img src="../../../img/eagle-board-polygon-options-width.png">
+                    <img src="../../img/eagle-board-polygon-options-width.png">
                     <p>
                         The "isolate" amount will set the distance that the copper plane will use to stay away from other pieces of copper.
                     </p>
-                    <img src="../../../img/eagle-board-polygon-options-isolate.png">
+                    <img src="../../img/eagle-board-polygon-options-isolate.png">
                     <p>
                         The "thermals" checkbox will turn ON/OFF a feature that creates tiny traces around pads. <strong>I recommend turning "thermals" OFF</strong>, because that is how the Bantam mill will create it.
                     </p>
-                    <img src="../../../img/eagle-board-polygon-options-thermals.png">
+                    <img src="../../img/eagle-board-polygon-options-thermals.png">
                     <p>
                         Below is a picture showing the ground plane with "thermals" OFF.
                     </p>
-                    <img src="../../../img/eagle-board-ground-plane-thermals-off.png">
+                    <img src="../../img/eagle-board-ground-plane-thermals-off.png">
                 </div>
                 <div class="contentBlock" id="list-of-common-commands">
                     <h3>List of Common Commands</h3>

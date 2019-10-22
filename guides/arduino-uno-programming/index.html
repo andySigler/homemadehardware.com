@@ -30,13 +30,13 @@
                 <div class="navBar" style="margin-left:-5px">
                     <a class="navUnit navSelected" href="../..">Guides</a>
                     <a class="navUnit" href="../../things/">Tools/Materials</a>
-                    <a class="navUnit" href="../../syllabus">Syllabus(2019)</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
                 </div>
             </div>
             <div class="bodySection">
                 <div class="contentBlock">
                     <h2>Arduino Uno: Programming</h2>
-                    <div class="headerImage" style="background-image: url('../../../img/guide-header-arduino-uno-programming.jpg')"></div>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-arduino-uno-programming.jpg')"></div>
                     <p>
                         This guide is an overview of how code is saved and ran on the Arduino Uno, and how to use a brand new chip on an Arduino or breadboard.
                     </p>
@@ -72,7 +72,7 @@
                     <p>
                         To start with some basics, the first thing to understand is that an Arduino sketch is compiled down to a binary file.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-17.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-17.jpg" class="">
                     <p>
                         The combination of the Arduino core libraries, any custom libraries you are using, and the <strong class="code">avrdude</strong> compiler will create a file with a <strong class="code">.hex</strong> file extension. Other microcontrollers might need a <strong class="code">.bin</strong>, which is another format for binary data.
                     </p>
@@ -89,7 +89,7 @@
                             <li>data (your compiled code) you want to save at that address</li>
                         </ol>
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-18.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-18.jpg" class="">
                     <p>
                         A microcontroller's memory is a giant 2x2 array of values. If our code is too big, we will fill up the microcontroller's memory. If our code is empty, we will fill up the memory with null values.
                     </p>
@@ -99,7 +99,7 @@
                     <p>
                         This HEX file will then need to travel, from your computer to the microcontroller, so that it can save the code at those addresses, and eventually run the code.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-19.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-19.jpg" class="">
                     <p>
                         The HEX file is sent over the USB connection to the Arduino Uno's uart-to-usb adapter (the <strong class="code">ATmega8u2</strong>).
                     </p>
@@ -124,7 +124,7 @@
                     <p>
                         When making DIY boards, we use microcontrollers that we buy from online. However, if you try pressing the Upload button in the Arduino IDE with a brand new <strong class="code">ATmega328p</strong>, you will get a bunch of errors and it won't work.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-20.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-20.jpg" class="">
                     <p>
                         When you get a brand new microcontroller that you ordered online, it's memory is completely empty, and it is still in it's factory-default settings.
                     </p>
@@ -141,7 +141,7 @@
                     <p>
                         After resetting (or powering on), the manufacturer's bootloader will wait to see if there is any new code. After a very short amount of time, if there is no new code, it will exit and move on to run whatever code is saved in memory.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-24.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-24.jpg" class="">
                     <p>
                         Atmel, the designers of the <strong class="code">ATmega328p</strong>, decided that by default the <strong class="code">ATmega328p</strong> reads code from the <a href="https://en.wikipedia.org/wiki/Serial_Peripheral_Interface">SPI</a> pins. The SPI pin on the Arduino Uno are pins <strong class="code">D13</strong> (<strong class="code">SCK</strong>), <strong class="code">D12</strong> (<strong class="code">MISO</strong>), and <strong class="code">D11</strong> (<strong class="code">MOSI</strong>), and that is where the manufacturer's bootloader reads in the new code.
                     </p>
@@ -151,14 +151,14 @@
                     <p>
                         Once we put our code on the microcontroller, it will be saved to that empty memory space, and it will run immediately after the manufacturer's bootloader following a reset (or powering on).
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-23-spi.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-23-spi.jpg" class="">
                     <p>
                         Computers are not able to communicated over SPI, so we need a device to convert our computer's USB data to SPI data.
                     </p>
                     <p>
                         The device we need is another example of an in-system programmer (ISP), and I'll use the <a href="https://www.google.com/search?q=avr+mkii&pws=0&gl=us&gws_rd=cr">AVR mkII</a>. The mkII was designed to work with the ICSP pinout standard.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-15.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-15.jpg" class="">
                     <p>
                         To program using the ISP device, connect to the Arduino Uno's ICSP 2x3 headers at the bottom of the board, like in the picture above.
                     </p>
@@ -171,7 +171,7 @@
                     <p>
                         <strong>Note</strong>: The <strong class="code">RESET</strong> pin is needed so that the manufacturer's bootload can be started. It will only start running after a reset (or powering on).
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-25.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-25.jpg" class="">
                     <p>
                         In the Arduino IDE, I'm going to tell the software that I am using the mkII by selecting <strong>Tools -> Programmer -> AVRISP mkII</strong>.
                     </p>
@@ -181,10 +181,10 @@
                     <p>
                         Upload the example Blink sketch, and the onboard LED will start blinking.
                     </p>
-                    <video id="vid_blink_loop" style="max-width:100%; height:auto; border:1px solid #aaa" width="854" height="450" controls loop muted poster="../../../img/arduino-uno-programming-blink-loop.png">
-                        <source src="../../../img/arduino-uno-programming-blink-loop.webm" type="video/webm">
-                        <source src="../../../img/arduino-uno-programming-blink-loop.ogv" type="video/ogg">
-                        <source src="../../../img/arduino-uno-programming-blink-loop.mp4" type="video/mp4">
+                    <video id="vid_blink_loop" style="max-width:100%; height:auto; border:1px solid #aaa" width="854" height="450" controls loop muted poster="../../img/arduino-uno-programming-blink-loop.png">
+                        <source src="../../img/arduino-uno-programming-blink-loop.webm" type="video/webm">
+                        <source src="../../img/arduino-uno-programming-blink-loop.ogv" type="video/ogg">
+                        <source src="../../img/arduino-uno-programming-blink-loop.mp4" type="video/mp4">
                     </video>
                     <script type="text/javascript">
                         var vid_blink_loop = document.getElementById('vid_blink_loop');
@@ -247,7 +247,7 @@
                     <p>
                         In addition to the manufacturer's bootloader already on the chip, the Arduino IDE can save a custom bootloader written by Arduino.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-23.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-23.jpg" class="">
                     <p>
                         If that custom bootloader is saved to memory, and then ran, it will read in code over the UART (Tx/Rx) pins and save it to memory.
                     </p>
@@ -257,7 +257,7 @@
                     <p>
                         So first, the custom bootloader must be uploaded, using the manufacturer's bootloader and the SPI pins.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-21.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-21.jpg" class="">
                     <p>
                         With an Arduino Uno powered over USB, the AVR mkII must be connected to the ICSP connector on the Arduno Uno.
                     </p>
@@ -294,7 +294,7 @@
                     <p>
                         <strong>Note</strong>: the <em>programmer</em> board must already have an <strong class="code">ATmega328p</strong> that has been bootloaded and can behave like a normal Arduino Uno.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-27.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-27.jpg" class="">
                     <p>
                         In the picture above, one Arduino Uno is labelled "programmer", and the other "target". The programmer is what will replace the mkII I was using before, and the target is the Arduino that will be <em>receiving</em> the bootloader.
                     </p>
@@ -317,7 +317,7 @@
                     <p>
                         The first step is to have the <em>programmer</em> Arduino Uno become an in-system programmer (ISP). This is done by simply putting some code on it that behaves like a normal ISP.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-28.png" class="">
+                    <img src="../../img/arduino-uno-breakdown-28.png" class="">
                     <p>
                         Like in the picture above, you'll find the ArduinoISP example sketch hidden in the example folder.
                     </p>
@@ -328,7 +328,7 @@
                     <p>
                         After the ArduinoISP example sketch uploads, now add the 10uF cap between the <strong class="code">RESET</strong> and <strong class="code">GND</strong> pins on the <em>programmer</em>.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-29.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-29.jpg" class="">
                     <p>
                         This capacitor prevents the <em>programmer</em> from resetting.
                     </p>
@@ -342,7 +342,7 @@
                     <p>
                         Now, I need to tell the Arduino IDE that the programmer I am using is the "Arduino as ISP" example sketch.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-30.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-30.jpg" class="">
                     <p>
                         There are many programmers (ISPs) you can select from the <strong>Tools -> Programmer</strong> menu. You'll find <strong>Arduino as ISP</strong> in there.
                     </p>
@@ -353,7 +353,7 @@
                     <p>
                         Finally, I can go to <strong>Tools -> Burn Bootloader</strong>.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-31.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-31.jpg" class="">
                     <p>
                         Before pressing, I need to make sure I have the correct <em>target</em> board type selected in the "Boards" menu. For me, it is "Arduino Uno", because that is what I am burning the bootloader to.
                     </p>
@@ -363,7 +363,7 @@
                     <p>
                         The image below shows a summary of what this guide has covered.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-32.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-32.jpg" class="">
                 </div>
                 <div class="contentBlock" id="programming-on-a-breadboard">
                     <h3>Programming on a Breadboard</h3>
@@ -373,7 +373,7 @@
                     <p>
                         I can use the "Arduino as ISP" method, just like before. However, the <em>target</em> board will no longer be another Arduino Uno PCB, but will instead by my breadboarded <strong class="code">ATmega328p</strong>.
                     </p>
-                    <img src="../../../img/arduino-uno-breadboard-8.jpg">
+                    <img src="../../img/arduino-uno-breadboard-8.jpg">
                     <p>
                         We need to connect the SPI pins <strong class="code">SCK</strong> (pin <strong class="code">D13</strong>), <strong class="code">MISO</strong> (pin <strong class="code">D12</strong>), and <strong class="code">MOSI</strong> (pin <strong class="code">D11</strong>), as well as <strong class="code">5V</strong>, <strong class="code">GND</strong>, and <strong class="code">RESET</strong> pins, just like in the images above.
                     </p>
@@ -383,7 +383,7 @@
                     <p>
                         In order to know which pins are which, use the pinout image of the microcontroller below.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-35.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-35.jpg" class="">
                     <p>
                         The power and ground wires are easy. I can just connect those to the power and ground rails on the breadboard.
                     </p>
@@ -396,7 +396,7 @@
                     <p>
                         See the wiring in the picture below.
                     </p>
-                    <img src="../../../img/arduino-uno-breadboard-11.jpg">
+                    <img src="../../img/arduino-uno-breadboard-11.jpg">
                     <p>
                         With this wiring, I can <strong>Burn Bootloader</strong> to the <em>target</em> microcontroller on my breadboard (amazing!). This will both set the fuse settings (so it uses the external oscillator), and it will save the UART bootloader to its memory.
                     </p>
@@ -418,7 +418,7 @@
                     <p>
                         I'm going to plug in two jumper wire there, a green for Rx, and a yellow wire for Tx.
                     </p>
-                    <img src="../../../img/arduino-uno-breadboard-12.jpg">
+                    <img src="../../img/arduino-uno-breadboard-12.jpg">
                     <p>
                         These wires are going to need to connect to a UART-to-USB adapter. These come in different shapes and types, but they most commonly come with 6 header pins in a row.
                     </p>
@@ -428,7 +428,7 @@
                     <p>
                         Then, I will of course need to connect the <strong class="code">GND</strong> pin of the adapter to my breadboards ground rail.
                     </p>
-                    <img src="../../../img/arduino-uno-breadboard-13.jpg">
+                    <img src="../../img/arduino-uno-breadboard-13.jpg">
                     <p>
                         Finally, there is one last connection we need to make, and it involves the <strong class="code">RESET</strong> pin.
                     </p>
@@ -444,14 +444,14 @@
                     <p>
                         There is a simple solution to this: add a small capacitor between the <strong class="code">RTS</strong> on the adapter, and the <strong class="code">RESET</strong> pin on the breadboarded microcontroller.
                     </p>
-                    <img src="../../../img/arduino-uno-breakdown-40.jpg" class="">
+                    <img src="../../img/arduino-uno-breakdown-40.jpg" class="">
                     <p>
                         <strong>Note</strong>: it is interesting to know that the Arduino Uno already has this capacitor on the PCB. It is connected between the <strong class="code">RTS</strong> pin of the <strong class="code">ATmega8u2</strong> and the <strong class="code">RESET</strong> pin of the <strong class="code">ATmega328p</strong>.
                     </p>
                     <p>
                         Below is a picture of a capacitor on my breadboard, that sits between the <strong class="code">RTS</strong> on the adapter, and <strong class="code">RESET</strong> on the chip.
                     </p>
-                    <img src="../../../img/arduino-uno-breadboard-14.jpg">
+                    <img src="../../img/arduino-uno-breadboard-14.jpg">
                     <p>
                         Finally, I just need to select the UART-to-USB adapter's port in the Arduino IDE, and now I can upload code the normal way to my breadboard, over a serial port.
                     </p>
