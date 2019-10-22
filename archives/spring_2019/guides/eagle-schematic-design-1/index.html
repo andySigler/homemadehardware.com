@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2019 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2019)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Eagle Schematic Design - 1</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-eagle-schematic-design-1.jpg')"></div>
+                    <p>
+                        This guide describes how get use the Eagle schematic designer to add ports from libraries, and connect them together to make your circuit.
+                    </p>
+                    <p>
+                        Before starting this guide, make sure to have gone through the <a href="../eagle-setup">Eagle Setup guide</a>. There you will have downloaded and installed the files used in this tutorial.
+                    </p>
+                    <ol>
+                        <li><a href="#create-new-schematic">Create New Schematic</a></li>
+                        <li><a href="#add-parts">Add Parts</a></li>
+                        <li><a href="#copy-paste-parts">Move/Copy/Paste Parts</a></li>
+                        <li><a href="#set-part-values">Set Part Values</a></li>
+                        <li><a href="#make-connections">Make Connections</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="create-new-schematic">
+                    <h3>Create New Schematic</h3>
+                    <p>
+                        Open Eagle so that you have the Control Panel opened and selected. Go up to <strong class="code">File -> New -> Schematic</strong>
+                    </p>
+                    <img src="../../img/eagle_schematic_file_new.png">
+                    <p>
+                        You will be shown a blank Schematic editor:
+                    </p>
+                    <img src="../../img/eagle_schematic_file_blank.png">
+                    <p>
+                        Let's save this file somewhere before start working.
+                    </p>
+                    <p>
+                        Eagle schematic (<strong class="code">.sch</strong>) files share links with board (<strong class="code">.brd</strong>) files, so to keep things organized we should create a new folder for this project.
+                    </p>
+                    <p>
+                        I created a folder on my Desktop called <strong class="code">example_project</strong>.
+                    </p>
+                    <img src="../../img/eagle_schematic_file_folder.png">
+                    <p>
+                        Go up to <strong class="code">File -> Save</strong> (or CMD/Ctrl-S) in Eagle. Give it the same name as the folder. And then save it inside the folder.
+                    </p>
+                    <img src="../../img/eagle_schematic_file_save.png">
+                    <p>
+                        Now the top of you schematic file should have that folder and file name in the bar: <strong class="code">/Users/andy/Desktop/example_project/example_project.sch</strong>
+                    </p>
+                    <img src="../../img/eagle_schematic_file_top_bar.png">
+                </div>
+                <div class="contentBlock" id="add-parts">
+                    <h3>Add Parts</h3>
+                    <p>
+                        In the schematic window, go to the left toolbar and click the <strong class="code">Add Part</strong> button.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_part_button.png">
+                    <p>
+                        This will open a new window, showing you all the installed Parts Libraries on your computer.
+                    </p>
+                    <p>
+                        Scroll down, and you will find the folder <strong class="code">homemade-hardware</strong>. If you do not see the folder, make sure you have <a href="../eagle-setup#directories">added the repository to your Eagle Directories</a>.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_window.png">
+                    <p>
+                        Let's look at this library for a minute. The library is built of a list of different electronic components. Some are simple, some are more complex.
+                    </p>
+                    <p>
+                        Our first part will be the <strong class="code">ATtiny85</strong>. Scroll down to that part, and select it. Notice a schematic symbol for the <strong class="code">ATtiny85</strong> has appeared on the right side.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_attiny85.png">
+                    <p>
+                        This part in the library has multiple "packages", or shapes. All the "packages" are shown in a drop-down menu inside this part. Click the small arrow next to it's name to open the menu.
+                    </p>
+                    <p>
+                        Click the first on, <strong class="code">ATTINY85-20SU</strong>.
+                    </p>
+                    <p>
+                        Notice the picture of it's package has appeared next to the schematic symbols. The package image shows a surface mount (SMD) <strong class="code">ATtiny85</strong>.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_attiny85_soic.png">
+                    <p>
+                        Click the next one, <strong class="code">ATTINY85-DIP</strong>, and the picture changes to a through-hole (DIP) package.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_attiny85_dip.png">
+                    <p>
+                        Third one, <strong class="code">ATTINY85-SOCKET-BENT</strong>, is the one that we will be using. Notice it is the same size as the DIP version, however it has red SMD pads it instead of the green DIP holes.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_attiny85_bent.png">
+                    <p>
+                        Click OK to go back to you schematic window.
+                    </p>
+                    <p>
+                        You are now moving the part around from it's origin. Click anywhere to add the part. You can click multiple times to add multiple parts.
+                    </p>
+                    <p>
+                        However, for this guide, I will be using only one <strong class="code">ATtiny85</strong>.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_attiny85_place.png">
+                    <p>
+                        After clicking to place a part, you can stop adding parts by pressing the <strong class="code">ESC</strong> key on your keyboard.
+                    </p>
+                    <p>
+                        It will then take you back to the Add window to find more parts.
+                    </p>
+                    <p>
+                        Here is the full list of parts we want to add:
+                        <ul>
+                            <li><strong class="code">CAP -> CAP0603-CAP</strong>
+                                <ul>
+                                    <li>
+                                        <img src="../../img/eagle_schematic_add_cap.png">
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong class="code">CAP_POL -> CAP_POLD</strong>
+                                <ul>
+                                    <li>
+                                        <img src="../../img/eagle_schematic_add_cap_pol.png">
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong class="code">HEADER-2 -> HEADER-2</strong>
+                                <ul>
+                                    <li>
+                                        <img src="../../img/eagle_schematic_add_header.png">
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong class="code">LED -> LED0603</strong>
+                                <ul>
+                                    <li>
+                                        <img src="../../img/eagle_schematic_add_led.png">
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><strong class="code">RESISTOR -> RESISTOR0603</strong>
+                                <ul>
+                                    <li>
+                                        <img src="../../img/eagle_schematic_add_resistor.png">
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </p>
+                    <p>
+                        When you are done adding parts, press the Cancel button.
+                    </p>
+                    <p>
+                        Your schematic should look similar to this, with all your parts spread around.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_all_parts.png">
+                </div>
+                <div class="contentBlock" id="move-copy-paste-parts">
+                    <h3>Move/Copy/Paste Parts</h3>
+                    <p>
+                        You can use the <strong class="code">MOVE</strong> command to move your parts around. Also the <strong class="code">ROTATE</strong> command to change their angle (or just use <strong class="code">Ctrl-CLICK</strong> while moving to rotate 90 degrees).
+                    </p>
+                    <img src="../../img/eagle_schematic_command_move.png">
+                    <img src="../../img/eagle_schematic_command_rotate.png">
+                    <img src="../../img/eagle_schematic_move_parts.png">
+                    <p>
+                        Our schematic is missing a resistor for the LED (oh no!). We can copy/paste the other resistor to create a new one.
+                    </p>
+                    <p>
+                        Select the Group command, and then highlight the resistor we want to copy.
+                    </p>
+                    <img src="../../img/eagle_schematic_command_group.png">
+                    <br />
+                    <img src="../../img/eagle_schematic_highlight_part.png">
+                    <p>
+                        Now simply use <strong class="code">Cmd-C</strong> (or <strong class="code">Ctrl-C</strong>) to copy, and then <strong class="code">Cmd-P</strong> (or <strong class="code">Ctrl-P</strong>) to paste.
+                    </p>
+                    <img src="../../img/eagle_schematic_part_paste.png">
+                    <p>
+                        Click to drop the part in your schematic. Here is an image of what my schematic looks like now, with that new resistor labeled "R2" in the bottom right.
+                    </p>
+                    <img src="../../img/eagle_schematic_part_new_resistor.png">
+                </div>
+                <div class="contentBlock" id="set-part-values">
+                    <h3>Set Part Values</h3>
+                    <p>
+                        We have multiple parts on this board, and we need to keep track of what all of their values are. Is the resistor 10k or 150 ohms? Is the capacitor 0.1uF or 10uF? Is the LED red or green?
+                    </p>
+                    <p>
+                        We can assign our parts a value with the <strong class="code">VALUE</strong> command. Click the tool in the left toolbar.
+                    </p>
+                    <img src="../../img/eagle_schematic_value_button.png">
+                    <p>
+                        With that command selected, try clicking the "polarized" capacitor (it's the one with one flat line and one rounded line)
+                    </p>
+                    <img style="max-width: 32%" src="../../img/eagle_schematic_value_set_1.png">
+                    <img style="max-width: 33%" src="../../img/eagle_schematic_value_set_2.png">
+                    <img style="max-width: 30%" src="../../img/eagle_schematic_value_set_3.png">
+                    <p>
+                        Enter the value <strong class="code">100uF</strong>, and press OK to save that value to the part. Notive that the value is now visible next to the part in the schematic.
+                    </p>
+                    <p>
+                        Do the same for the other capacitor, and two resistors. Here is a list of their values:
+                        <ul>
+                            <li>Smaller capacitor = <strong class="code">0.1uF</strong></li>
+                            <li>First resistor (<strong class="code">R1</strong>) = <strong class="code">10k</strong></li>
+                            <li>Second resistor next to LED (<strong class="code">R2</strong>) = <strong class="code">150</strong></li>
+                        </ul>
+                    </p>
+                    <img style="max-width: 32%" src="../../img/eagle_schematic_value_set_4.png">
+                    <img style="max-width: 32%" src="../../img/eagle_schematic_value_set_5.png">
+                    <img style="max-width: 31%" src="../../img/eagle_schematic_value_set_6.png">
+                </div>
+                <div class="contentBlock" id="make-connections">
+                    <h3>Make Connections</h3>
+                    <p>
+                        Now it's time to draw those green lines that connect our parts together. These lines will eventually be turned into copper traces in the board designer.
+                    </p>
+                    <p>
+                        To draw a green electrical connection, use the <strong class="code">NET</strong> command.
+                    </p>
+                    <img src="../../img/eagle_schematic_net_button.png">
+                    <p>
+                        In our circuit, the <strong class="code">HEADER-2</strong> part will be how power connects to our circuit. One of its pins will be for positive (Vcc), and the other lower pin will be used for negative (GND).
+                    </p>
+                    <p>
+                        Move near the top pin of the <strong class="code">HEADER-2</strong> part (our Vcc pin), and a green circle will appear.
+                    </p>
+                    <img src="../../img/eagle_schematic_draw_net_1.png">
+                    <p>
+                        Click and release the green circle to start drawing a green electrical connection. As you move your cursor, the green line will follow.
+                    </p>
+                    <p>
+                        You can create an anchor point by clicking and releasing, then continuing to draw.
+                    </p>
+                    <img src="../../img/eagle_schematic_draw_net_2.png">
+                    <p>
+                        To finish the connection, move to the top-left pin on the <strong class="code">ATtiny85</strong> (this is the power input pin), and click on where another green circle appears.
+                    </p>
+                    <img src="../../img/eagle_schematic_draw_net_3.png">
+                    <p>
+                        Connect the top of both capacitors to this same line, continuing to use the <strong class="code">NET</strong> command.
+                    </p>
+                    <img src="../../img/eagle_schematic_draw_net_4.png">
+                    <p>
+                        Great, now our power (Vcc) line is connected to the <strong class="code">ATtiny85</strong>, and both capacitors.
+                    </p>
+                    <p>
+                        Now let's do the same thing, but with the ground (GND) input from the power supply.
+                    </p>
+                    <img src="../../img/eagle_schematic_draw_net_5.png">
+                    <p>
+                        Now let's do the rest for all our parts. Here is what we need to do:
+                        <ul>
+                            <li>Connect the <strong class="code">ATtiny85</strong> reset pin to the <strong class="code">10k</strong> resistor</li>
+                            <li>Connect the other end of the <strong class="code">10k</strong> to Vcc</li>
+                            <li>Connect the <strong class="code">ATtiny85</strong> D0 pin to the <strong class="code">LED</strong> positive side</li>
+                            <li>Connect the <strong class="code">LED</strong> negative side to the <strong class="code">150</strong> ohm resistor</li>
+                            <li>Connect the other side of the <strong class="code">150</strong> ohm resistor to GND</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Here is what it should look like when you are done.
+                    </p>
+                    <img src="../../img/eagle_schematic_nets_done.png">
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

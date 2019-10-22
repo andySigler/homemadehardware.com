@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2019 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2019)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Eagle Part Design</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-eagle-part-design.jpg')"></div>
+                    <p>
+                        Create a new library of parts in Eagle, draw symbols and footprints, or reuse designs from other libraries.
+                    </p>
+                    <ol>
+                        <li><a href="#a-side-firing-rgb-led">A Side-Firing RGB LED</a></li>
+                        <li><a href="#create-new-library">Create New Library</a></li>
+                        <li><a href="#draw-symbol">Draw Symbol</a></li>
+                        <li><a href="#draw-footprint">Draw Footprint</a></li>
+                        <li><a href="#create-device">Create Device</a></li>
+                        <li><a href="#import-parts-to-library">Import Parts to Library</a></li>
+                        <li><a href="#export-library-from-a-design">Export Library from a Design</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="a-side-firing-rgb-led">
+                    <h3>A Side-Firing RGB LED</h3>
+                    <p>
+                        I found <a href="https://www.digikey.com/product-detail/en/wurth-electronics-inc/155124M173200/732-11414-1-ND/7316048">this RGB LED on Digikey</a>. I like it because it's bright (Millicandela values are high), and because it is a "side-firing" LED, which means that you solder it down sideways, shining it's light to the sides of the PCB instead of upwards.
+                    </p>
+                    <a href="https://www.digikey.com/product-detail/en/wurth-electronics-inc/155124M173200/732-11414-1-ND/7316048">
+                        <img src="../../img/eagle-library-digikey-rgb.png">
+                    </a>
+                    <p>
+                        First thing to do is to find the parts drawings in the datasheet. The Digikey page for this LED has a link to the PDF datasheet.
+                    </p>
+                    <p>
+                        The first page has all the information we will need, like the LEDs dimensions, recommended PCB footprint, and it's schematic symbol.
+                    </p>
+                    <a href="https://katalog.we-online.de/led/datasheet/155124M173200.pdf"><img src="../../img/eagle-library-rgb-datasheet.png"></a>
+                    <p>
+                        Also, take a look at the chart on the top-right. It has the LED's electrical ratings. These or important for using Ohm's Law to determine a good voltage and resistor for each color's LED.
+                    </p>
+                    <p>
+                        I do not know of any parts like this in my Eagle libraries, so I'm going to have to make my own.
+                    </p>
+                    <p>
+                        I'll start by creating a custom Eagle library, and then creating this part inside it.
+                    </p>
+                </div>
+                <div class="contentBlock" id="create-new-library">
+                    <h3>Create New Library</h3>
+                    <p>
+                        A library in Eagle is a set of "footprints" and "symbols", and the links between them called "devices". A library can hold one or many footprints, symbols, or devices.
+                    </p>
+                    <p>
+                        With the Eagle Control Panel open, the left side of the window have a submenu called "Libraries".
+                    </p>
+                    <p>
+                        This submenu shows you all the libraries that Eagle knows about on your computer. It will be default have two folders:
+                        <ol>
+                            <li>
+                                A "libraries" folder, located at <strong>Document -> Eagle -> libraries</strong>, which can hold user-made libraries
+                            </li>
+                            <li>
+                                A "Managed Libraries" folder, which is internal to Eagle, and is maintained by the Autodesk Eagle team
+                            </li>
+                        </ol>
+                    </p>
+                    <p>
+                        There will be more folders in the submenu if you've added addition library directories to the Eagle Directories window.
+                    </p>
+                    <img src="../../img/eagle-library-control-panel.png">
+                    <p>
+                        You'll notice in the picture above that I have a third folder showing my <strong class="code">homemade-hardware</strong> Eagle library. This is because I followed the <a href="../eagle-setup">Eagle Setup guide</a>, and linked that file location in the Eagle Directories window.
+                    </p>
+                    <p>
+                        There are also these small green dots next to all the library names. These green dots mean that those libraries are being used by Eagle schematic and design editors.
+                    </p>
+                    <p>
+                        You can click that green dot to make it a grey dot, which means that it will no longer be active, and will not be used by any of the editors.
+                    </p>
+                    <img style="max-width: 48%" src="../../img/eagle-library-green-dot.png">
+                    <img style="max-width: 48%" src="../../img/eagle-library-grey-dot.png">
+                    <p>
+                        I tend to leave all my libraries active, and I make sure all their dots are green.
+                    </p>
+                    <p>
+                        I am going to create a brand new library, and add it to the "libraries" folder Eagle created in my Documents folder.
+                    </p>
+                    <p>
+                        Go up to <strong>File -> New -> Library</strong>
+                    </p>
+                    <img src="../../img/eagle-library-new-menu.png">
+                    <p>
+                        A new, empty library window will open.
+                    </p>
+                    <img src="../../img/eagle-library-empty-new.png">
+                    <p>
+                        Right now it has the name "untitled", so I'm going to save it in my <strong>Documents -> eagle -> libraries</strong> folder with a new name.
+                    </p>
+                    <img src="../../img/eagle-library-save-new.png">
+                    <p>
+                        If you go back to the Eagle Control Panel window, you will find your new library in the "libraries" folder, with its green dot activated.
+                    </p>
+                    <img src="../../img/eagle-library-new-in-control-panel.png">
+                </div>
+                <div class="contentBlock" id="draw-symbol">
+                    <h3>Draw Symbol</h3>
+                    <p>
+                        With the new library open, click the <strong>Add Symbol...</strong> button near the bottom-right.
+                    </p>
+                    <p>
+                        Eagle will ask you to first give this new symbol a name. Because the RGB LED I am making is a "common anode" LED (that means that all the colors share the positive + pin, or anode), I will include that in the name.
+                    </p>
+                    <img src="../../img/eagle-library-add-symbol-button.png">
+                    <p>
+                        It will then open a symbol editor. There is also the footprint editor, the device editor, and the "Table of Contents" window for the library. You can move between these with the buttons at the top of the window.
+                    </p>
+                    <img style="max-width:26%" src="../../img/eagle-library-nav-buttons-1.png">
+                    <img style="max-width:24.5%" src="../../img/eagle-library-nav-buttons-2.png">
+                    <img style="max-width:21%" src="../../img/eagle-library-nav-buttons-3.png">
+                    <img style="max-width:23%" src="../../img/eagle-library-nav-buttons-4.png">
+                    <p>
+                        We do mainly three important things here in the symbol editor:
+                        <ol>
+                            <li>Add <strong class="code">PINs</strong> to the symbol</li>
+                            <li>Name the <strong class="code">PINs</strong></li>
+                            <li>Draw lines to represent a schematic symbol</li>
+                        </ol>
+                    </p>
+                    <p>
+                        To start, add some pins by clicking the <strong class="code">PIN</strong> tool.
+                    </p>
+                    <img src="../../img/eagle-library-pin-button.png">
+                    <p>
+                        A new pin will appear, and you can move it, rotate it, and drop in anyhwere you want (just like adding a part to a schematic).
+                    </p>
+                    <p>
+                        The green circle at one end of the pin is where <strong class="code">NETs</strong> will connect to it in schematics. Therefore, you should have the green circles pointing towards the edges of the symbol
+                    </p>
+                    <img src="../../img/eagle-library-new-pin.png">
+                    <p>
+                        The schematic in the LED's datasheet gives us a reference to copy when drawing our schematic.
+                    </p>
+                    <img src="../../img/eagle-library-datasheet-schematic.png">
+                    <p>
+                        I will add 4 <strong class="code">PINs</strong> to this symbol, just like in the datasheet.
+                    </p>
+                    <img src="../../img/eagle-library-pins-added.png">
+                    <p>
+                        Eagle gave them random names, so I will rename them based off what they do within the schematic.
+                    </p>
+                    <p>
+                        You want to give symbol pins names that describe <strong>what they do</strong>, not where they are located on the part. This will make it easier to re-use symbols on many different footprints.
+                    </p>
+                    <p>
+                        The pin on the right side is the positive pin (the anode), shared by all three colors. I will name this the <strong class="code">ANODE</strong>.
+                    </p>
+                    <p>
+                        Looking at the schematic in the datasheet, the three LEDs are given a label for their color (R, G, or B). I'll name those pins after their color.
+                    </p>
+                    <img src="../../img/eagle-library-name-pins.png">
+                    <p>
+                        Finally, I'll draw some <strong class="code">LINEs</strong> to represent the schematic symbols for the LEDs. These should be drawn on the <strong class="code">94 Symbols</strong> layer.
+                    </p>
+                    <img src="../../img/eagle-library-draw-symbol.png">
+                </div>
+                <div class="contentBlock" id="draw-footprint">
+                    <h3>Draw Footprint</h3>
+                    <p>
+                        Back in the library "Table of Contents" window, click the <strong>Add Footprint</strong> button.
+                    </p>
+                    <p>
+                        It will ask you to give the new footprint a name. Whenever possible, try to name your footprints after their package name. You might get lucky and be able to re-use this footprint for a different schematic symbol the future.
+                    </p>
+                    <p>
+                        The LED's datasheet describes it as a 1204, 4-SMD, right-angle (R/A) package. I'll give it a name close to that.
+                    </p>
+                    <img src="../../img/eagle-library-footprint-add-button.png">
+                    <p>
+                        An empty footprint editor will open. Here, we are doing four important things:
+                        <ol>
+                            <li>Adding <strong class="code">SMDs</strong> and/or <strong class="code">PADs</strong> (holes)</li>
+                            <li>Accurately positioning those <strong class="code">SMDs</strong> and/or <strong class="code">PADs</strong>, so they are accurate to the physical part</li>
+                            <li>Naming the <strong class="code">SMDs</strong> and/or <strong class="code">PADs</strong></li>
+                            <li>Drawing <strong class="code">LINEs</strong> to represent the way the part will look on our PCB</li>
+                        </ol>
+                    </p>
+                    <p>
+                        Looking at the recommended footprint on the datasheet, I can see that the RGB LED has four SMD connections with the board.
+                    </p>
+                    <img src="../../img/eagle-library-datasheet-footprint.png">
+                    <p>
+                        Also, the datasheet is in millimeters, so I'll set the footprint editor's grid to millimeters.
+                    </p>
+                    <img src="../../img/eagle-library-footprint-millimeters.png">
+                    <p>
+                        Use the <strong class="code">SMD</strong> command in Eagle to draw four SMD connections on this footprint.
+                    </p>
+                    <img src="../../img/eagle-library-add-smd.png">
+                    <p>
+                        Eagle will give them random names. I'll name them the same as the SMD connections in the datasheet's drawing.
+                    </p>
+                    <img src="../../img/eagle-library-name-smd.png">
+                    <p>
+                        Looking at the datasheet drawing, the two inner SMD connections (#2, #3) are <strong class="code">0.6mm x 0.55mm</strong>, and the two outer SMD connections (#1, #4) are <strong class="code">0.6mm x 0.9mm</strong>
+                    </p>
+                    <p>
+                        Use the <strong class="code">INFO</strong> command to click each SMD connection, change it's width and height, and then save with APPLY.
+                    </p>
+                    <img src="../../img/eagle-library-smd-size.png">
+                    <p>Here they are all with the correct sizes.</p>
+                    <img src="../../img/eagle-library-smd-size-done.png">
+                    <p>
+                        In Eagle, the SMD connections are given XY coordinates from their middle. Using this drawing, we can do some math and figure out that pins #2 and #3 are <strong class="code">(x=0.45mm, y=0.3mm)</strong> away from the center, and pins #1 and #4 are <strong class="code">(x=1.4mm, y=0.0mm)</strong> away from the center.
+                    </p>
+                    <p>
+                        Again, using the <strong class="code">INFO</strong> command, click each part and change it's XY coordinate.
+                    </p>
+                    <img src="../../img/eagle-library-smd-positioned.png">
+                    <p>
+                        Finally, I can draw some <strong class="code">LINEs</strong> to show what the part will like. This doesn't need to be as accurate as the SMD connectors, so I just created a 0.1mm grid and drew lines that looked close enough to matching the datasheet's footprint.
+                    </p>
+                    <p>
+                        The <strong class="code">LINEs</strong> should be drawn on the <strong class="code">21 tPlace</strong> layer.
+                    </p>
+                    <img src="../../img/eagle-library-draw-tplace.png">
+                </div>
+                <div class="contentBlock" id="create-device">
+                    <h3>Create Device</h3>
+                    <p>
+                        Now it's time for the exciting part, connecting our symbol to the footprint within a device.
+                    </p>
+                    <p>
+                        A device is made up of only one (1) schematic symbol, and it can hold any number of footprints. For example, there can be a "Resistor" device, which one single "Resistor" schematic symbols, but then many many footprints to represent all the packages that a resistor can come in.
+                    </p>
+                    <p>
+                        In the library's "Table of Contents" window, click the <strong>Add Device</strong> button. Since only one symbol can be inside a device, I'll give it a name similar to the symbol.
+                    </p>
+                    <img src="../../img/eagle-library-add-device-button.png">
+                    <p>
+                        The device editor has a left and a right panel. The left panel is where you add the symbol, and the right panel is where you add one or more footprints.
+                    </p>
+                    <p>
+                        On the left side, add the symbol by pressing the <strong class="code">Add Part</strong> button.
+                    </p>
+                    <img src="../../img/eagle-library-add-part-button.png">
+                    <p>
+                        A window opens showing all the symbols in the library. This library just has one, select it.
+                    </p>
+                    <img src="../../img/eagle-library-add-part-window.png">
+                    <p>
+                        Place the symbol over the origin, and click to drop it in place. Now a symbol has been added to the device.
+                    </p>
+                    <img src="../../img/eagle-library-part-added.png">
+                    <p>
+                        In the right panel, click the <strong>New</strong> button, and add a local package (the footprint we just made).
+                    </p>
+                    <img src="../../img/eagle-library-device-add-local-package.png">
+                    <p>
+                        Add the footprint we just made, and it will show up in the footprint list, along with a picture.
+                    </p>
+                    <p>
+                        Notice there is a yellow [!] next to the footprint. This is because we haven't connected it to the symbol yet.
+                    </p>
+                    <img src="../../img/eagle-library-footprint-added.png">
+                    <p>
+                        Highlight the footprint, and press the <strong>Connect</strong> button in the bottom right.
+                    </p>
+                    <p>
+                        A window will open, showing all the <strong class="code">PINs</strong> from the symbol, and the <strong class="code">SMD</strong> and/or <strong class="code">PAD</strong> connections in the footprint.
+                    </p>
+                    <p>
+                        This is why it was so important that we name all the <strong class="code">PINs</strong> and <strong class="code">SMDs</strong>/<strong class="code">PADs</strong>. If they had random names, this next step would be easy to mess up.
+                    </p>
+                    <img src="../../img/eagle-library-connect-window.png">
+                    <p>
+                        Look back at the schematic image from the datasheet. Each pin has a label, saying what footprint pad it is connected to (the numbers 1-4).
+                    </p>
+                    <img src="../../img/eagle-library-datasheet-schematic.png">
+                    <p>
+                        I can see the <strong class="code">Anode</strong> pin is connected to the SMD pad <strong class="code">#1</strong>, so I'll highlight both of those, and press <strong>Connect</strong>.
+                    </p>
+                    <p>
+                        After connecting, they will both show up together in the right "Connection" column.
+                    </p>
+                    <img src="../../img/eagle-library-connect-one-done.png">
+                    <p>
+                        Carefully follow the datasheet, and connect the rest of the pins.
+                    </p>
+                    <img src="../../img/eagle-library-connect-all-done.png">
+                    <p>
+                        Press OK to save the connections, and now the footprint will show a green checkmark next to it. This means that it has been connected to the symbol.
+                    </p>
+                    <img src="../../img/eagle-library-connect-green-mark.png">
+                    <p>
+                        The last thing to do, is to add the part number for this LED. It would be a shame if we went through all this work, but then forgot exactly what LED this was for.
+                    </p>
+                    <p>
+                        Underneath the symbol drawing, there is a section with "Description", "Technologies", and "Attributes".
+                    </p>
+                    <img src="../../img/eagle-library-description-section.png">
+                    <p>
+                        You can put whatever you want inside the "Description" section (like links to digikey, or a summary of what the part does).
+                    </p>
+                    <p>
+                        However, it is in the "Attributes" section that we commonly put a part number.
+                    </p>
+                    <p>
+                        Click the "Attribute" blue link, and then in the window that opens click the <strong>New</strong> button.
+                    </p>
+                    <p>
+                        An attribute has a name and a value. For the name, put <strong>PN</strong> (stands for part-number), and for the value always put the <em>manufacturer's part number</em>. This is different that the supplier's part number (which could be entirely different).
+                    </p>
+                    <img src="../../img/eagle-library-add-part-number.png">
+                    <p>
+                        Press OK to save, then OK again, and that footprint will now have a part number saved for this device.
+                    </p>
+                    <img src="../../img/eagle-library-description-section-with-pn.png">
+                    <p>
+                        Save everything, and now we have a side-firing RGB LED in our new Eagle library.
+                    </p>
+                    <img style="max-width: 48%" src="../../img/eagle-library-finished-led-schematic.png">
+                    <img style="max-width: 48%" src="../../img/eagle-library-finished-led-board.png">
+                </div>
+                <div class="contentBlock" id="import-parts-to-library">
+                    <h3>Import Parts to Library</h3>
+                    <p>
+                        You can also import devices, footprints, or symbols from one library into another library.
+                    </p>
+                    <p>
+                        In the library's "Table of Contents" window, when you click <strong>Add Device</strong> (or add symbol or footprint), you can choose to <strong>Import</strong> a device.
+                    </p>
+                    <img src="../../img/eagle-library-import-device.png">
+                    <p>
+                        Once that device is imported into your library, you will have access to the device, the footprints, and the symbol inside it.
+                    </p>
+                </div>
+                <div class="contentBlock" id="export-library-from-a-design">
+                    <h3>Export Library from a Design</h3>
+                    <p>
+                        If you have a schematic that, for example, you downloaded from the internet, then you may not be able to access the design's parts through the library editor. This is because the parts are embedded inside the design file, and not inside an actual Library.
+                    </p>
+                    <p>
+                        You can convert the parts in a design file to an Eagle library by opening the schematic editor, and going up to <strong>File -> Export -> Libraries</strong>.
+                    </p>
+                    <p>
+                        A window will open, where you can select which parts you want to export, how many individual libraries you want created, and if a prefix should be added to each device/footprint/symbol name.
+                    </p>
+                    <img src="../../img/eagle-library-export-design.png">
+                    <p>
+                        Once the library is exported, you can add it to your Eagle file directory to re-use in other designs. Or, you can import this new library's parts into another Eagle library.
+                    </p>
+                    <p>
+                        The world is yours.
+                    </p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

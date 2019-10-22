@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../../css/main.css">
+        <link rel="icon" href="../../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <h1>
+                    Homemade Hardware
+                </h1>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit" href="../../..">Syllabus</a>
+                    <a class="navUnit" href="../../../students/">Students</a>
+                    <a class="navUnit" href="../../../archives">Archives</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h3>Stuff</h3>
+                    <h2>Dry-Film Solder Mask</h2>
+                    <p class="classDate">Production #3</p>
+                        <p>Great video on using the dry-film solder mask, step-by-step.</p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/B0Syj4awcc8" frameborder="0" allowfullscreen></iframe>
+                        <h3>1 - Design the printout</h3>
+                            <p>Our solder mask will cover everything except the places where we need to solder something. Those spots have their own layers in Eagle, call ehd tStop and bStop layers. If I'm making a mask for the top of my board, then I'll hide every layer except the tStop layer, and save as a PDF. Make sure you have the "black" and "solid" options checked.</p>
+                            <p>You can then further design your tStop printout by opening the PDF in software like Illustrator. You can place the ink anywhere on the paper, and copy and paste the design to make multiple copies.</p>
+                        <h3>2 - Print on transparency paper</h3>
+                            <p>ITP uses laser printers, and most transparency papers will melt and destroy a laser printer. You need to make sure you are using transparency paper specifically designed to go through a laser printer!.</p>
+                            <p>Use this transparency paper to print your tStop layer in black ink. If any spots come out too thin, you can thicken the ink with a permanent marker.</p>
+                        <h3>3 - Clean and test board</h3>
+                            <p>Before adding a solder mask to you board, you'll want to make sure all your traces and holes are correct and not bridging. Scrub with a scour pad, and use a multimeter to beep-test all connections. Once the solder mask is added, this sill be more difficult to test.</p>
+                        <h3>4 - Laminate film</h3>
+                            <p>Cut out a piece of green dry-film solder mask large enough to cover your copper traces. The film as two sides, one shiny and smooth, the other duller and matte. Peel off the plastic on the dull/matte side to expose the adhesive. Press the film ontop of your copper traces, and rub all over to remove any air bubbles.</p>
+                            <p>Pass your copper plate through the heated up laminator, with the film stuck stuck on. The laminator melts the adhesive on the film, letting it stick better to the copper plate. After about 4 passes through, quickly run your board under cold water to quickly cool the adhesive and strengthen the bond.</p>
+                        <h3>5 - Align and expose to UV</h3>
+                            <p>Take your transparency with the black tStop or bStop layer, and align it to your board. Place in the UV exposure unit, and make sure the transparency stays aligned. Expose the board to UV light to cure all the solder-mask that's not under black ink.</p>
+                            <p>The amount of time it takes for this exposure step depends on the intensity of the UV expsosure unit. UV exposure units must be tested to find their best value, and given a label to indicate times.</p>
+                        <h3>6 - Leave in dark for 30 minutes</h3>
+                            <p>After exposing to UV light, leave your board in a dark place for about 30-60 minutes. It has been said that this is an important step in creating the best results.</p>
+                        <h3>7 - Develop</h3>
+                            <p>Fill a tupperware container with warm/hot water, and add 1/2 a spoon full of sodium carbonate (a white powder). Add your plate to the container. Using a toothbrush or similar, gently rub your boad to help the developer.</p>
+                            <p>After a few seconds, you should start to see your tStop or bStop layers revealed through the dissolving solder mask. Continue developing and gently brushing for another minute or so until the copper pads are fully revealed. Do not develop for too long, however, or you will remove more solder mask than you want to.</p>
+                            <p>When done, remove from the developer, clean under a water faucet, and dry with a hair dryer. Do not touch the solder mask, as it is still soft and can fall off.</p>
+                        <h3>8 - Cure under UV</h3>
+                            <p>To fully cure the solder mask, put it back under UV light for 5-20 minutes. This will make your solder mask dry and crispy. Aftewards, solder mask can be removed by simply scrapping at it with a sharp tool to expose the copper underneath.</p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
