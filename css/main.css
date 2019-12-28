@@ -122,9 +122,14 @@ img {
 	padding: 20px 0px 0px 0px;
 }
 
-.classDate {
+.subheadline {
 	margin-top:-10px;
 	color:gray;
+    text-transform: uppercase;
+}
+
+.classDate {
+    margin-top:-10px;
 }
 
 .lecturetype_design {
