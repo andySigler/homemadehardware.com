@@ -40,20 +40,38 @@
                 <div class="contentBlock">
                     <h3>Project Description</h3>
                     <p>
-                        We will be creating a group project, each of you making a PCB in the shape of a letter. Together, all your letters will spell a phrase. Your PCBs will have LEDs on them and a sensor, so that they can light-up and be interactive.
+                        We will be creating a group project, each of you making a PCB in the shape of a letter. Together, all your letters will spell a phrase. Your PCBs will have LEDs on them and a capacitive sensor, so that they can light-up and be interactive.
                     </p>
-                    <img src="../../../img/marquee-drawing.jpg">
                     <p>
                         To make a letter PCB, you will need a few important things on it:
                         <ul>
                             <li><strong>Microcontroller</strong> (to run your code)</li>
                             <li><strong>LEDs</strong> (to create light)</li>
                             <li><strong>Transistor</strong> (to PWM all the LEDs)</li>
-                            <li><strong>Sensor</strong> (to make it interactive)</li>
+                            <li><strong>Capacitive Sensor</strong> (to make it interactive)</li>
                             <li><strong>Power Connectors</strong> (to turn it on)</li>
                             <li>plus resistors, capacitors, and points to connect programming wires</li>
                         </ul>
                     </p>
+                    <video style="max-width:100%; height:auto; border:1px solid #aaa" controls loop muted id="vid_marquee_h">
+                        <source src="../../../img/marquee-H-video.webm" type="video/webm">
+                        <source src="../../../img/marquee-H-video.ogv" type="video/ogg">
+                        <source src="../../../img/marquee-H-video.mp4" type="video/mp4">
+                    </video>
+                    <script type="text/javascript">
+                        var vid_marquee_h = document.getElementById('vid_marquee_h');
+                        vid_marquee_h.removeAttribute('controls');
+                        vid_marquee_h.addEventListener('canplaythrough', function(e){
+                            vid_marquee_h.play();
+                        })
+                    </script>
+                    <p>
+                        In my PCB above, I am using a quarter for my capacitive sensor. You can pick and conductive thing (metal, conductive thread, etc), and attach it to your PCB. Please do not pick a sensor that is larger than your PCB!!!
+                    </p>
+                    <p>
+                        Once our PCBs are ready, we will assemble them together to spell out our phrase. Below is a (bad) drawing of how they will be connected together.
+                    </p>
+                    <img src="../../../img/marquee-drawing.jpg">
                 </div>
                 <div class="contentBlock">
                     <h3>Pick a Phrase</h3>
@@ -79,17 +97,11 @@
                         <ul>
                             <li>be completely designed and fabricated yourself</li>
                             <li>use less-than-or-equal-to (<=) 25 LEDs</li>
-                            <li>use one sensor of your choosing</li>
+                            <li>use one capacitive sensor (can be anything conductive)</li>
                             <li>have two power connectors, for both input and output</li>
                             <li>be on a single-sided PCB, no bigger than 70mm x 70mm (can be smaller)</li>
-                            <li>use entirely SMD parts (except your sensor if it is not SMD)</li>
+                            <li>use only SMD parts</li>
                         </ul>
-                    </p>
-                </div>
-                <div class="contentBlock">
-                    <h3>Eagle Template</h3>
-                    <p>
-                        To start your design, use the Eagle template "<strong><span class="code">homemade-hardware/projects/marquee_letter_template</span></strong>" found in the <a href="https://github.com/andysigler/homemade-hardware">class repository</a>. The board design has the power connectors, and some guidelines on the maximum size of your PCB.
                     </p>
                 </div>
             <div class="footerSection">
