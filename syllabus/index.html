@@ -311,7 +311,22 @@
 					<h2>Class 5</h2>
 					<p class="subheadline">February 28</p>
 					<h3>Assemble and Test the <a href="./assignments/marquee">Marquee Sign</a></h3>
+					<video style="max-width:100%; height:auto; border:1px solid #aaa" controls loop muted id="vid_marquee_2020">
+                        <source src="../../../img/marquee-2020-video.webm" type="video/webm">
+                        <source src="../../../img/marquee-2020-video.ogv" type="video/ogg">
+                        <source src="../../../img/marquee-2020-video.mp4" type="video/mp4">
+                    </video>
+                    <script type="text/javascript">
+                        var vid_marquee_2020 = document.getElementById('vid_marquee_2020');
+                        vid_marquee_2020.removeAttribute('controls');
+                        vid_marquee_2020.addEventListener('canplaythrough', function(e){
+                            vid_marquee_2020.play();
+                        })
+                    </script>
 					<h3>Lecture: Rules of Electricity</h3>
+					<p>
+						<a href="https://docs.google.com/presentation/d/1l1zqsuG7qQHQqZ1NH8HPIawQpQrkYuXIpbyFKlSfZ58/edit?usp=sharing">Link to presentation</a> from class.
+					</p>
 				</div>
 				<br /><br />
 				<div class="contentBlock" id="class-6">
