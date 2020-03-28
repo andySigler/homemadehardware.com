@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Eagle Part Design</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-eagle-real-world.jpg')"></div>
+                    <p>
+                        The final steps needed when making our PCB at a "real-world" PCB manufacturer.
+                    </p>
+                    <ol>
+                        <li><a href="#ordering-a-pcb">Ordering a PCB</a></li>
+                        <li><a href="#change-the-design-rule-check">Change the Design Rule Check</a></li>
+                        <li><a href="#add-more-vias">Add More Vias</a></li>
+                        <li><a href="#silkscreen-labels">Silkscreen Labels</a></li>
+                        <li><a href="#4-layer-boards">4 Layer Boards</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock">
+                    <img src="../../img/eagle-real-world-morpheus.jpg">
+                </div>
+                <div class="contentBlock" id="ordering-a-pcb">
+                    <h3>Ordering a PCB</h3>
+                    <p>
+                        When ordering a PCB, you have two options:
+                        <ol>
+                            <li><strong>PCB</strong>: order just the copper board with your design (aka "printed-circuit-board")</li>
+                            <li><strong>PCBA</strong>: order your designed board, plus have all of your componented already soldered on (aka "printed-circuit-board-assembled")</li>
+                        </ol>
+                    </p>
+                    <p>
+                        When ordering PCBA, you often have two options for how the manufacturer will get the components. Either they order them themselves, or you mail them your parts (or some of your parts). If they are not able to find a part, then you can ask them to simply not assemble it and you can then solder it yourself when you get the boards.
+                    </p>
+                    <p>
+                        As you might have already guessed, PCBA order can cost much more than PCB orders, especially when ordering just a few board. The machines that are used to not only create the PCB, but to then add solder paste and place your components, those machines require time to setup just your design. Whether you are making 3 or 300 boards, that same amount of time must be spent to setup the machines for your design.
+                    </p>
+                    <p>
+                        There are many PCB/PCBA suppliers to pick from, some in the USA and most in China. Because all of them are different, and require different files and information, this guide will not go into any detail about how to use each individual supplier.
+                    </p>
+                    <p>
+                        However, here is a short list of suppliers that I have personally used successfully:
+                        <ul>
+                            <li><a href="https://oshpark.com/">OSHPark</a>: USA (PCB only, no assembly)</li>
+                            <li><a href="https://www.nextpcb.com/">NextPCB</a>: China</li>
+                            <li><a href="https://www.pcbway.com/">PCBWay</a>: China</li>
+                            <li><a href="https://www.4pcb.com/">Advanced Circuits</a>: USA</li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="contentBlock" id="change-the-design-rule-check">
+                    <h3>Change the Design Rule Check</h3>
+                    <p>
+                        When making your PCB with a real manufacture, there are many more things you can do on the board design. For example, your routes can be thinner, and your vias can be smaller and will be filled with copper (nice!).
+                    </p>
+                    <p>
+                        So, before doing anything to your Eagle design, you'll want to make sure that the Design Rule Check (DRC) settings are setup for designing like this.
+                    </p>
+                    <p>
+                        If you remember in the first Eagle guide (<a href="../eagle-setup">Eagle Setup</a>), we placed our own <span class="code">.DRU</span> file in Eagle's <span class="code">design-rules</span> directory. The original <span class="code">.DRU</span> is hopefully still there, and you named it something like <span class="code">default_OLD.dru</span>
+                    </p>
+                    <a href="../../img/eagle-default-dru-5.png"><img src="../../img/eagle-default-dru-5.png" /></a>
+                    <p>
+                        When using the design rules that we copied over during that guide, we are following the rule settings from Bantam. These are what force our routes to be bigger, our vias to be bigger, and our ground planes isolated farther away from things. See the image below as to what that looks like in a board design.
+                    </p>
+                    <a href="../../img/eagle-real-world-drc-1.png"><img src="../../img/eagle-real-world-drc-1.png" /></a>
+                    <p>
+                        If I want to make the ground plane closer to things, then I'll need to change my DRC settings. Start by clicking the <span class="code">DRC</span> button at the bottom of the toolbar.
+                    </p>
+                    <a href="../../img/eagle-real-world-drc-button.png"><img src="../../img/eagle-real-world-drc-button.png" /></a>
+                    <p>
+                        This will open the DRC menu, where you can load a different file. Click to <span class="code">LOAD</span> button, select your <span class="code">default_OLD.dru</span>.
+                    </p>
+                    <a href="../../img/eagle-real-world-load-default.png"><img src="../../img/eagle-real-world-load-default.png" /></a>
+                    <p>
+                        <strong class="code">NOTE:</strong> you can also download <span class="code">DRU</span> files from the board manufacturer. Often times, they will create one for you to use in your design, to make sure your PCB can be made in their facility. For example, OSHPark has <span class="code">DRU</span> files that you can use: <a href="https://docs.oshpark.com/design-tools/eagle/design-rules-files/">download them here</a>.
+                    </p>
+                    <a href="../../img/eagle-real-world-oshpark-dru.png"><img src="../../img/eagle-real-world-oshpark-dru.png" /></a>
+                    <p>
+                        With those new setting loaded, I run the <span class="code">RATSNEST</span> command again to redraw my ground planes, and now I can see I'm using "real-world" settings. And wow! My ground plane can now fill in much more space, cool!
+                    </p>
+                    <a href="../../img/eagle-real-world-dru-loaded.png"><img src="../../img/eagle-real-world-dru-loaded.png" /></a>
+                </div>
+                <div class="contentBlock" id="add-more-vias">
+                    <h3>Add More Vias</h3>
+                    <p>
+                        Now that your PCB is going to be made by a real manufacturer, that means that your vias can be smaller, and they will automatically be filled with copper. This makes them conductive, connecting the top and bottom layers of your PCB.
+                    </p>
+                    <p>
+                        For example, you can now add vias underneath parts! No problem.
+                    </p>
+                    <a href="../../img/eagle-real-world-via-under-part.png"><img src="../../img/eagle-real-world-via-under-part.png" /></a>
+                    <p>
+                        A common use of vias, is to place them all over the place connecting the <span class="code">GND</span> planes on both sides. By connecting the ground planes in many spots, this helps to further reduce noise and other things on your board.
+                    </p>
+                    <p>
+                        Start by drawing a <span class="code">VIA</span>, and naming it <span class="code">GND</span>. You can make it's diameter small now because of the manufacturer, maybe 0.4mm.
+                    </p>
+                    <p>
+                        Now that it is named <span class="code">GND</span> and connected to the ground planes on both sides, <span class="code">COPY</span> and <span class="code">PASTE</span> it all over the place to further connect the ground planes.
+                    </p>
+                    <a href="../../img/eagle-real-world-via-ground-plane.png"><img src="../../img/eagle-real-world-via-ground-plane.png" /></a>
+                </div>
+                <div class="contentBlock" id="silkscreen-labels">
+                    <h3>Silkscreen Labels</h3>
+                    <p>
+                        Your PCB manufacturer will be able to put a silkscreen on your board, so that all of your labels for names and values can be visible. Before finishing your design, you will want to spend a few minutes organizing your names and values so you can read them better.
+                    </p>
+                    <p>
+                        In your board design, go the to <span class="code">LAYERS</span> menu, and hide everything except for the names and values:
+                    </p>
+                    <a href="../../img/eagle-real-world-names-value-layers.png"><img src="../../img/eagle-real-world-names-value-layers.png" /></a>
+                    <p>
+                        We want to start by making them all the same font size. Group-highlight all of the names and values on your board.
+                    </p>
+                    <a href="../../img/eagle-real-world-text-group.png"><img src="../../img/eagle-real-world-text-group.png" /></a>
+                    <p>
+                        With them highlighted, click on the <span class="code">CHANGE</span> tool, select size, and change the size to 0.6mm.
+                    </p>
+                    <a href="../../img/eagle-real-world-text-change-size.png"><img src="../../img/eagle-real-world-text-change-size.png" /></a>
+                    <p>
+                        To now actually change their size, right click on one of the highlighted texts, and select <span class="code">Change: Group</span>.
+                    </p>
+                    <a href="../../img/eagle-real-world-text-change-group.png"><img src="../../img/eagle-real-world-text-change-group.png" /></a>
+                    <p>
+                        Now they should all be 0.6mm tall. Before organizing them, we want to see some other layers that will help us. In the layers menu, select only the following layers:
+                    </p>
+                    <a href="../../img/eagle-real-world-text-layers.png"><img src="../../img/eagle-real-world-text-layers.png" /></a>
+                    <p>
+                        One by one, go through your text labels, and move/rotate them around so that they are easier to read. You want to place each part name right next to the part, so that it is obvious what each part is named. The values are less important (I think), so I usually just delete the values texts.
+                    </p>
+                    <a href="../../img/eagle-real-world-text-organized.png"><img src="../../img/eagle-real-world-text-organized.png"></a>
+                    <p>
+                        Finally, it's nice to add a big label to your board, usually with a version number on it. You can use the <span class="code">TEXT</span> command to make the label. You must place this label on one of the following layers in order for it to be on the silkscreen:
+                        <ul>
+                            <li>tPlace</li>
+                            <li>bPlace</li>
+                            <li>tNames</li>
+                            <li>bNames</li>
+                            <li>tValues</li>
+                            <li>bValues</li>
+                        </ul>
+                    </p>
+                    <a href="../../img/eagle-real-world-text-label.png"><img src="../../img/eagle-real-world-text-label.png"></a>
+                </div>
+                <div class="contentBlock" id="4-layer-boards">
+                    <h3>4 Layer Boards</h3>
+                    <p>
+                        Probably the most impressive thing that a real-world manufacturer can do that our DIY boards cannot do, is making 4-layer PCBs. This means that in addition to the copper layers on the top and bottom, there are also two hidden layers of copper inside the board. Wow!
+                    </p>
+                    <img src="../../img/eagle-real-world-4-layer-drawing.jpg">
+                    <p>
+                        When would you want to do this? Well, not often. 4-layer board cost much more than 2-layer boards, so you won't be doing this very often at all. And if you are making a 4-layer board, it should only be because you absolutely <strong>must</strong> make your PCB a certain size, and all the routes just do not fit on 2 layers.
+                    </p>
+                    <p>
+                        At first, 4-layers might sound complicated to design. But actually, it's fairly straight forward, and not much more complicated than a 2-layer board.
+                    </p>
+                    <p>
+                        The first thing you'll need to do is change your DRC file, so that it is setup for 4-layers. Instead of modifying the DRC by hand, I'll just use a pre-made one from OSHPark. This 4-layer DRC file will automatically add 2 new copper layers to my design. <a href="https://docs.oshpark.com/design-tools/eagle/design-rules-files/">download it here</a>.
+                    </p>
+                    <a href="../../img/eagle-real-world-4-layer-osh-park-drc.png"><img src="../../img/eagle-real-world-4-layer-osh-park-drc.png"></a>
+                    <p>
+                        Once that DRU file is loaded into your DRC, then two new copper layers can be found in your layers menu. The are on layers number 2 and 15.
+                    </p>
+                    <a href="../../img/eagle-real-world-4-layers-added.png"><img src="../../img/eagle-real-world-4-layers-added.png"></a>
+                    <p>
+                        With these new layers, you can now route on 4 different layers! However, be warned, you should always try to keep your routes on the outer layers (number 1 and 16). This will help you debug your board later once it's made. Imagine if you put a route on one of the inner layers (2 or 15), and you needed to beep-test it. That would be impossible!
+                    </p>
+                    <p>
+                        Because of that, try to only use the two inner layers (2 and 15) for holding power and ground. If you really must use an inner layer to route, you can, but try and avoid it.
+                    </p>
+                    <p>
+                        To start, one of the most common things to do is to move your ground plane to just one of the layers. I'll add a ground plane to layer number 2. This will make it even easier to connect my ground signals all over the board.
+                    </p>
+                    <a href="../../img/eagle-real-world-inner-ground-plane.png"><img src="../../img/eagle-real-world-inner-ground-plane.png"></a>
+                    <p>
+                        Now, on the other inner layer (15), I'm going to add some power planes. These are polygons, just like the ground planes, but instead of naming them GND, and name them after my power signals. You can also make separate power planes for each of your power lines. In the images below, you can see I made three different power planes, one for each of my voltages.
+                    </p>
+                    <a href="../../img/eagle-real-world-power-plane-1.png"><img src="../../img/eagle-real-world-power-plane-1.png"></a>
+                    <a href="../../img/eagle-real-world-power-plane-2.png"><img src="../../img/eagle-real-world-power-plane-2.png"></a>
+                    <a href="../../img/eagle-real-world-power-plane-3.png"><img src="../../img/eagle-real-world-power-plane-3.png"></a>
+                    <p>
+                        Now that I have these power planes, I and ripup the routes that were used to connect my power lines. And instead, I can simply use vias to connect my power pins to the inner power planes.
+                    </p>
+                    <a href="../../img/eagle-real-world-power-vias.png"><img src="../../img/eagle-real-world-power-vias.png"></a>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
