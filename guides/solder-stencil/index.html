@@ -119,8 +119,19 @@
                         Also, attach a PCB board (single or double sided) onto the Bantam's bed. We will be using this as a "spoilboard".
                     </p>
                     <p>
-                        Run the "Tool Locate" process, to probe the location of the bit. And then, measure the thickness of your PCB board with the <strong>BitBreak -> Probe Material Thickness</strong> process.
+                        Run the "Tool Locate" process, to probe the location of the bit. <a href="../bantam-setup/#locate-the-probe-bit">See the guide on locating the bit here</a>
                     </p>
+                    <p>
+                        And then, measure the thickness of your PCB board with the <strong>BitBreak -> Probe Material Thickness</strong> process. <a href="../bantam-setup/#probe-pcb-thickness">See the guide on probing the material thickness here</a>.
+                    </p>
+                    <img src="../../img/bantam_probe_thickness_menu_zoom.png">
+                    <p>
+                        That guide uses the "1/8 inch diameter probe" to measure the thickness, but I recommend you use the engraving bit here because that's what we will use to make the stencil.
+                    </p>
+                    <p>
+                        Probing the PCB board will give us it's thickness (relative to the position of the metal spoil board).
+                    </p>
+                    <img src="../../img/bantam_probe_thickness_accept.png">
                     <p>
                         The transparency sheet we will cut will eventually be taped down on top of the PCB board.
                     </p>
@@ -130,18 +141,33 @@
                     <p>
                         Then, because the transparency is thin, we will say the material's thickness is <strong class="code">0.5mm</strong> (this does not need to be too perfect, the <strong class="code">Z</strong> position is more important).
                     </p>
+                    <img src="../../img/solder-stencil-board-height-1.png">
+                    <img src="../../img/solder-stencil-board-height-2.png">
                     <p>
                         Tape the transparency down onto the PCB board, using double-sided tape.
                     </p>
+                    <img src="../../img/solder-stencil-tape-down.jpg">
                     <p>
                         Mill the SVG file (milling only the <strong>Cutout</strong> with the "Advanced" cutout setting <strong>Inside</strong>)
                     </p>
                     <p>
                         Watch the cuts closely. If you do not think the engraving bit is reaching down to the copper on the PCB plate, then stop the job and decrease the material's <strong class="code">Z</strong> position by <strong>0.1</strong> millimeters. Then try again.
                     </p>
+                    <img src="../../img/solder-stencil-cut-through.jpg">
                     <p>
-                        When it is done, you will have a transparency solder stencil.
+                        When it is done, you will have a transparency solder stencil. The spoil board (copper plate) underneath should be cut through just a little bit.
                     </p>
+                    <p>
+                        When you are done, there might be quite a few rough spots. The bit may not cut perfectly, so you will want to clean up the transparency paper so it is as smooth as possible.
+                    </p>
+                    <p>
+                        Start by using a blade to cut out any holes that were not completely clean. Use a share blade.
+                    </p>
+                    <img src="../../img/solder-stencil-clean-cut.jpg">
+                    <p>
+                        Then, use a scour pad to rub off any remaining parts that are not smooth. However, do not rub too much or your transparency will have so many scratches on it that you won't be able to see through it any more.
+                    </p>
+                    <img src="../../img/solder-stencil-clean-scrub.jpg">
                 </div>
                 <div class="contentBlock" id="setup-the-stencil">
                     <h3>Setup the Stencil</h3>
