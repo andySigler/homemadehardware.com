@@ -67,7 +67,7 @@
                             <li><a href="#accelerometer">Accelerometer</a></li>
                             <li><a href="#touch">Touch</a></li>
                             <li><a href="#proximity">Proximity</a></li>
-                            <li><a href="#photocell">Photocell</a></li>
+                            <li><a href="#phototransistor">Phototransistor</a></li>
                             <li><a href="#microphone">Microphone</a></li>
                         </ul>
                     </p>
@@ -129,6 +129,16 @@
                             The <a href="https://github.com/mattairtech/ArduinoCore-samd/blob/master/bootloaders/zero/binaries/sam_ba_Generic_D11C14A_SAMD11C14A.bin">bootloader binary image is located at this link</a>. To flash that bootloader, you'll need to connect <strong class="code">SWDIO</strong>, <strong class="code">SWDCLK</strong>, <strong class="code">RESET</strong>, <strong class="code">VCC</strong>, and <strong class="code">GND</strong> pins to a J-Link.
                         </p>
                         <p>
+                            <ul>
+                                <li>RED <-> VCC</li>
+                                <li>YELLOW <-> GND</li>
+                                <li>BLUE <-> SWDIO</li>
+                                <li>GREEN <-> SWDCLK</li>
+                                <li>ORANGE <-> RESET</li>
+                            </ul>
+                            <img src="../../img/jlink-pins.jpg">
+                        </p>
+                        <p>
                             J-Link Flashing (in Terminal enter <strong class="code">jlinkexe</strong>)
                             <ul>
                                 <li><strong class="code">connect</strong>
@@ -140,7 +150,7 @@
                                 </li>
                                 <li><strong class="code">erase</strong></li>
                                 <li><strong class="code">r</strong></li>
-                                <li><strong class="code">loadbin /path/to/sam_ba_Generic_D11C14A_SAMD11C14A.bin</strong></li>
+                                <li><strong class="code">loadbin /path/to/sam_ba_Generic_D11C14A_SAMD11C14A.bin, 0</strong></li>
                                 <li><strong class="code">r</strong></li>
                                 <li><strong class="code">g</strong></li>
                                 <li><strong class="code">exit</strong></li>
@@ -269,10 +279,10 @@
                             <li>Picture<br><img src="../../img/recommend-APDS-9960.png"></li>
                         </ul>
                     </div>
-                    <div id="photocell">
-                        <h4>Photocell</h4>
+                    <div id="phototransistor">
+                        <h4>Phototransistor</h4>
                         <p>
-                            A simply photocell. It acts as a variable resistor, depending on how much light is hitting it. Use with another resistor to create a voltage divider, and read the voltage on any microcontroller's ADC pin.
+                            This phototransistor acts as a variable resistor, depending on how much light is hitting it. Use with another resistor to create a voltage divider, and read the voltage on any microcontroller's ADC pin.
                         </p>
                         <ul>
                             <li><a href="https://www.adafruit.com/product/2748">Learn More</a></li>
