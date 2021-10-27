@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2020 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Eagle Schematic Design - 2</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-eagle-schematic-design-2.jpg')"></div>
+                    <p>
+                        This is the 2nd guide on Eagle schematics. This guide shows how to simplify schematic drawings with names, labels, and frames.
+                    </p>
+                    <p>
+                        Before starting this guide, make sure to have gone through the <a href="../eagle-schematic-design-1">Eagle Schematic Design - 1 guide</a>. There you will learn how to add parts and connect them together.
+                    </p>
+                    <ol>
+                        <li><a href="#power-and-ground-symbols">Power and Ground Symbols</a></li>
+                        <li><a href="#net-names-and-labels">Net Names and Labels</a></li>
+                        <li><a href="#frames-and-organizing">Frames and Organizing</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="power-and-ground-symbols">
+                    <h2>Power and Ground Symbols</h2>
+                    <p>
+                        Here I have a schematic. It is an ATTiny85 microcontroller, using an NPN transistor to turn on/off parallel LEDs. There is a 5-pin header for connecting a potentiometer, plus two sets of 2-pin headers for power (one in and on out).
+                    </p>
+                    <img src="../../img/eagle_schematic_before_design.png">
+                    <p>
+                        In the picture above, all the 5V and GND connections have lines drawn to connect them.
+                    </p>
+                    <p>
+                        These lines make the schematic harder to read, because they are difficult to follow by eye, and they sometimes need to cross over each other.
+                    </p>
+                    <p>
+                        We can make it simpler by using symbols: power (<strong class="code">Vcc</strong>) and ground (<strong class="code">GND</strong>)
+                    </p>
+                    <img src="../../img/eagle_schematic_symbols_close.png">
+                    <p>
+                        These symbols are both in the Homemade Hardware Eagle library. Add a new part to the schematic, and find <strong class="code">Vcc</strong> and <strong class="code">GND</strong>.
+                    </p>
+                    <a href="../../img/eagle_schematic_add_vcc.png"><img style="max-width:48%" src="../../img/eagle_schematic_add_vcc.png"></a>
+                    <a href="../../img/eagle_schematic_add_gnd.png"><img style="max-width:48%" src="../../img/eagle_schematic_add_gnd.png"></a>
+                    <p>
+                        Notice how I used *asterisks* when entering a search term. I recommend doing this all the time when searching.
+                    </p>
+                    <p>
+                        With our two new symbols added, we can start using them to replace all those green <strong class="code">5V</strong> and <strong class="code">GND</strong> lines.
+                    </p>
+                    <p>
+                        First, I will copy a <strong class="code">Vcc</strong> and <strong class="code">GND</strong> symbol, and connect them both to a 2-pin power input header.
+                    </p>
+                    <img src="../../img/eagle_schematic_connect_power_input.png">
+                    <p>
+                        Now, I am going to <strong class="code">DELETE</strong> the power and ground green connections on the <strong class="code">ATtiny85</strong>.
+                    </p>
+                    <p>
+                        Then, copy/paste the <strong class="code">Vcc</strong> and <strong class="code">GND</strong> symbols, and draw <strong class="code">NETs</strong> to connect them to the <strong class="code">ATtiny85</strong>.
+                    </p>
+                    <img style="max-width: 47.5%" src="../../img/eagle_schematic_delete_net_attiny.png">
+                    <img style="max-width: 48.5%" src="../../img/eagle_schematic_add_symbols_attiny.png">
+                    <p>
+                        Now do this on the entire schematic. Replace any <strong class="code">Vcc</strong> or <strong class="code">GND</strong> green connection with a symbol. This is what the schematic will look like afterwards:
+                    </p>
+                    <a href="../../img/eagle_schematic_power_symbols_complete.png"><img src="../../img/eagle_schematic_power_symbols_complete.png"></a>
+                    <p>
+                        Now there are far fewer green lines in our schematic. I think it look less messy, and it is easier to see where <strong>exactly</strong> power and ground are touching the different parts.
+                    </p>
+                </div>
+                <div class="contentBlock" id="net-names-and-labels">
+                    <h2>Net Names and Labels</h2>
+                    <p>
+                        There is a long green connection, where the <strong class="code">ATtiny85</strong> connects to the NPN transistor. If all schematics needed long lines like these, they would get messy quickly!
+                    </p>
+                    <p>
+                        We can clean it up by creating a <strong class="code">NAME</strong> for our <strong class="code">NET</strong>, and then adding a <strong class="code">LABEL</strong>.
+                    </p>
+                    <p>
+                        First: I'll delete the long green <strong class="code">NET</strong> that is there right now:
+                    </p>
+                    <img src="../../img/eagle_schematic_long_net_deleted.png">
+                    <p>
+                        Second: I'll draw two smaller <strong class="code">NETs</strong>, one on the <strong class="code">ATtiny85</strong> and the other on the resistor leading to the transistor:
+                    </p>
+                    <img src="../../img/eagle_schematic_add_short_nets.png">
+                    <p>
+                        Third: select the <strong class="code">NAME</strong> command (either clicking the icon or entering into the text box). Click one of the <strong class="code">NETs</strong> you drew, and give it a variable name.
+                    </p>
+                    <p>
+                        I'll call it <strong class="code">TINY_TO_TRANS</strong>:
+                    </p>
+                    <img src="../../img/eagle_schematic_name_icon.png">
+                    <img src="../../img/eagle_schematic_tiny_to_trans.png">
+                    <p>
+                        Fourth: click OK, and you will then be given the option to place a <strong class="code">LABEL</strong>. This label shows you the name of your connection. If the name of the connection changes, the label will automatically update.
+                    </p>
+                    <img src="../../img/eagle_schematic_tiny_to_trans_label.png">
+                    <p>
+                        Note: you can also label a <strong class="code">NET</strong> at any time by using the <strong class="code">LABEL</strong> command or button:
+                    </p>
+                    <img src="../../img/eagle_schematic_label_button.png">
+                    <p>
+                        Fifth: I don't like the default style of Eagle labels, so I always change them to a "flag" style (easier to read). Before placing the label (you're still moving it around), go to the top menu and click the <strong class="code">Xref On</strong> button.
+                    </p>
+                    <img src="../../img/eagle_schematic_label_xref_on.png">
+                    <p>
+                        Now the label looks more like a flag, so it is no longer easy to confuse it with a part name or value.
+                    </p>
+                    <p>
+                        Sixth: click to place it somewhere, or press the <strong class="code">ESC</strong> key to not place a label.
+                    </p>
+                    <img src="../../img/eagle_schematic_tiny_to_trans_label_flag.png">
+                    <p>
+                        Seventh: repeat steps 1-6 for the other small green connection on the resistor.
+                    </p>
+                    <img src="../../img/eagle_schematic_labels_wireless.png">
+                    <p>
+                        Amazing! Now both the pin on the <strong class="code">ATtiny85</strong> and the 220 ohm resistor are connected!
+                    </p>
+                    <p>
+                        Because we not longer have to worry about long green connections making a mess, we can move the transistor and LED subcircuit farther away.
+                    </p>
+                    <img src="../../img/eagle_schematic_wireless_spread_out.png">
+                    <p>
+                        We can also do this with the 5-pin header (for the potentiometer). I'll give the sensor's output pin a name and label, and do the same on the <strong class="code">ATtiny85</strong>.
+                    </p>
+                    <img src="../../img/eagle_schematic_sensor_wireless.png">
+                    <p>
+                        We can also do this on all the LED cathodes (negative side). Here's what that could look like:
+                    </p>
+                    <img src="../../img/eagle_schematic_wireless_cathodes.png">
+                    <p>
+                        All of these names and labels are to help us make schematics easier to read. Remember there is no true right or wrong way to label, but the easier it is to read the more likely you will be able to see any mistakes.
+                    </p>
+                </div>
+                <div class="contentBlock" id="frames-and-organizing">
+                    <h2>Frames and Organizing</h2>
+                    <p>
+                        One last way to we can further organize and clean our schematic is to add a frame.
+                    </p>
+                    <p>
+                        In the schematic, go to the "Add" window to add a new part.
+                    </p>
+                    <p>
+                        Search for a "frame" (put *asterisks* around it, like <strong class="code">*frame*</strong>)
+                    </p>
+                    <p>
+                        I found an Eagle library that comes with the software, called <strong class="code">frames</strong> (what a good name!).
+                    </p>
+                    <p>
+                        The one called <strong class="code">FRAME_A_L</strong> looks normal, I'll use it.
+                    </p>
+                    <img src="../../img/eagle_schematic_add_frame.png">
+                    <p>
+                        I'll place it on my schematic, so that it's bottom-left corner aligns with the schematic screens origin mark (the cross at the zero point).
+                    </p>
+                    <img src="../../img/eagle_schematic_place_frame.png">
+                    <p>
+                        Now I'll move each "subcircuit" to a different area, within the frame.
+                    </p>
+                    <p>
+                        A "subcircuit" is simply a group of parts, where they are all there to help towards the same feature (or sub-feature). So, I moved:
+                        <ul>
+                            <li>all the LED related parts to the bottom-left</li>
+                            <li>the <strong class="code">ATtiny85</strong> to the top-left</li>
+                            <li>the sensor input to the top-right</li>
+                            <li>the power in/out pins to the bottom-right</li>
+                        </ul>
+                    </p>
+                    <a href="../../img/eagle_schematic_move_subcircuits.png"><img src="../../img/eagle_schematic_move_subcircuits.png"></a>
+                    <p>
+                        You can also use the <strong class="code">LINE</strong> and <strong class="code">TEXT</strong> commands to make it even more clear what the subcircuits are:
+                    </p>
+                    <img src="../../img/eagle_schematic_line_command.png">
+                    <img src="../../img/eagle_schematic_text_command.png">
+                    <a href="../../img/eagle_schematic_lines_and_text.png"><img src="../../img/eagle_schematic_lines_and_text.png"></a>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
