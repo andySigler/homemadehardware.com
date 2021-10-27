@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid #CCC;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2020 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Arduino Uno: Components</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-arduino-uno-components.jpg')"></div>
+                    <p>
+                        This guide is an overview of the Arduino Uno PCB, it's components, and how you can breadboard an arduino with just a few components.
+                    </p>
+                    <p>
+                        The goal is to have a high-level understanding of what each component on an Arduino Uno is doing, and which parts are the most important.
+                    </p>
+                    <p>
+                        Guide Contents:
+                        <ol>
+                            <li><a href="#the-microcontroller">The Microcontroller</a></li>
+                            <li><a href="#reset-button">Reset Button</a></li>
+                            <li><a href="#voltage-regulators">Voltage Regulators</a></li>
+                            <li><a href="#uart-to-usb">UART to USB</a></li>
+                            <li><a href="#oscillators">Oscillators</a></li>
+                            <li><a href="#capacitors">Capacitors</a></li>
+                            <li><a href="#programming-pins">Programming Pins</a></li>
+                            <li><a href="#bare-minimum-breadboard">Bare Minimum Breadboard</a></li>
+                        </ol>
+                    </p>
+                </div>
+                <div class="contentBlock" id="the-microcontroller">
+                    <h3>The Microcontroller</h3>
+                    <p>
+                        When making projects with an Arduino, we tend to think of them like the image below. We have a sensor connected, and maybe an LED, and we connect those components to the Arduino's pins. Then, our code can be uploaded to use those components as inputs and outputs.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-02.jpg" class="">
+                    <p>
+                        In Homemade Hardware, we make our own circuit boards, so it would be helpful to go through the Arduino Uno to understand all its inner workings and design decisions.
+                    </p>
+                    <p>
+                        The Arduino Uno is probably the most popular microcontroller among makers and students, since its release in 2010. This is still the case today, because of it's giant body of open source software, and ease of use.
+                    </p>
+                    <p>
+                        This popularity is centralized around the most important part of the Arduino Uno: the microcontroller.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-03.jpg" class="">
+                    <p>
+                        A <a href="https://en.wikipedia.org/wiki/Microcontroller">microcontroller</a> is an <a href="https://en.wikipedia.org/wiki/Integrated_circuit">integrated circuit (IC)</a>, which can save custom software to it's internal memory, and then read and write to/from it's <a href="https://en.wikipedia.org/wiki/General-purpose_input/output">general-purpose input/output (GPIO)</a> pins. The Arduino platform can use these GPIO pins with functions like <strong class="code">digitalWrite()</strong>, <strong class="code">digitalRead()</strong>, etc.
+                    </p>
+                    <p>
+                        The microcontroller on the Arduino Uno, is called the <strong class="code">ATmega328p</strong> (<a href="https://www.digikey.com/product-detail/en/microchip-technology/ATMEGA328P-PU/ATMEGA328P-PU-ND/1914589">click this link to see the part on Digikey</a>). All of the open source software that has been developed for the Arduino Uno, really it has all been written for this specific microcontroller. Therefore, any PCB with an <strong class="code">ATmega328p</strong> on it can run the same code as an Arduino Uno.
+                    </p>
+                    <p>
+                        Microcontrollers can come in many different <a href="https://en.wikipedia.org/wiki/List_of_integrated_circuit_packaging_types">packages</a> (or shapes). The package can be smaller, bigger, shaped different, but it is still the same microcontroller. Since packages are just a shape, packages are also shared by many parts. That is why so many electronic parts look identical.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-pdip-328.jpg" class="">
+                    <p>
+                        The package in the Arduino Uno pictured above is called <a href="https://www.google.com/search?q=28-pdip&pws=0&gl=us&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjQhZXcvYfiAhUQVN8KHYoBBHcQ_AUIDygC&biw=1441&bih=946"><strong class="code">28-PDIP</strong></a>, and it is the biggest packages available for this microcontroller.
+                    </p>
+                    <p>
+                        Because this package has long pins designed to go through holes, this package is called a <strong>"through hole"</strong> package.
+                    </p>
+                    <p>
+                        Below is a picture of 4 different Arduino boards. Each of these boards uses an <strong class="code">ATmega328p</strong> for the microcontroller, however the packages are different. The two Arduino boards on the left use a package called <a href="https://www.google.com/search?pws=0&gl=us&biw=1441&bih=946&tbm=isch&sa=1&ei=8XXQXKiEG8-p_QazqIqYBA&q=32-TQFP&oq=32-TQFP&gs_l=img.3..0i30j0i8i30l2.33311.33311..33534...0.0..0.67.67.1......1....2j1..gws-wiz-img.KF_7dl80CrU"><strong class="code">32-TQFP</strong></a>, and the two Arduino boards on the right use a package called <a href="https://www.google.com/search?pws=0&gl=us&biw=1441&bih=946&tbm=isch&sa=1&ei=FHbQXLuaAu2zgge376PwAg&q=32-VQFN&oq=32-VQFN&gs_l=img.3..0i10.12346.12346..12714...0.0..0.105.105.0j1......1....2j1..gws-wiz-img.mErucDwX4sY"><strong class="code">32-VQFN</strong></a>.
+                    </p>
+                    <p>
+                        Because these smaller packages have tiny pins designed to weld to the surface of a PCB, this package is called a <strong>"surface mount"</strong> package.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-04.jpg" class="">
+                    <p>
+                        Since all the boards above use the <strong class="code">ATmega328p</strong>, they can all run the exact same code.
+                    </p>
+                    <p>
+                        Other, newer Arduino boards use entirely different microcontrollers. And since those microcontrollers also have multiple packages (shapes), there are different Arduino boards for each package (shape).
+                    </p>
+                    <p>
+                        Below are 3 examples of common Arduino microcontrollers, and for each showing two different packages of that same microcontroller. For example, the <strong class="code">ATSAMD21</strong> is used on both the Arduino Zero and the Adafruit Feather M0.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-05.jpg" class="">
+                    <p>
+                        This guide will continue to focus, however, on the <strong class="code">ATmega328p</strong>.
+                    </p>
+                    <p>
+                        The image below is from a <a href="https://www.sparkfun.com/news/384">post on Sparkun</a>, where they opened up a fake <strong class="code">ATmega328p</strong> and took microscopic pictures of its insides.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-06.jpg" class="">
+                    <p>
+                        The inside of an IC is made up of layers upon layers of silicon, that form basic electronic components (think silicon capacitors and transistors), which then create an overwhelmingly complex machine that can run our code.
+                    </p>
+                </div>
+                <div class="contentBlock" id="reset-button">
+                    <h3>Reset Button</h3>
+                    <p>
+                        Moving away from the microcontroller, there are quite a few other parts on the Arduino Uno.
+                    </p>
+                    <p>
+                        Starting with the reset button. Different versions of the Arduino Uno put this button in different locations. Mine is in the top right corner of the PCB.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-07.jpg" class="">
+                    <p>
+                        One of the many pins on the <strong class="code">ATmega328p</strong> is called the <strong class="code">RESET</strong> pin, and this button is connected directly to that pin. If that pin touches ground (LOW), then the microcontroller will restart the code.
+                    </p>
+                    <p>
+                        You can make a reset button yourself, by connecting any button you have between the <strong class="code">RESET</strong> and <strong class="code">GND</strong> pins on your Arduino.
+                    </p>
+                </div>
+                <div class="contentBlock" id="voltage-regulators">
+                    <h3>Voltage Regulators</h3>
+                    <p>
+                        Next, we'll talk about power and voltage.
+                    </p>
+                    <p>
+                        It is important to know that the <strong class="code">ATmega328p</strong> needs a power supply with a voltage somewhere between <strong>1.8 - 5.5</strong> volts. The Arduino team decided to make the Arduino Uno power it's <strong class="code">ATmega328p</strong> on <strong>5V</strong>.
+                    </p>
+                    <p>
+                        Therefore, this Arduino will try to "regulate" any voltage source, so that the voltage at the regulator's output becomes equal to the 5V its designers wanted.
+                    </p>
+                    <p>
+                        Take a look at the image below.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-08.jpg" class="">
+                    <p>
+                        There are two connectors on the Arduino Uno that can input power. These are the DC barrel jack on (on the top left), and the USB-B connector (on the top right). The DC barrel connector can take 5-12V as input, and the USB connector will always be 5V (because all USB is always 5V)
+                    </p>
+                    <p>
+                        The most important part in the image above is probably the "<strong>big regulator</strong>", which is a part that takes the voltage entering from the DC barrel jack, and converts it to 5V. This voltage regulator requires an "input voltage" of 5-12V. If the voltage rises above 12V, the regulator will break.
+                    </p>
+                    <p>
+                        In the image below, some parts are highlighted that handle the situation when power is connected to both connectors. An op-amp is used as a comparitor, who's binary output is then used to open/close a transistor on the USB connector's 5V input.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-09.jpg" class="">
+                    <p>
+                        This guide won't cover how exactly the parts in the image above work together, but it's neat to know about.
+                    </p>
+                </div>
+                <div class="contentBlock" id="uart-to-usb">
+                    <h3>UART to USB</h3>
+                    <p>
+                        Next up are the parts that handle communication over USB.
+                    </p>
+                    <p>
+                        If you look closely at the Arduino Uno, you will notice there is actually a second smaller microcontroller near the USB connector. This hidden microcontroller has the part number <strong class="code">ATmega8u2</strong>, but the part number not very important for this lesson.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-10.jpg" class="">
+                    <p>
+                        The important thing is to know that this hidden microcontroller is being used as a "<strong>uart-to-usb adapter</strong>".
+                    </p>
+                    <p>
+                        The <strong class="code">ATmega328p</strong>, sadly, does not have the ability to talk over USB. However, it can talk over "<strong>UART</strong>", or what can also be called "serial" or "Tx/Rx".
+                    </p>
+                    <p>
+                        The image above shows two small schematics, demonstrating how the physical wirings of a USB vs a UART connection are entirely different.
+                    </p>
+                    <p>
+                        The <strong class="code">ATmega8u2</strong> can communicate over both UART and USB as the same time. So, the Arduino Uno uses it as a translator between the <strong class="code">ATmega328p</strong> and any connected USB host.
+                    </p>
+                </div>
+                <div class="contentBlock" id="oscillators">
+                    <h3>Oscillators</h3>
+                    <p>
+                        Next up are the oscillators, which come in two forms: crystals or resonators.
+                    </p>
+                    <p>
+                        In the picture below, there is a larger, silver oscillator connected to the <strong class="code">ATmega8u2</strong>, and a smaller oscillator connected to the <strong class="code">ATmega328p</strong>.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-11.jpg" class="">
+                    <p>
+                        Oscillators are parts that create a pulse, like a PWM, except they pulse at one specific frequency, and very accurately.
+                    </p>
+                    <p>
+                        Microcontrollers need an oscillator to run. Each time the oscillator creates a new pulse, the microcontroller will run the next piece of code.
+                    </p>
+                    <p>
+                        The speed of the oscillator also controls the accuracy of <strong class="code">delay()</strong> and other time related things.
+                    </p>
+                </div>
+                <div class="contentBlock" id="capacitors">
+                    <h3>Capacitors</h3>
+                    <p>
+                        Most of the capacitors on the Arduino Uno have one of their legs touching power (either 12V or 5V), and the other leg touching ground (<strong class="code">GND</strong>).
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-12.jpg" class="">
+                    <p>
+                        When connected like this, the bigger capacitors act like backup power supplies for the PCB. Extra electrons are stored inside them, for any moments when they are need for power high-current loads (like motors or LEDs).
+                    </p>
+                    <p>
+                        The small capacitors are used for filtering out noise.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-13.jpg" class="">
+                    <p>
+                        In the image above, there is a graph showing voltage (Y axis) over time (X axis).
+                    </p>
+                    <p>
+                        All microcontrollers and ICs recommend putting a small capacitor near their power pins, to help reduce noise.
+                    </p>
+                </div>
+                <div class="contentBlock" id="programming-pins">
+                    <h3>Programming Pins</h3>
+                    <p>
+                        The last component we will go over are the programming pins.
+                    </p>
+                    <p>
+                        There are two sets of 2x3 row headers pins on the Arduino Uno. One set is located near the USB connector, and the other set is located at the bottom of the Arduino Uno.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-14.jpg" class="">
+                    <p>
+                        These pins are easy to ignore, but they are actually very important for whoever made this PCB. They are the "<strong>in-circuit serial programming (ICSP)</strong>" pins, and they are the only way to program a brand new <strong class="code">ATmega328p</strong>.
+                    </p>
+                    <p>
+                        In another guide, we will discuss this programming process in detail. For now, just know that an external device is used by the board maker to upload the microcontroller's first code. Those 2x3 row headers are where that device connects to.
+                    </p>
+                </div>
+                <div class="contentBlock" id="bare-minimum-breadboard">
+                    <h3>Bare Minimum Breadboard</h3>
+                    <p>
+                        Those are all of the components on an Arduino Uno.
+                    </p>
+                    <p>
+                        If we wanted to only have the bare minimum, most important components, it would probably be in the picture below.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-16.jpg" class="">
+                    <p>
+                        Understanding what these most important components are, and why they are needed, is the first step in designing PCBs of your own.
+                    </p>
+                    <p>
+                        We can also use this knowledge to make an Arduino on a breadboard.
+                    </p>
+                    <p>
+                        First, let's take a look at a diagram of the <strong class="code">ATmega328p</strong> pinout (click to make it bigger). This tells use where all the pins are located on the package.
+                    </p>
+                    <a href="../../img/arduino-uno-breakdown-35.jpg"><img src="../../img/arduino-uno-breakdown-35.jpg"></a>
+                    <p>
+                        Notice that each pin has multiple names. There are so many names for each pin, that I covered the least interesting of them up, so they would not distract you.
+                    </p>
+                    <p>
+                        The Arduino names for the pins are in the purple and green, and the power and ground pins are red and black.
+                    </p>
+                    <p>
+                        The only pin names that seem to have any organized order to them are the grey pins, which are the package's physical pin labels.
+                    </p>
+                    <p>
+                        Package physical pins always start from 1, and move counter-clockwise around the IC. There is also always some type of label or mark that tells you where pin 1 is located. On the <strong class="code">ATmega328p</strong> through-hole package, the mark is a half-circle cuttout at one end.
+                    </p>
+                    <img src="../../img/arduino-uno-breakdown-pdip-328-locator.jpg">
+                    <p>
+                        Start with a breadboard that has it's power and ground rails connected with wires on both sides. This makes it easier to connect parts to power and ground later on.
+                    </p>
+                    <p>
+                        The first components I'll add are an LED and a 220 ohm resistor, connected in series between power and ground. This way, I will know when the breadboard is powered, because the light will be on.
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-2.jpg">
+                    <p>
+                        An LED connected simply between power and ground is called a "power LED", and they are very useful for knowing if your circuit is on or not.
+                    </p>
+                    <p>
+                        Plug the microcontroller in, so that it's legs are on either side of the center divider. You can gently bend the legs so that they fit, but be carefull not to break any.
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-3.jpg">
+                    <p>
+                        Connect the power and ground pins to the breadboard's power and ground rails. Looking at the diagram above, I can see that power is connected at physical pins 7 and 20, and ground is connected at physical pins 8 and 22.
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-4.jpg">
+                    <p>
+                        The Arduino Uno designers decided to use a 16MHz oscillator connected to the microcontroller. This oscillator is what will make the code run.
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-5.jpg">
+                    <p>
+                        The oscillator can be a crystal (two pins) or a resonator (three pins), however it must be 16MHz.
+                    </p>
+                    <p>
+                        <strong>Note</strong>: crystals require an additional two capacitors. These capacitors are connected between the crystal's 2 pins and ground, and their value should be somewhere between 10-22pF (pico-farad).
+                    </p>
+                    <p>
+                        Next, we need capacitors, and all of them will be connected with one leg touching power and the other touching ground. This allows them to "smooth" out the voltage.
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-6.jpg">
+                    <p>
+                        Most importantly, I'll put a smaller capacitor between 0.047-0.2uF (micro-farad) as close to one of the microcontroller's power pins. And then the other leg goes to a nearby ground.
+                    </p>
+                    <p>
+                        Then, I'll put a larger capacitor between 4.7-22uF (micro-farad) between power and ground somewhere not quite as close.
+                    </p>
+                    <p>
+                        Below is a picture of an example that uses the crystal and two 22pF capacitors:
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-7.jpg">
+                    <p>
+                        And you can also use a resonator, which does not require capacitors. Here's a picture of that wiring:
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-8.jpg">
+                    <p>
+                        We are now ready to power our microcontroller from a safe 5V source. You can take the <strong class="code">5V</strong> and <strong class="code">GND</strong> from an Arduino Uno PCB, and safely power our breadboard from them.
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-9.jpg">
+                    <p>
+                        However, if we were powering our breadboard from a higher voltage than 5V, we would need a regulator to "drop" the voltage down to 5V.
+                    </p>
+                    <p>
+                        I'll add a common 5V regulator called <strong class="code">LM7805</strong>. It has three pins, one for ground, for the input voltage, and the regulated output voltage.
+                    </p>
+                    <img src="../../img/arduino-uno-components-7805-pinout.png">
+                    <p>
+                        Now, I can connected something like a 12V power supply to the regulator, and my breadboard will be safely powered at a regulatored 5V.
+                    </p>
+                    <img src="../../img/arduino-uno-breadboard-10.jpg">
+                    <p>
+                        Continue reading the <a href="../arduino-uno-programming">next guide on programming</a>, to learn how to run your code on the breadboarded Arduino Uno.
+                    </p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

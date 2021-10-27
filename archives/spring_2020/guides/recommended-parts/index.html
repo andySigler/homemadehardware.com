@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2020 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Recommended Parts</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-recommended-parts.jpg')"></div>
+                    <p>
+                        Many SMD parts are just too small for us to assemble. This guide shows some specialty SMD parts that are big enough to solder, and they also have open source designs online to use as a starting point.
+                    </p>
+                    <p>
+                        It is not recommended to use SMD parts with pads (or pins) smaller than the ones described in this guide. While it is possible to get anything working, very small parts on DIY boards make it unlikely.
+                    </p>
+                    <p>
+                        <strong>Microcontrollers</strong>
+                        <ul>
+                            <li><a href="#attiny85">ATtiny85</a></li>
+                            <li><a href="#attiny84">ATtiny84</a></li>
+                            <li><a href="#atsamd11c14">ATSAMD11C14</a></li>
+                        </ul>
+                    </p>
+                    <p>
+                        <strong>Wireless</strong>
+                        <ul>
+                            <li><a href="#esp8266">esp8266</a></li>
+                            <li><a href="#esp32">esp32</a></li>
+                            <!-- <li><a href="#nrf52">nRF52</a></li> -->
+                            <li><a href="#rfm69">RFM69</a></li>
+                            <li><a href="#rfm95">RFM95</a></li>
+                        </ul>
+                    </p>
+                    <p>
+                        <strong>Input</strong>
+                        <ul>
+                            <li><a href="#accelerometer">Accelerometer</a></li>
+                            <li><a href="#touch">Touch</a></li>
+                            <li><a href="#proximity">Proximity</a></li>
+                            <li><a href="#phototransistor">Phototransistor</a></li>
+                            <li><a href="#microphone">Microphone</a></li>
+                        </ul>
+                    </p>
+                    <p>
+                        <strong>Output</strong>
+                        <ul>
+                            <li><a href="#neopixel">NeoPixel</a></li>
+                            <li><a href="#audio-amplifier">Audio Amplifier</a></li>
+                            <li><a href="#motor-driver">Motor Driver</a></li>
+                        </ul>
+                    </p>
+                </div>
+                <div class="contentBlock">
+                    <h3>Microcontrollers</h3>
+                    <div id="attiny85">
+                        <h4>ATtiny85</h4>
+                        <p>
+                            A small 8-bit microcontroller with about 5 GPIO. Good for projects that do not require many pins, and no outside connections (wired or wireless).
+                        </p>
+                        <p>
+                            Flash bootloader and then upload code all using "Arduino as ISP"
+                        </p>
+                        <ul>
+                            <li><a href="../programming-an-attiny85">Learn More</a></li>
+                            <li><a href="https://github.com/andySigler/homemade-hardware/tree/master/projects/eagle-board-design/2_attiny85_LED">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/microchip-technology/ATTINY85-20SUR/ATTINY85-20SURCT-ND/3789340">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-attiny85.png"></li>
+                        </ul>
+                    </div>
+                    <div id="attiny84">
+                        <h4>ATtiny84</h4>
+                        <p>
+                            This is the same as the ATtiny85 above, except this one has 13 GPIO you can use.
+                        </p>
+                        <p>
+                            Flash bootloader and then upload code all using "Arduino as ISP"
+                        </p>
+                        <ul>
+                            <li><a href="https://github.com/SpenceKonde/ATTinyCore/blob/master/avr/extras/ATtiny_x4.md">Learn More</a></li>
+                            <li><a href="https://www.digikey.com/products/en/integrated-circuits-ics/embedded-microcontrollers/685?k=attiny84&k=&pkeyword=attiny84&sv=0&pv252=735&sf=1&FV=ffe002ad%2C1c0002%2C1140003%2C142c009f%2C1f140000&quantity=&ColumnSort=0&page=1&stock=1&pageSize=25">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-attiny84.png"></li>
+                        </ul>
+                    </div>
+                    <div id="atsamd11c14">
+                        <h4>ATSAMD11C14</h4>
+                        <p>
+                            This is a small version of the same microcontroller on the Arduino Zero, it is 32-bit ARM M0, and has native USB. This means it can communicate directly with a computer over USB-Serial, USB-HID, USB-MIDI, etc.
+                        </p>
+                        <ul>
+                            <li><a href="https://github.com/mattairtech/ArduinoCore-samd">Learn More</a> (also <a href="https://github.com/mattairtech/ArduinoCore-samd/tree/master/variants/Generic_D11C14A">here's the pinout</a>)</li>
+                            <li><a href="https://github.com/ShawnHymel/SAMD11C_Mini_Breakout/tree/master/Hardware">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/microchip-technology/ATSAMD11C14A-SSNT/ATSAMD11C14A-SSNTCT-ND/5956608">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-samd11.png"></li>
+                        </ul>
+                        <p>
+                            Flash the bootloader using the <a href="https://www.adafruit.com/product/1369?gclid=Cj0KCQjw-tXlBRDWARIsAGYQAmfcusS7ivihdVAhtVx5pt3RxzTasj38ZIZdJuZROwIFP2FpqlfMNfEaAhCBEALw_wcB">J-Link</a> and <a href="https://www.segger.com/downloads/jlink/#J-LinkSoftwareAndDocumentationPack">J-Link CLI tools</a>, and then upload sketches from the Arduino IDE over USB.
+                        </p>
+                        <p>
+                            The <a href="https://github.com/mattairtech/ArduinoCore-samd/blob/master/bootloaders/zero/binaries/sam_ba_Generic_D11C14A_SAMD11C14A.bin">bootloader binary image is located at this link</a>. To flash that bootloader, you'll need to connect <strong class="code">SWDIO</strong>, <strong class="code">SWDCLK</strong>, <strong class="code">RESET</strong>, <strong class="code">VCC</strong>, and <strong class="code">GND</strong> pins to a J-Link.
+                        </p>
+                        <p>
+                            <ul>
+                                <li>RED <-> VCC</li>
+                                <li>YELLOW <-> GND</li>
+                                <li>BLUE <-> SWDIO</li>
+                                <li>GREEN <-> SWDCLK</li>
+                                <li>ORANGE <-> RESET</li>
+                            </ul>
+                            <img src="../../img/jlink-pins.jpg">
+                        </p>
+                        <p>
+                            J-Link Flashing (in Terminal enter <strong class="code">jlinkexe</strong>)
+                            <ul>
+                                <li><strong class="code">connect</strong>
+                                    <ul>
+                                        <li><strong class="code">ATSAMD11C14A</strong></li>
+                                        <li><strong class="code">SWD</strong></li>
+                                        <li><strong class="code">4000</strong></li>
+                                    </ul>
+                                </li>
+                                <li><strong class="code">erase</strong></li>
+                                <li><strong class="code">r</strong></li>
+                                <li><strong class="code">loadbin /path/to/sam_ba_Generic_D11C14A_SAMD11C14A.bin, 0</strong></li>
+                                <li><strong class="code">r</strong></li>
+                                <li><strong class="code">g</strong></li>
+                                <li><strong class="code">exit</strong></li>
+                            </ul>
+                        </p>
+                    </div>
+                </div>
+                <div class="contentBlock">
+                    <h3>Wireless</h3>
+                    <div id="esp8266">
+                        <h4>esp8266</h4>
+                        <p>
+                            This device supports WiFi, and can accept Arduino code over a serial connection (no bootloaders!!)
+                        </p>
+                        <ul>
+                            <li><a href="https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout?view=all">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-Huzzah-ESP8266-Basic-Breakout-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/adafruit-industries-llc/2491/1528-1438-ND/5761206">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-esp8266.png"></li>
+                        </ul>
+                    </div>
+                    <div id="esp32">
+                        <h4>esp32</h4>
+                        <p>
+                            This device is an upgrade to the <strong class="code">esp8266</strong>. The <strong class="code">esp32</strong> has more pins, many more <strong class="code">analogRead()</strong>, many capacitive-touch input pins, WiFi <strong>and</strong> Bluetooth Low Energy (BLE) support (wow that's a lot!).
+                        </p>
+                        <p>
+                            Like the <strong class="code">esp8266</strong>, you can upload Arduino code over a serial connection, no burning bootloaders.
+                        </p>
+                        <ul>
+                            <li><a href="https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/overview">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-HUZZAH32-ESP32-Feather-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/products/en/rf-if-and-rfid/rf-transceiver-modules/872?k=esp32&k=&pkeyword=esp32&sv=0&v=1528&sf=0&FV=ffe00368&quantity=&ColumnSort=0&page=1&pageSize=25">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-esp32.png"></li>
+                        </ul>
+                    </div>
+                    <!-- <div id="nrf52">
+                        <h4>nRF52</h4>
+                        <ul>
+                            <li><a href="https://www.adafruit.com/product/3876">Learn More</a></li>
+                            <li><a href="https://github.com/espruino/EspruinoBoard/tree/master/MDBT42/eagle">Eagle Files</a></li>
+                            <li><a href="https://www.adafruit.com/product/4077">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-nRF52.png"></li>
+                        </ul>
+                    </div> -->
+                    <div id="rfm69">
+                        <h4>RFM69</h4>
+                        <p>
+                            This is a "packet" radio, which means it is a general-purpose radio that can send/receive messages up to hundreds of meters. It is good for low-power, medium-range, mesh networks.
+                        </p>
+                        <p>
+                            You do not put any code on this radio. Instead, the radio must be controlled (over SPI) by another microcontroller (like the <strong class="code">ATtiny85</strong>).
+                        </p>
+                        <ul>
+                            <li><a href="https://www.adafruit.com/product/3070">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-RFM-LoRa-Radio-Breakout-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/sparkfun-electronics/COM-13909/1568-1394-ND/6023504">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-RFM69.png"></li>
+                        </ul>
+                    </div>
+                    <div id="rfm95">
+                        <h4>RFM95</h4>
+                        <p>This is a LoRa radio, which is a standard for sending/receiving messages over a couple kilometers (wow!). It looks identical to the <strong class="code">RFM69</strong> above, however the <strong class="code">RFM95</strong> is more expensive, more power hungry, and much longer range.
+                        </p>
+                        <p>
+                            You do not put any code on this radio. Instead, the radio must be controlled (over SPI) by another microcontroller (like the <strong class="code">ATtiny85</strong>).
+                        </p>
+                        <ul>
+                            <li><a href="https://www.adafruit.com/product/3072">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-RFM-LoRa-Radio-Breakout-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/rf-solutions/RFM95W-868S2/RFM95W-868S2-ND/5051755">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-RFM95.png"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBlock">
+                    <h3>Input</h3>
+                    <div id="accelerometer">
+                        <h4>Accelerometer</h4>
+                        <p>
+                            Accelerometers that are big enough for us to solder are hard to find (they are all tiny). However, if you are feeling brave, there are a couple that Adafruit uses which have successfully been soldered by us in the past.
+                        </p>
+                        <p>
+                            There are a couple of accelerometers from Adafruit that come in the same "package". The ones that I found and like are the <strong class="code">LSM303</strong> and the <strong class="code">ADXL345</strong>. The links below point to the <strong class="code">ADXL345</strong>, but you can also trye the <strong class="code">LSM303</strong>.
+                        </p>
+                        <p>
+                            <strong>BE WARNED:</strong> this package is small, and the solder pads are hidden underneath
+                        </p>
+                        <p>
+                            These connect to a microcontroller over I2C.
+                        </p>
+                        <ul>
+                            <li><a href="https://learn.adafruit.com/adxl345-digital-accelerometer?view=all">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit_ADXL345_PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/analog-devices-inc/ADXL345BCCZ-RL7/ADXL345BCCZ-RL7CT-ND/2038984">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-ADXL345.png"></li>
+                        </ul>
+                    </div>
+                    <div id="touch">
+                        <h4>Touch</h4>
+                        <p>
+                            A simply capacitive touch IC that just works. It will output a LOW/HIGH signal depending on if a person is touching or not. Your connected microcontroller can then simply do a <strong class="code">digitalRead()</strong> to detect if there is a touch or not.
+                        </p>
+                        <p>
+                            These come in momentary, toggle, and multi-pad options (I've added links for the momentary option).
+                        </p>
+                        <ul>
+                            <li><a href="https://www.adafruit.com/product/1374">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-Standalone-Capacitive-Sensor-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/microchip-technology/AT42QT1010-TSHR/AT42QT1010-TSHRCT-ND/2268871">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-AT42QT1010.png"></li>
+                        </ul>
+                    </div>
+                    <div id="proximity">
+                        <h4>Proximity</h4>
+                        <p>
+                            This thing is neat, it can tell you proximity, RGBW color intensities, and even detect some basic hand movements (wow!).
+                        </p>
+                        <p>
+                            These connect to a microcontroller over I2C.
+                        </p>
+                        <ul>
+                            <li><a href="https://learn.adafruit.com/adafruit-apds9960-breakout?view=all">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-APDS9960-Breakout-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/products/en/sensors-transducers/optical-sensors-ambient-light-ir-uv-sensors/536?k=APDS9960&k=&pkeyword=APDS9960&sv=0&pv7=2&sf=0&quantity=&ColumnSort=0&page=1&pageSize=25">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-APDS-9960.png"></li>
+                        </ul>
+                    </div>
+                    <div id="phototransistor">
+                        <h4>Phototransistor</h4>
+                        <p>
+                            This phototransistor acts as a variable resistor, depending on how much light is hitting it. Use with another resistor to create a voltage divider, and read the voltage on any microcontroller's ADC pin.
+                        </p>
+                        <ul>
+                            <li><a href="https://www.adafruit.com/product/2748">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-ALS-PT19-Sensor-Breakout-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/products/en/sensors-transducers/optical-sensors-phototransistors/544?k=ALS-PT19&k=&pkeyword=ALS-PT19&sv=0&pv7=2&sf=0&FV=ffe00220&quantity=&ColumnSort=0&page=1&pageSize=25">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-ALS-PT19-315C.png"></li>
+                        </ul>
+                    </div>
+                    <div id="microphone">
+                        <h4>Microphone</h4>
+                        <p>
+                            This microphone automatically outputs a "line-level" audio signal, meaning it's ready to be plugged into an amplifier, headphones, or a microcontroller's ADC pin.
+                        </p>
+                        <ul>
+                            <li><a href="https://www.adafruit.com/product/2716">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-SPW2430-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/products/en/audio-products/microphones/158?k=SPW2430&k=&pkeyword=SPW2430&sv=0&pv7=2&sf=0&FV=ffe0009e&quantity=&ColumnSort=0&page=1&pageSize=25">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-SPW2430HR5H-B.png"></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="contentBlock">
+                    <h3>Output</h3>
+                    <div id="neopixel">
+                        <h4>NeoPixel</h4>
+                        <p>
+                            Of course, the famous addressable RGB LEDs that Adafruit loves so much. These are great, because they've each got a tiny little IC inside them that handle all color and communication, so they can be "daisy-chained" together. The controlling microcontroller then only needs 1 wire to communicate with all.
+                        </p>
+                        <p>
+                            Only down-side is that these LEDs (I think) are a little big, but they are just too good to not use sometimes.
+                        </p>
+                        <ul>
+                            <li><a href="https://learn.adafruit.com/adafruit-neopixel-uberguide?view=all#the-magic-of-neopixels">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-NeoPixel-Ring">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/adafruit-industries-llc/1655/1528-1104-ND/5154679">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-SK6812.png"></li>
+                        </ul>
+                    </div>
+                    <div id="audio-amplifier">
+                        <h4>Audio Amplifier</h4>
+                        <p>
+                            This is a simple 2.5 watt mono audio amplifier.
+                        </p>
+                        <ul>
+                            <li><a href="https://www.adafruit.com/product/2130">Learn More</a></li>
+                            <li><a href="https://github.com/adafruit/Adafruit-PAM8302-Mono-Amplifier-PCB">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/diodes-incorporated/PAM8302AADCR/PAM8302AADCRDICT-ND/8545947">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-PAM8302A.png"></li>
+                        </ul>
+                    </div>
+                    <div id="motor-driver">
+                        <h4>Motor Driver</h4>
+                        <p>
+                            This IC can control a stepper motor, or 2 separate DC motors (wow!). You can control this using simple <strong class="code">digitalWrite()</strong> calls, or you can use the Arduino Stepper library's 2-wire control option.
+                        </p>
+                        <p>
+                            It is a simply H-Bridge (with 2-wire control), perfect for our DIY boards. However, I have not found any reference designs to copy, so I made one myself. The link is below.
+                        </p>
+                        <ul>
+                            <li><a href="https://itp.nyu.edu/physcomp/labs/motors-and-transistors/lab-controlling-a-stepper-motor-with-an-h-bridge/">Learn More</a></li>
+                            <li><a href="https://github.com/andySigler/homemade-hardware/tree/master/projects/stepper_driver_LV8549MC">Eagle Files</a></li>
+                            <li><a href="https://www.digikey.com/product-detail/en/on-semiconductor/LV8549MC-AH/LV8549MC-AHOSCT-ND/3598303">Buy Online</a></li>
+                            <li>Picture<br><img src="../../img/recommend-LV8549MC.png"></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

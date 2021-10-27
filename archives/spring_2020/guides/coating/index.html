@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2020 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Protective Coating</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-coating.jpg')"></div>
+                    <p>
+                        This guide describes how to add protective coating to your circuit, for protecting the copper against oxidation, and the entire finished PCB from environments.
+                    </p>
+                    <p>
+                        Circuit boards are made of copper, and over time that copper will degrade, oxidize, and generally break down. To help prevent that, the steps described here will help your PCB stay in tact for longer.
+                    </p>
+                    <ol>
+                        <li><a href="#liquid-tin">Liquid Tin</a></li>
+                        <li><a href="#conformal-coating">Conformal Coating</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="the-diy-problem">
+                    <h3>Liquid Tin</h3>
+                    <p>
+                        First, we can protect the raw copper on your PCB by adding a thin layer of tin to it. This tin is conductive, so once you add it you can still treat your PCB like normal. Plus, it gives your board a cool silver look.
+                    </p>
+                    <p>
+                        The materials you will need are your PCB, a bottle of liquid tin, and a <strong>plastic</strong> tupperware container (must be plastic).
+                    </p>
+                    <img src="../../img/coating-tin-materials.jpg">
+                    <p>
+                        Before starting, clean your PCB with isopropyl alcohol, to make sure any dirt and oil is removed (these will prevent the tin from attaching evenly across the PCB's surface).
+                    </p>
+                    <p>
+                        Place your PCB in the container, and pour just enough liquid tin to cover it up. You don't want to pour too much, because then it is a waste of tin.
+                    </p>
+                    <p>
+                        Keep the PCB in the tin for 3-5 minutes (or however long the bottle instructs you). While it is in there, move the liquid around with your hand, to make sure that all surfaces are equally hit by the tin.
+                    </p>
+                    <img src="../../img/coating-tin-shake.jpg">
+                    <p>
+                        When the time is up, <strong>do not pour the used tin down the sink.</strong> Instead, store the tin in a separate container or bottle (like a used water bottle), so that you can use it again in the future. You should be able to use the tin a few more times before it stops working. Once it does stop working, you will want to bring it to <a href="https://www1.nyc.gov/assets/dsny/site/services/harmful-products/special-waste-drop-offs">your local waste disposal drop-off location</a>.
+                    </p>
+                    <p>
+                        After removing the tin to a safe container, you can use a sink to rinse out the tupperware and clean off your PCB.
+                    </p>
+                    <img src="../../img/coating-tin-remove.jpg">
+                    <p>
+                        Your circuit board is now officially "tinned". You can clean it again with alcohol, and enjoy it's silervy coolness.
+                    </p>
+                    <img src="../../img/coating-tin-done.jpg">
+                </div>
+                <div class="contentBlock" id="vias-with-wire">
+                    <h3>Conformal Coating</h3>
+                    <p>
+                        Sometimes you want to not only protect the copper, but also protect all the components, their pins, and the solder joints. This is especially true if you want to use your PCB outside in humid air, or keep it for a very long time.
+                    </p>
+                    <p>
+                        This is where conformal coating can be used. This is a thin layer of transparent material, similar to acrylic, which is sprayed over the entire board to protect it. It comes in a spray can, like paint, and should be used in an open environment or a spray booth.
+                    </p>
+                    <img src="../../img/coating-conformal-materials.jpg">
+                    <p>
+                        Before starting, decide if there are any parts of your PCB that you want to protect from the conformal coating. This conformal coating will cover everything, making things <strong>not</strong> conductive. If there are any sections that you need to still be conductive, simply cover them with some tape so they are not coated.
+                    </p>
+                    <img src="../../img/coating-conformal-tape.jpg">
+                    <p>
+                        Follow the instructions on the conformal coating carefully. On my spray can, it instructs me to shake the can well, and spray horizontally from 6-8 inches away. Then, after applying the first coat, I rotate my PCB 90 degrees and apply a second coat.
+                    </p>
+                    <img src="../../img/coating-conformal-spray-1.jpg">
+                    <p>
+                        After spraying, you'll need to wait at least 5 minutes before you can touch the PCB. It will be quite wet, so give it time to dry.
+                    </p>
+                    <img src="../../img/coating-conformal-drying.jpg">
+                    <p>
+                        After 5 minutes, it should be dry enough to touch. However, it will need an additional 24 hours for it to completely solidify, so handle with care.
+                    </p>
+                    <img src="../../img/coating-conformal-done.jpg">
+                    <p>
+                        Not that it is done, the parts covered with the coating should be much better protected against humidity and oxidation. And the parts I covered with tape are still just as conductive as they were before. Great!
+                    </p>
+                    <p>
+                        However, if you ever need to edit your board (like solder something or scrap something off), the conformal coating can simply be removed by scraping it or heating it with a soldering iron. It is not entirely permanent.
+                    </p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

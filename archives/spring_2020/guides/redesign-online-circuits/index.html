@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2020 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Redesign Online Circuits</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-redesign-online-circuits.jpg')"></div>
+                    <p>
+                        How to start your design from one or multiple open source Eagle files online, and redesign to make it easier to fabricate
+                    </p>
+                    <p>
+                        There are an infinite number of circuits and combinations of circuits that you might make, so it is impossible for this guide to cover what you're circuit will need (or not need).
+                    </p>
+                    <p>
+                        However, this guide will use a simple circuit to show you the basic steps you will always take when starting a design from open source circuits.
+                    </p>
+                    <p>
+                        This guide assumes you have gone through the previous Eagle tutorials, on both schematic and board design.
+                    </p>
+                    <ol>
+                        <li><a href="#finding-an-online-design">Finding an Online Design</a></li>
+                        <li><a href="#removing-unnecessary-parts">Removing Unnecessary Parts</a></li>
+                        <li><a href="#change-the-design-rules-drc">Change the Design Rules (DRC)</a></li>
+                        <li><a href="#simplify-the-board-design">Simplify the Board Design</a></li>
+                        <li><a href="#check-for-correct-packages">Check for Correct Packages</a></li>
+                        <li><a href="#combining-different-circuits">Combining Different Circuits</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="finding-an-online-design">
+                    <h3>Finding an Online Design</h3>
+                    <p>
+                        Companies like <a href="https://www.adafruit.com">Adafruit</a> and <a href="https://www.sparkfun.com">Sparkfun</a> share their designs online. This makes it possible to first breadboard and test a circuit using their products, and then to use their designs to make a custom PCB (amazing!).
+                    </p>
+                    <p>
+                        The same process described below can be done with any open source company or design files. Github is the most common place for open source Eagle files, so you can just go straight there and search.
+                    </p>
+                    <p>
+                        (For example) I'd like to make a PCB using the <strong class="code">ESP8266</strong>, so it can be WiFi connected.
+                    </p>
+                    <p>
+                        Adafruit <a href="https://www.adafruit.com/?q=esp8266">has a few PCBs</a> that use the <a href="../recommended-parts#esp8266">module described in the recommended parts page</a>. Looking through their products, it looks to me like <a href="https://www.adafruit.com/product/2471">the HUZZAH board</a>.
+                    </p>
+                    <img src="../../img/redesign-huzzah.png">
+                    <p>
+                        On Adafruit's product page for the HUZZAH, scroll down near the bottom of the page, and there is <a href="https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout">a link</a> to the tutorial on using the HUZZAH breakout board.
+                    </p>
+                    <img src="../../img/redesign-huzzah-learn-link.png">
+                    <p>
+                        Whenever researching a new part, read through the <strong>entire</strong> documentation to make sure you fully understand how to use it, and if it is the right part for your project.
+                    </p>
+                    <p>
+                        Adafruit always includes a link to their Eagle files at the end of their tutorials <a href="https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/downloads">in the Downloads section</a>. They will link to <a href="https://github.com/adafruit/Adafruit-Huzzah-ESP8266-Basic-Breakout-PCB">a Github repository</a> with their PCB files.
+                    </p>
+                </div>
+                <div class="contentBlock" id="removing-unnecessary-parts">
+                    <h3>Removing Unnecessary Parts</h3>
+                    <p>
+                        Open the HUZZAH Eagle files and take a look at the schematic.
+                    </p>
+                    <img src="../../img/redesign-huzzah-schematic.png">
+                    <p>
+                        It's a fairly simple schematic. The <strong class="code">ESP8266</strong> is in the top right, and most of its pins are connected to the headers on the bottom right.
+                    </p>
+                    <p>
+                        My final PCB will not need all of those headers, because it will be a contained project. So, we can delete all the headers.
+                    </p>
+                    <img src="../../img/redesign-delete-headers.png">
+                    <p>
+                        There is a regulator on the bottom left, converting a 3.3-12.0 volt input to the 3.3 volts that the <strong class="code">ESP8266</strong> can use.
+                    </p>
+                    <img src="../../img/redesign-regulator-original.png">
+                    <p>
+                        There are also some protection diodes, which prevent battery and USB voltage sources from touching each other. Because I know the my project will have only one voltage source, I think I am safe to delete those protection diodes.
+                    </p>
+                    <p>
+                        I will also only use the <strong class="code">Vin</strong> name for the input voltage, and delete the <strong class="code">Vbat</strong> symbol, because there will be only one power source.
+                    </p>
+                    <img src="../../img/redesign-regulator-delete-diodes.png">
+                    <p>
+                        Now I have two options: 1) use the same regulator Adafruit uses, and order it online, or 2) replace this regulator with a regulator I already have.
+                    </p>
+                    <p>
+                        I'm going to go with option number 2, so I don't have to order a new one. I'll use the <a href="https://www.digikey.com/product-detail/en/microchip-technology/MIC5219-3.3YM5-TR/576-1281-1-ND/771902?utm_adgroup=Integrated%20Circuits&slid=&gclid=CjwKCAjwqfDlBRBDEiwAigXUaJ_pgoBMp8djf5GVcStqUmrqeQUDbOhvC-kwty7FGdM6w_nu-3K-fRoCBUUQAvD_BwE"><strong class="code">MIC5219</strong> 3.3 volt version</a>.
+                    </p>
+                    <a href="../../img/redesign-regulator-add-new.png"><img style="max-width: 52%" src="../../img/redesign-regulator-add-new.png"></a>
+                    <a href="../../img/redesign-regulator-add-new-2.png"><img style="max-width: 44%" src="../../img/redesign-regulator-add-new-2.png"></a>
+                    <p>
+                        Directly above the regulator, there are two protection diodes. Adafruit is using these diodes to protect the <strong class="code">ESP8266</strong> from a 5V serial adapter.
+                    </p>
+                    <img src="../../img/redesign-diodes-delete.png">
+                    <p>
+                        I am going to use the <a href="https://www.adafruit.com/product/284">FTDI Friend</a> to program my PCB. This USB to serial converter has the option to run at 3.3V, so I will not need these protection diodes. The adapter's voltage and my project's voltage will be very close, so there is no danger.
+                    </p>
+                    <p>
+                        At the top left side of the schematic, there is a group of resistors, diodes, and buttons.
+                    </p>
+                    <p>
+                        Let's go through them from left to right, and decide if we need them or not.
+                    </p>
+                    <img src="../../img/redesign-passives-original.png">
+                    <p>
+                        The LED on the left is connected to pin <strong class="code">GPIO0</strong>. Because I want to start my design as simple as possible, I don't want to keep this LED around.
+                    </p>
+                    <p>
+                        I decided to delete the LED.
+                    </p>
+                    <p>
+                        Next, there are two buttons, one connecting <strong class="code">GPIO0</strong> to ground, and the other connecting <strong class="code">RESET</strong> to ground. If you read through <a href="https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/using-arduino-ide#blink-test">Adafruit's tutorial on uploading a blink sketch</a>, these two pins are used to start the serial bootloader.
+                    </p>
+                    <p>
+                        I will need buttons to program my final project, however I do <strong>not</strong> need to have those buttons on my PCB. For example, I can make a programming jig that holds those buttons.
+                    </p>
+                    <p>
+                        I decided to delete the buttons.
+                    </p>
+                    <p>
+                        Finally, there are three resistors. They are "pulling-up" or "pulling-down" some of the <strong class="code">ESP8266</strong> pins. I don't see anything in Adafruit's tutorials about these pins, so these pins might be required for something that I do not know about. If I want to learn about the pins and what the resistors are doing, I could take the time to read the <a href="https://cdn-shop.adafruit.com/product-files/2471/0A-ESP8266__Datasheet__EN_v4.3.pdf">module's datasheet</a> or it's <a href="https://media.digikey.com/pdf/Data%20Sheets/Adafruit%20PDFs/ESP-12S_UM%20_Rev1.0_8-1-16.pdf">shorter manual</a>.
+                    </p>
+                    <p>
+                        I decided to keep the resistors there.
+                    </p>
+                    <img src="../../img/redesign-passives-deleted.png">
+                    <p>
+                        The last thing we need to add are the connectors. We need one connector for power, and another for the programming pins.
+                    </p>
+                    <p>
+                        For power, I'll add a JST LiPo battery connector. The voltage coming from the battery we will connect to <strong class="code">Vin</strong>.
+                    </p>
+                    <a href="../../img/redesign-power-connector.png"><img style="max-width: 49.5%" src="../../img/redesign-power-connector.png"></a>
+                    <a href="../../img/redesign-power-connector-schematic.png"><img style="max-width: 46.5%" src="../../img/redesign-power-connector-schematic.png"></a>
+                    <p>
+                        Finally, the programming pins need to include serial pins, ground, reset, and <strong class="code">GPIO0</strong>.
+                    </p>
+                    <img src="../../img/redesign-programming-headers.png">
+                    <p>
+                        The <strong class="code">ESP8266</strong> schematic now looks like this.
+                    </p>
+                    <a href="../../img/redesign-esp8266-finished.png"><img src="../../img/redesign-esp8266-finished.png"></a>
+                    <p>
+                        The final step before saving this schematic is to delete all the extra labels the previous designer put on. This means, I want to delete the frame and the descriptions in the bottom right so they are no longer branded.
+                    </p>
+                    <p>
+                        Also, it is hard to notice because they are just circles, but there are extra holes that Adafruit added to the board, hidden over there.
+                    </p>
+                    <img src="../../img/redesign-delete-adafruit-labels.png">
+                    <p>
+                        I am using the <strong class="code">GROUP</strong> command to highlight and delete all of that.
+                    </p>
+                    <img src="../../img/redesign-delete-frame.png">
+                    <p>
+                        And then I will add a new, plain frame with no branding (or holes) on it.
+                    </p>
+                    <img src="../../img/redesign-new-frame.png">
+                </div>
+                <div class="contentBlock" id="change-the-design-rules-drc">
+                    <h3>Change the Design Rules (DRC)</h3>
+                    <p>
+                        Go to the board design editor. Before I do anything here, I want to make sure the editor is setup for designing PCBs for the Bantam milling machine. That means that the route widths, hole sizes, and other defaults are set correctly.
+                    </p>
+                    <p>
+                        To do this, you must load in the Bantam Design Rules Check (DRC).
+                    </p>
+                    <p>
+                        In the bottom left corner of the board design toolbar, you will see a button for DRC. Click it, and a window will open.
+                    </p>
+                    <img src="../../img/redesign-drc-button.png">
+                    <p>
+                        Reading the window, I can see that right now this design file is using an Adafruit DRC settings file. To change to a different file, press the <strong>Load...</strong> button.
+                    </p>
+                    <img src="../../img/redesign-adafruit-drc.png">
+                    <p>
+                        In the <strong class="code">Documents->Eagle->design rules</strong> folder, select <strong class="code">default.dru</strong> (which you should have edited in the <a href="../eagle-setup">Eagle Setup guide</a>).
+                    </p>
+                    <img src="../../img/redesign-open-default-dru.png">
+                    <p>
+                        Now the DRC window will say that it is for the 1/32" endmill bit (perfect!).
+                    </p>
+                    <p>
+                        Press the <strong class="code">Apply</strong> button to save the changes, and then exit the window by pressing <strong class="code">Cancel</strong> or the <strong class="code">X</strong> on the window.
+                    </p>
+                    <img src="../../img/redesign-dru-loaded.png">
+                    <p>
+                        Now the design editor will set routes widthes, hole diameters, and other defaults to be good numbers for the Bantam milling machine (yay!).
+                    </p>
+                </div>
+                <div class="contentBlock" id="simplify-the-board-design">
+                    <h3>Simplify the Board Design</h3>
+                    <p>
+                        When I first move to the board design editor, it is a little messy. There are the new parts added, the old parts, and a lot of layers drawn by Adafruit.
+                    </p>
+                    <img src="../../img/redesign-board-original.png">
+                    <p>
+                        The first thing I like to do is to erase everything that is not relevant to a PCB made on a milling machine. Makes working with the file simpler.
+                    </p>
+                    <p>
+                        I'm going to first <strong class="code">RIPUP</strong> all the routes, and then delete everything on the board (except the parts and connections).
+                    </p>
+                    <p>
+                        In the command line input, enter <strong class="code">ripup *</strong>. The asterisk means that <strong>all</strong> routes will be ripped up. Press ENTER to run the command.
+                    </p>
+                    <img src="../../img/redesign-ripup-all.png">
+                    <p>
+                        Now all the small routes around the <strong class="code">ESP8266</strong> are gone, and replaced by the thin yellow unrouted lines.
+                    </p>
+                    <img src="../../img/redesign-ripup-unrouted.png">
+                    <p>
+                        To prevent myself from deleting parts or connections, I'm going to hide the following layers:
+                        <ul>
+                            <li><strong class="code">19 Unrouted</strong></li>
+                            <li><strong class="code">23 tOrigins</strong></li>
+                            <li><strong class="code">24 bOrigins</strong></li>
+                        </ul>
+                    </p>
+                    <img src="../../img/redesign-hide-layers.png">
+                    <p>
+                        Then, using the <strong class="code">GROUP</strong> command, highlight everything in the file and delete them. Because the origin and unrouted layers are hiden, then will not be affected.
+                    </p>
+                    <img style="max-width: 48%" src="../../img/redesign-highlight-group.png">
+                    <img style="max-width: 48%" src="../../img/redesign-delete-group.png">
+                    <p>
+                        There are still some labels that Adafruit added on the design. I am going to show all the origin layers again. Once I can see the labels' origin crosses, I can zoom in and delete them.
+                    </p>
+                    <img src="../../img/redesign-show-layers.png">
+                    <p>
+                        Zoom in on the labels, find the origin cross for the label, and use the <strong class="code">DELETE</strong> command.
+                    </p>
+                    <img src="../../img/redesign-delete-labels.png">
+                    <p>
+                        I moved the parts around, and now the simplified <strong class="code">ESP8266</strong> schematic now looks like this.
+                    </p>
+                    <img src="../../img/redesign-esp8266-arranged.png">
+                </div>
+                <div class="contentBlock" id="check-for-correct-packages">
+                    <h3>Check for Correct Packages</h3>
+                    <p>
+                        Before spending all that time routing a PCB, you should make sure the packages in your file are correct. That means, the parts are the same as the physical parts you will use.
+                    </p>
+                    <p>
+                        When making PCBs, you need make absolute certain the packages are correct, or else the entire board could be a waste.
+                    </p>
+                    <p>
+                        Below is a picture of the ESP8266 module I ordered. It is the module from Adafruit, however it is slightly different.
+                    </p>
+                    <p>
+                        There are 6 new pins on the bottom.
+                    </p>
+                    <img src="../../img/redesign-my-package-picture.jpg">
+                    <p>
+                        Now I have two options: 1) find a design online that has the correct package, or 2) add 6 new pins in Eagle Library editor.
+                    </p>
+                    <p>
+                        I'm first going to try number one. Using the Library editor will come in a later tutorial.
+                    </p>
+                    <p>
+                        Adafruit has more boards that use this module. The <a href="https://github.com/adafruit/Adafruit-Feather-ESP8266-HUZZAH-PCB">Feather PCB on Github</a> has the package version with the added 6 pins. In the schematic, it is on the left side.
+                    </p>
+                    </p>
+                    <img src="../../img/redesign-feather-correct-package.png">
+                    <p>
+                        I'm going to copy/paste the <strong>schematic</strong> symbol from the Feather PCB to my PCB's <strong>schematic</strong> (copy/paste parts in board editor should not work).
+                    </p>
+                    <p>
+                        <strong>NOTE:</strong> do not simply use the <strong class="code">COPY</strong> command and then click the part. This will not copy the part to your computer's "clipboard". To copy to the clipboard, highlight the part with the <strongclass="code">GROUP</strong> command, and go to <strong class="code">Edit -> Copy</strong> (or ctrl-C).
+                    </p>
+                    <img src="../../img/redesign-copy-esp-module.png">
+                    <p>
+                        Luckily, all the pins on the new schematic symbol match the pins on the old schematic symbol. So I can simply delete the old one, and move the new one in it's same place with the green connections.
+                    </p>
+                    <p>
+                        Now, switching back to my board design, I can see that all the packages on my PCB now match the parts I ordered (yay!).
+                    </p>
+                    <img src="../../img/redesign-esp-correct-package.png">
+                <div class="contentBlock" id="combining-different-circuits">
+                    <h3>Combining Different Circuits</h3>
+                    <p>
+                        Now, I want to add a sensor to the PCB. I'll use the <a href="https://www.digikey.com/products/en/sensors-transducers/optical-sensors-ambient-light-ir-uv-sensors/536?k=APDS9960&k=&pkeyword=APDS9960&sv=0&pv7=2&sf=0&quantity=&ColumnSort=0&page=1&pageSize=25"><strong class="code">APDS9960</strong></a>, which I can also test out and breadboard with the <a href="https://learn.adafruit.com/adafruit-apds9960-breakout?view=all">breakout from Adafruit</a>, and there design files are on <a href="https://github.com/adafruit/Adafruit-APDS9960-Breakout-PCB">Github</a>.
+                    </p>
+                    <img src="../../img/redesign-sensor-breakout.png">
+                    <p>
+                        Just like before, I am going to first remove everything from the schematic that I do not need. The things I delete are:
+                        <ul>
+                            <li>the 3.3 volt regulator (because my PCB already has one)</li>
+                            <li>the voltage protection transistors (because our PCB's voltage is a safe 3.3V)</li>
+                            <li>the headers (because our PCB is a contained project)</li>
+                        </ul>
+                    </p>
+                    <p>
+                        Before...
+                    </p>
+                    <a href="../../img/redesign-sensor-eagle-before.png"><img src="../../img/redesign-sensor-eagle-before.png"></a>
+                    <p>
+                        And after...
+                    </p>
+                    <a href="../../img/redesign-sensor-eagle-after.png"><img src="../../img/redesign-sensor-eagle-after.png"></a>
+                    <p>
+                        Now I am going to copy/paste that entire schematic into my PCB design file.
+                    </p>
+                    <p>
+                        <strong>NOTE:</strong> do not simply use the <strong class="code">COPY</strong> command and then click the part. This will not copy the part to your computer's "clipboard". To copy to the clipboard, highlight the part with the <strongclass="code">GROUP</strong> command, and go to <strong class="code">Edit -> Copy</strong> (or ctrl-C).
+                    </p>
+                    <img src="../../img/redesign-pasted-sensor.png">
+                    <p>
+                        Finally, connect the new parts to the rest of the schematic. For this circuit, I need to:
+                        <ol>
+                            <li>
+                                Make sure my power (<strong class="code">3.3V</strong>) and ground (<strong class="code">GND</strong>) net names are all correct. For example, maybe you copied a <strong class="code">Vcc</strong> named symbol, when the rest of the circuit is using a <strong class="code">3.3V</strong> named symbol.</li>
+                            <li>
+                                Connect the I2C data lines between the microcontroller and the sensor. These are <strong class="code">SDA</strong> and <strong class="code">SCL</strong>
+                            </li>
+                        </ol>
+                    </p>
+                    <p>
+                        Luckily for me, both the boards were originally designed by Adafruit, so all the power and ground symbols have the same names (<strong class="code">3.3V</strong> and <strong class="code">GND</strong>)
+                    </p>
+                    <p>
+                        <a href="https://learn.adafruit.com/adafruit-huzzah-esp8266-breakout/pinouts#gpio-pins-2-9">Adafruit's pinout description</a> says that the I2C data lines on the <strong class="code">ESP8266</strong> are on pins 4 and 5. I'll connect those by giving them the same name, and a flag label.
+                    </p>
+                    <a href="../../img/redesign-connect-i2c.png"><img src="../../img/redesign-connect-i2c.png"></a>
+                    <p>
+                        Now, going to the board designer and moving the sensor around, I have a final circuit for my WiFi connected, proximity sensing, battery powered PCB.
+                    </p>
+                    <img src="../../img/redesign-final-board.png">
+                    <p>
+                        With the DRC loaded from before, all the routes and holes you draw will be able to be milled by the Bantam machine.
+                    </p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

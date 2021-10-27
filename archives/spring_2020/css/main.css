@@ -1,0 +1,190 @@
+@font-face {
+    font-family: "Light";
+    src: url(../fonts/clear-sans/ClearSans-Light.ttf);
+}
+
+@font-face {
+    font-family: "Medium";
+    src: url(../fonts/clear-sans/ClearSans-Medium.ttf);
+}
+
+@font-face {
+    font-family: "Regular";
+    src: url(../fonts/clear-sans/ClearSans-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Bold";
+    src: url(../fonts/clear-sans/ClearSans-Bold.ttf);
+}
+
+h1,h2 {
+	font-family: Medium, Helvetica;
+}
+
+h3,h4,h5 {
+	font-family: Regular, Helvetica;
+}
+
+strong {
+	font-family: Bold, Helvetica;
+}
+
+p, li {
+	font-family: Light, Helvetica;
+}
+
+a {
+	font-family: Medium, Helvetica;
+	text-decoration: none;
+	color: #008EB2;
+}
+
+/* unvisited link */
+a:link {
+}
+
+/* visited link */
+a:visited {
+}
+
+/* mouse over link */
+a:hover {
+	text-decoration: underline;
+}
+
+/* selected link */
+a:active {
+}
+
+img {
+    max-width: 100%;
+}
+
+.container {
+	width: 100%;
+	max-width: 700px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.headerSection {
+}
+
+.footerSection {
+	font-family: Light, Helvetica;
+	width:100%;
+	margin-top:50px;
+	margin-bottom:20px;
+	text-align: right;
+}
+
+.bodySection {
+}
+
+.bodyBlock {
+}
+
+.navUnit {
+	margin-right: 5px;
+	padding:2px 6px 4px 6px;
+	cursor: pointer;
+	font-family: Medium, Helvetica;
+	border-radius: 3px;
+}
+
+.navSelected {
+	color: white;
+	background-color: #008EB2;
+}
+
+.stepSelected {
+	margin-top:0px;
+	margin-bottom:15px;
+	padding-top:0px;
+	padding-bottom:0px;
+	padding-left:0px;
+}
+
+.stepSelected:before {
+	color: #00B28E;
+}
+
+.dot_border{
+	border:dashed 2px #008EB2;
+	padding-left:20px !important;
+	margin-top:30px !important;
+	padding-top:1px !important;
+	padding-bottom:20px !important;
+}
+
+.contentBlock {
+	padding: 20px 0px 0px 0px;
+}
+
+.subheadline {
+	margin-top:-10px;
+	color:gray;
+    text-transform: uppercase;
+}
+
+.classDate {
+    margin-top:-10px;
+}
+
+.lecturetype_design {
+	color: #004777;
+}
+
+.lecturetype_production {
+	color: #A30000;
+}
+
+.green_color {
+	color: #A30000;
+}
+
+.red_color {
+	color: #A30000;
+}
+
+.homeworkDiv{
+}
+
+.headerImage{
+	object-fit: cover;
+	width:100%;
+	height:110px;
+	border: 1px solid #CCC;
+	border-radius: 3px;
+    background-repeat: repeat;
+    background-size: 100% auto;
+    background-position: 0% 50%;
+}
+
+.code {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 85%;
+}
+
+.guideDescription {
+    margin-left:30px;
+    margin-right:30px;
+    font-size: 90%;
+}
+
+.websiteTitleDiv {
+    position:relative;
+}
+
+.websiteTitle {
+    display:inline-block;
+    color: black;
+}
+
+.personalLink {
+    display:none;
+    position:absolute;
+    right:0%;
+    top:26%;
+}

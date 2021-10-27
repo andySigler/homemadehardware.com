@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2020 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Programming an ATtiny85</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-programming-an-attiny85.jpg')"></div>
+                    <p>
+                        The ATtiny85 is a small microcontroller, popular because it can be used similar to an ATmega328 (from Arduino Uno), and because it is SMALL.
+                    </p>
+                    <p>
+                        This guide will describe how to get a brand new ATtiny85 able to run your Arduino code.
+                    </p>
+                    <ol>
+                        <li><a href="#pinout">ATtiny85 Pinout</a></li>
+                        <li><a href="#breadboard">Breadboard Setup</a></li>
+                        <li><a href="#isp">Turn Arduino Uno into ISP</a></li>
+                        <li><a href="#wires">Connecting the Wires</a></li>
+                        <li><a href="#bootloader">Flash the Bootloader</a></li>
+                        <li><a href="#upload">Uploading Code</a></li>
+                        <li><a href="#jig">Programming Jig</a></li>
+                    </ol>
+                    <p>
+                        Before you get started, make sure you have the ATtiny85 Arduino core installed from <a href="https://github.com/SpenceKonde/ATTinyCore/blob/master/Installation.md">SpenceKonde on GitHub</a>
+                    </p>
+                </div>
+                <div class="contentBlock" id="pinout">
+                    <h3>ATtiny85 Pinout</h3>
+                    <p>The diagram below shows the details of the ATtiny85's pinout. Notice the Arduino labels given to the 5 GPIO, plus all the other ways the pins are named.</p>
+                    <a href="../../img/attiny85_pinout.jpeg"><img src="../../img/attiny85_pinout.jpeg" style="max-width:100%"/></a>
+                    <p>
+                        Below is a much simpler image, showing just what is needed for running your Arduino code.
+                    </p>
+                    <a href="../../img/attiny85_pinout.png"><img src="../../img/attiny85_pinout.png" style="max-width:100%"/></a>
+                </div>
+                <div class="contentBlock" id="breadboard">
+                    <h3>Breadboard Setup</h3>
+                    <p>Start by placing the ATtiny85 in the middle of a breadboard. Connect the Vcc and GND pins to the Power and Ground rails on your breadboard.</p>
+                    <p>Notice that on my breadboard, I have connected the Power and Ground rails on either side, to make it easier to organize things.</p>
+                    <a href="../../img/attiny85_breadboard_0.jpg"><img src="../../img/attiny85_breadboard_0.jpg" style="max-width:100%" /></a>
+                    <p>It is strongly recommended to put a 0.1uF capacitor on the Vcc pin of the ATtiny85, with the other side going to ground. This will help get rid of any noise on the power line.</p>
+                    <a href="../../img/attiny85_breadboard_1.jpg"><img src="../../img/attiny85_breadboard_1.jpg" style="max-width:100%" /></a>
+                    <p>Finally, place a 10k Ohm resistor between the Rest pin and Power (Vcc). This will prevent the ATtiny85 from accidentally resetting.</p>
+                    <a href="../../img/attiny85_breadboard_2.jpg"><img src="../../img/attiny85_breadboard_2.jpg" style="max-width:100%" /></a>
+                </div>
+                <div class="contentBlock" id="isp">
+                    <h3>Turn Arduino Uno into ISP</h3>
+                    <p>This guide will use an Arduino Uno as our ISP (In-System-Programmer). The first step is to grab your Arduino Uno, and open up the Arduino IDE.</p>
+                    <a href="../../img/attiny85_ide_0.png"><img src="../../img/attiny85_ide_0.png" style="max-width:100%" /></a>
+                    <p>Make sure you have selected the Ardiuno/Genuino Uno as your board, and then open the ArduinoISP example sketch.</p>
+                    <a href="../../img/attiny85_ide_1.png"><img src="../../img/attiny85_ide_1.png" style="max-width:100%" /></a>
+                    <br />
+                    <br />
+                    <a href="../../img/attiny85_ide_2.png"><img src="../../img/attiny85_ide_2.png" style="max-width:100%" /></a>
+                    <p>Now upload the ArduinoISP sketch to your Arduino Uno. Congratulations, your Arduino Uno is now an ISP.</p>
+                    <p>Once the ArduinoISP sketch is uploaded, add a 10uF capacitor between the Arduino Uno's Reset and GND pins. This will prevent the Arduino Uno from resetting while it's trying to program our ATtiny85</p>
+                    <a href="../../img/attiny85_isp_cap.jpg"><img src="../../img/attiny85_isp_cap.jpg" style="max-width:100%"/></a>
+                    <p>Then finally, tell your Arduino IDE that you will be using an Arduino as ISP. There are many other types of ISP, so it is important you select the correct on in the Tools menu</p>
+                    <a href="../../img/attiny85_ide_isp.png"><img src="../../img/attiny85_ide_isp.png" style="max-width:100%"/></a>
+                </div>
+                <div class="contentBlock" id="wires">
+                    <h3>Connecting with Wires</h3>
+                    <p>Now it's time to wire it up. Start by connecting the Arduino Uno's 5V and GND pins to the breadboard's Power and Ground rails</p>
+                    <a href="../../img/attiny85_wires_0.jpg"><img src="../../img/attiny85_wires_0.jpg" style="max-width:100%"/></a>
+                    <p>Now connect the data lines.
+                        <ul>
+                            <li>(Uno) 13 &#8594; (tiny) SCK</li>
+                            <li>(Uno) 12 &#8594; (tiny) MISO</li>
+                            <li>(Uno) 11 &#8594; (tiny) MOSI</li>
+                            <li>(Uno) 10 &#8594; (tiny) Reset</li>
+                        </ul>
+                    </p>
+                    <a href="../../img/attiny85_wires_complete.jpg"><img src="../../img/attiny85_wires_complete.jpg" style="max-width:100%"/></a>
+                    <p>Here's a wonderful graphic created by <a href="http://highlowtech.org/?p=1706">highlowtech.com</a>, so you're not confused at my messy pictures:</p>
+                    <a href="../../img/attiny85_wires_highlowtech.png"><img src="../../img/attiny85_wires_highlowtech.png" style="max-width:100%"/></a>
+                </div>
+                <div class="contentBlock" id="bootloader">
+                    <h3>Flash the Bootloader</h3>
+                    <p>The first thing to do with a new ATtiny85 is to flash the bootloader. While this stop does not exactly save bootloader code to the ATtiny85, it <strong>does</strong> save the correct fuse settings. Like, for example, the clock speed and location.</p>
+                    <p>
+                        Note that flashing the bootloader only needs to happen once for very ATtiny85. Afterwards, it will have the correct settings and you don't need to do it again (unless you want to change the settings).
+                    </p>
+                    <p>
+                        Make sure you have the ATtiny core files installed into your Arduino IDE. My favorite ATtiny core is from <a href="https://github.com/SpenceKonde/ATTinyCore/blob/master/Installation.md">SpenceKonde on GitHub</a>.
+                    </p>
+                    <p>
+                        Once you have that core installed (using Arduino's Board Manager), you are ready to flash the bootloader.
+                    </p>
+                    <p>
+                        Got to the Tools menu, and under the "Board" section, select the "ATtiny25/45/85" under the ATtinyCore section.
+                    </p>
+                    <a href="../../img/attiny85_ide_board.png"><img src="../../img/attiny85_ide_board.png" style="max-width:100%"/></a>
+                    <p>
+                        Now with the ATtiny85 selected, go to the "Clock" option and select "8 MHz (internal)"
+                    </p>
+                    <a href="../../img/attiny85_ide_clock.png"><img src="../../img/attiny85_ide_clock.png" style="max-width:100%"/></a>
+                    <p>
+                        Now we're ready! Go to Tools menu and select "Burn Bootloader"
+                    </p>
+                    <a href="../../img/attiny85_ide_burn.png"><img src="../../img/attiny85_ide_burn.png" style="max-width:100%"/></a>
+                </div>
+                <div class="contentBlock" id="upload">
+                    <h3>Uploading Code</h3>
+                    <p>
+                        Now that the bootloader is flashed and the correct clock settings are on the ATtiny85, we can upload our code.
+                    </p>
+                    <p>
+                        Prepare a quick Blink sketch that flashes an LED on pin 3.
+                    </p>
+                    <a href="../../img/attiny85_blink_code.png"><img src="../../img/attiny85_blink_code.png" style="max-width:100%"/></a>
+                    <p>
+                        We are going to upload code using our ISP, we are NOT going to use the normal serial port method of uploading code. So, with everything powered on and connected, go up to the Sketch menu and select "Upload Using Programmer".
+                    </p>
+                    <a href="../../img/attiny85_blink_upload.png"><img src="../../img/attiny85_blink_upload.png" style="max-width:100%"/></a>
+                    <p>
+                        With an LED attached to pin 3, we should no see it blinking every 1 second.
+                    </p>
+                    <a href="../../img/attiny85_blink_led.jpg"><img src="../../img/attiny85_blink_led.jpg" style="max-width:100%"/></a>
+                </div>
+                <div class="contentBlock" id="jig">
+                    <h3>Programming Jig</h3>
+                    <p>
+                        Messing with all those wires can become annoying, and more importantly can lead to a lot of mistakes or errors. Maybe a wire broke? Maybe you put a wire in the wrong spot? Who knows.
+                    </p>
+                    <p>
+                        To avoid these human errors, you can solder together a "programming jig", using simply perfboard, wire, a 10uF capacitor, an 8-pin socket, and some header pins. You can use one of these to both burn the bootloader, AND to upload your sketch to the ATtiny85. So easy!
+                    </p>
+                    <a href="../../img/attiny85_programming_jig.jpg"><img src="../../img/attiny85_programming_jig.jpg" style="max-width:100%"/></a>
+                    <p>
+                        In the image above, the wires I soldered are <strong>underneath</strong> the perfboard. So you can't see them.
+                    </p>
+                    <a href="../../img/attiny85_programming_jig_lifted.jpg"><img src="../../img/attiny85_programming_jig_lifted.jpg" style="max-width:100%"/></a>
+                    <p>Also, below is a diagram showing where to solder connections with your wires.</p>
+                    <a href="../../img/attiny85_programming_jig_wires.png"><img src="../../img/attiny85_programming_jig_wires.png" style="max-width:100%"/></a>
+                    <a href="../../img/correct-way-to-solder.png"><img src="../../img/correct-way-to-solder.png" style="max-width:100%"/></a>
+                    <a href="../../img/beep-test.png"><img src="../../img/beep-test.png" style="max-width:100%"/></a>
+                    <p>
+                        Now you can program the ATtiny85 <strong>outside</strong> of your breadboard. These makes it easier to upload code, <strong>and</strong> it means you have more ATtiny85 pins to use on your breadboard (awesome!).
+                    </p>
+                    <p>
+                        Once the bootloader is burned, and the code is uploaded, you can then (gently) remove the ATtiny85 from the socket, and put it in your breadboard.
+                    </p>
+                    <a href="../../img/attiny85_programming_breadboard.jpg"><img src="../../img/attiny85_programming_breadboard.jpg" style="max-width:100%"/></a>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

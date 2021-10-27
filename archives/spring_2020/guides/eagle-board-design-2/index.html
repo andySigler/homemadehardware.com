@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2020 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus(2020)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Eagle Board Design - 2</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-eagle-board-design-2.jpg')"></div>
+                    <p>
+                        This guide on more advanced Eagle board design tools and techniques.
+                    </p>
+                    <p>
+                        Before you get started, make sure you have downloaded gone through the <a href="../eagle-setup">Eagle Setup</a> and <a href="../eagle-board-design-1">Eagle Board Design - 1</a> tutorials.
+                    </p>
+                    <ol>
+                        <li><a href="#using-commands-on-groups">Using Commands on Groups</a></li>
+                        <li><a href="#info-window">Info Window</a></li>
+                        <li><a href="#flip-sides-with-mirror">Flip Sides with Mirror</a></li>
+                        <li><a href="#create-a-ground-plane">Create a Ground Plane</a></li>
+                        <li><a href="#list-of-common-commands">List of Common Commands</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="using-commands-on-groups">
+                    <h3>Using Commands on Groups</h3>
+                    <p>
+                        You can run (almost) any command on one part, or a group of parts. Like, for example, the <strong class="code">ROTATE</strong> or <strong class="code">RIPUP</strong> commands.
+                    </p>
+                    <p>
+                        Eagle has a strange way of letting you do this. There are a few clicks involved, but it always goes like this:
+                        <ol>
+                            <li>With the <strong class="code">GROUP</strong> tool, highlight the parts' origins</li>
+                            <li>Select the command you want to run on that group (like <strong class="code">ROTATE</strong> for example)</li>
+                            <li><strong class="code">Right-Click</strong> the group, and a menu will appear</li>
+                            <li>Go to the bottom of the menu, and select the "<strong class="code">Command: Group</strong>" option, where <strong class="code">Command</strong> is the name of your command (like "<strong class="code">Rotate: Group</strong>" for example)</li>
+                        </ol>
+                    </p>
+                    <p>
+                        Here is that process, in a sequence of pictures
+                    </p>
+                    <img style="max-width:48%" src="../../img/eagle-board-group-sequence-1.png">
+                    <img style="max-width:48%" src="../../img/eagle-board-group-sequence-2.png">
+                    <img style="max-width:48%" src="../../img/eagle-board-group-sequence-3.png">
+                    <img style="max-width:40%" src="../../img/eagle-board-group-sequence-4.png">
+                </div>
+                <div class="contentBlock" id="info-window">
+                    <h3>Info Window</h3>
+                    <p>
+                        Everything in the board editor (lines, routes, holes, etc.) has many "properties". Some properties are, for example, the X and Y position on the PCB, or if it's a line the width, or the drill size of a hole.
+                    </p>
+                    <p>
+                        You can view all the properties something in your design using the <strong class="code">INFO</strong> command. Select the command, and click the a part's origin on your board.
+                    </p>
+                    <img src="../../img/eagle-board-info-button.png">
+                    <p>
+                        You will be shown a window containing all that part's properties.
+                    </p>
+                    <p>
+                        Here you can also update some of these properites, like the XY position or the angle of rotation.
+                    </p>
+                    <img src="../../img/eagle-board-info-window-part.png">
+                    <p>
+                        If you use the <strong class="code">INFO</strong> command on a line or route, you will be shown the width of that line
+                    </p>
+                    <img src="../../img/eagle-board-info-window-line.png">
+                </div>
+                <div class="contentBlock" id="flip-sides-with-mirror">
+                    <h3>Flip Sides with Mirror</h3>
+                    <p>
+                        By default, all parts will be on the top side of the board. However, you can move a part to the bottom too (cool!).
+                    </p>
+                    <p>
+                        All parts have an option to "<strong class="code">Mirror</strong>" them. If a part is mirrored, then it is on the bottom of the PCB. If not mirrored, then it is on the bottom.
+                    </p>
+                    <p>
+                        Use the <strong class="code">INFO</strong> command on a part, and in the Properties window you will see a checkbox for <strong class="code">Mirror</strong>
+                    </p>
+                    <img src="../../img/eagle-board-mirror-unchecked.png">
+                    <p>
+                        Click the checkbox, and the part will now be "mirrored" and flipped over to the bottom side of the PCB.
+                    </p>
+                    <p>
+                        Because it is an SMD part, it's pads will turn from red to now blue (because it's copper pads or on the blue <strong class="code">16 Bottom</strong> layer now)
+                    </p>
+                    <img src="../../img/eagle-board-mirror-checked.png">
+                    <p>
+                        Through-hole (DIP) parts have green copper pads on the <strong class="code">17 Pads</strong> layer, so they are more difficult to tell if they are mirrored or not.
+                    </p>
+                    <p>
+                        In order to tell if a through-hole part is mirrored, you <strong>must</strong> use the <strong class="code">INFO</strong> command and see if "Mirror" is checked or not.
+                    </p>
+                    <img src="../../img/eagle-board-mirror-dip-check.png">
+                    <p>
+                        This is very important, because if a part is mirrored and you do not know, then you might assemble it wrong and the circuit won't work.
+                    </p>
+                    <p>
+                        If you want, you could have the entire PCB holding parts and traces on the bottom. Here is a picture showing all parts mirroed, and all traces on the bottom layer.
+                    </p>
+                    <img src="../../img/eagle-board-completely-mirrored.png">
+                </div>
+                <div class="contentBlock" id="create-a-ground-plane">
+                    <h3>Create a Ground Plane</h3>
+                    <p>
+                        Ground is a very popular connection on all PCBs. Many parts need to touch it, and it is probably the most important connection.
+                    </p>
+                    <p>
+                        Because of how important ground (<strong class="code">GND</strong>) is, PCBs usually create what's called a "Ground Plane". This means that empty space in the PCB will be "filled" with copper that touches <strong class="code">GND</strong>.
+                    </p>
+                    <p>
+                        Look at the two pictures below. The top one does not use a ground plane:
+                    </p>
+                    <img src="../../img/eagle-board-ungrounded.png">
+                    <p>
+                        And this next picture <strong>does</strong> use a ground plane:
+                    </p>
+                    <img src="../../img/eagle-board-grounded.png">
+                    <p>
+                        A ground plane is made from a <strong>POLYGON</strong>, which is a completed shape that fills itself in.
+                    </p>
+                    <img src="../../img/eagle-board-polygon-button.png">
+                    <p>
+                        Because the starting coordinate of the polygon <strong>must be the exact same coordinate</strong> as the last, I'm going to set my grid to be 2 millimeters. That's big enough that it's not hard for me to click the same point.
+                    </p>
+                    <img src="../../img/eagle-board-polygon-grid-big.png">
+                    <p>
+                        Now, use the <strong>POLYGON</strong> tool to draw a square around your design. You want the polygon to be <strong>bigger</strong> than the cutout of your PCB (layer <strong class="code">20 Dimension</strong>)
+                    </p>
+                    <img src="../../img/eagle-board-draw-polygon.png">
+                    <p>
+                        Once you complete the polygon, Eagle will automatically show you a window which asks you to give a name to the polygon.
+                    </p>
+                    <p>
+                        Since we are creating a ground plane, we want to give it the same name as the ground connection in our schematic: <strong class="code">GND</strong>
+                    </p>
+                    <img src="../../img/eagle-board-name-polygon.png">
+                    <p>
+                        When you save the name, the screen now shows a dotted line going around the entire PCB. That is the polygon.
+                    </p>
+                    <img src="../../img/eagle-board-finished-polygon.png">
+                    <p>
+                        Before we make the ground plane, first let's get rid of all those <strong class="code">GND</strong> routes I drew before. Because the ground plane will replace all those <strong class="code">GND</strong> routes, we can just get rid of them.
+                    </p>
+                    <p>
+                        In the command input, type <strong class="code">ripup gnd</strong> and press ENTER.
+                    </p>
+                    <img src="../../img/eagle-board-ripup-gnd.png">
+                    <p>
+                        This will "ripup" all the routes that have the name <strong class="code">GND</strong>, and now shows those thin yellow "unrouted" lines.
+                    </p>
+                    <img src="../../img/eagle-board-ripup-gnd-zoom.png">
+                    <p>
+                        Now, the exciting part!
+                    </p>
+                    <p>
+                        Run the command <strong class="code">RATSNEST</strong>, and the ground plane will be created from the polygon.
+                    </p>
+                    <img src="../../img/eagle-board-ratsnest-button.png">
+                    <p>
+                        The copper touching ground (<strong class="code">GND</strong>) will now spread out and fill in empty areas.
+                    </p>
+                    <img src="../../img/eagle-board-ground-plane-thermals.png">
+                    <p>
+                        There are a few important option on the ground plane, which you can change by using the (<strong class="code">INFO</strong> command and clicking one of the polygon's sides.
+                    </p>
+                    <img src="../../img/eagle-board-polygon-info.png">
+                    <p>
+                        The "width" amount will set the <strong>minimum</strong> width that the polygon will create, in order to try and fit between things.
+                    </p>
+                    <img src="../../img/eagle-board-polygon-options-width.png">
+                    <p>
+                        The "isolate" amount will set the distance that the copper plane will use to stay away from other pieces of copper.
+                    </p>
+                    <img src="../../img/eagle-board-polygon-options-isolate.png">
+                    <p>
+                        The "thermals" checkbox will turn ON/OFF a feature that creates tiny traces around pads. <strong>I recommend turning "thermals" OFF</strong>, because that is how the Bantam mill will create it.
+                    </p>
+                    <img src="../../img/eagle-board-polygon-options-thermals.png">
+                    <p>
+                        Below is a picture showing the ground plane with "thermals" OFF.
+                    </p>
+                    <img src="../../img/eagle-board-ground-plane-thermals-off.png">
+                </div>
+                <div class="contentBlock" id="list-of-common-commands">
+                    <h3>List of Common Commands</h3>
+                    <p>
+                        The image below has covered some of the tool icons I do not think are useful (or I don't understand how to use it). What is left uncovered are the core commands when designing a board layout.
+                    </p>
+                    <a href="../../img/board-design-toolbar.png"><img style="max-width: 100%" src="../../img/board-design-toolbar.png" /></a>
+                    <p>
+                        This guide will not be covering all these commands, that would be too long. However, here's a quick description of some of my favorites:
+                    </p>
+                    <h4>SHOW</h4>
+                    <p class="guideDescription">
+                        Highlight a part or connection, both on the schematic and board editors. If you click a part or connection, it will highlight it in both schemat and board editors.
+                    </p>
+                    <p class="guideDescription">
+                        You can also type the command to get some more features. If you enter "<strong class="code">show gnd</strong>", it will highlight the ground routes. If you enter "<strong class="code">show c1</strong>", it will highlight the capacitor named C1.
+                    </p>
+                    <h4>HOLE</h4>
+                    <p class="guideDescription">
+                        Creates a hole in your PCB. This is different from a pad or via, because a hole does <strong>not</strong> have copper going through it. These are usually for creating holes for mounting screws.
+                    </p>
+                    <h4>TEXT</h4>
+                    <p class="guideDescription">
+                        Write some text, and place it anywhere you want.
+                    </p>
+                    <h4>CHANGE</h4>
+                    <p class="guideDescription">
+                        Change a property of an object, without having to open it's "Properities" window.
+                    </p>
+                    <p class="guideDescription">
+                        For example, to change with width of a route to 1 millimeter, you can enter the command "<strong class="code">change width 1.0</strong>", press ENTER, and finally click that route. The route will now be 1 millimeter wide.
+                    </p>
+                    <h4>PAINTROLLER</h4>
+                    <p class="guideDescription">
+                        Copy multiple properties at once, from one part/connection to the other.
+                    </p>
+                    <h4>DIMENSION</h4>
+                    <p class="guideDescription">
+                        Draw dimensional labels, helpful for showing the size of something.
+                    </p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="http://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
