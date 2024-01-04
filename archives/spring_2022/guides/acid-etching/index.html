@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid #CCC;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2022 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="https://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus (2022)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Acid Etching</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-acid-etching.jpg')"></div>
+                    <p>
+                        This guide is an overview of how to acid etch a PCB, using muriatic acid and hydrogen peroxide.
+                    </p>
+                    <p>
+                        <strong>NOTE:</strong> NYU and ITP do not want this process to happen in their facilities, for two reasons:
+                    </p>
+                    <p>
+                        <ol>
+                            <li>If you spill acid, it can make a permanent mess</li>
+                            <li>After using acid, you need to dispose of it at waste facilities, which is difficult for NYU to coordinate</li>
+                        </ol>
+                    </p>
+                    <p>
+                        So, if you are going to be doing acid etching, follow these instructions <strong>at home</strong>, do not do this at NYU.
+                    </p>
+                    <p>
+                        <strong>NOTE for 2020:</strong> this guide was made while in isolation during the NYC COVID-19 pandemic. Because of this, I did not have access to nor the ability to get the materials needed to do acid etching. Therefore, this guide is for now a compilation of old videos I've made, and tutorials online that I've learned from.
+                    </p>
+                    <p>
+                        Guide Contents:
+                        <ol>
+                            <li><a href="#gather-materials">Gather the Materials</a></li>
+                            <li><a href="#prepare-the-board">Prepare the Board</a></li>
+                            <li><a href="#export-your-design">Export Your Design</a></li>
+                            <li><a href="#toner-transfer">Toner Transfer</a></li>
+                            <li><a href="#acid-etching">Acid Etching</a></li>
+                        </ol>
+                    </p>
+                </div>
+                <div class="contentBlock" id="gather-materials">
+                    <h3>Gather the Materials</h3>
+                    <p>
+                        Quite a few things are needed when acid etching, all of which can easily be found online, at art-supplies stores, pharmacies, and hardware stores.
+                    </p>
+                    <h4>[Materials] Muriatic Acid, 3% Hydrogen Peroxide</h4>
+                    <p>
+                        <img src="../../img/acid-etching-muriatic-acid-bottle.jpg" style="border: 0px">
+                        <img src="../../img/acid-etching-hydrogen-peroxide-bottle.jpeg" style="border: 0px">
+                    </p>
+                    <p>
+                        These are the two most important materials to have, as they will be doing the actual etching. The muriatic acid can be found at hardware stores like Home Depot, and the hydrogen peroxide can be found at almost any pharmacy.
+                    </p>
+                    <h4>[Materials] Square Tupperware, Old Toothbrush</h4>
+                    <p>
+                        <img src="../../img/acid-etching-tupperware.jpg" style="border: 0px">
+                        <img src="../../img/acid-etching-toothbrush.jpg" style="border: 0px">
+                    </p>
+                    <p>
+                        These will be used to hold the acid, and to rub the acid around on the surface of your PCB. Make sure your tupperware can fit your copper board, that it is sturdy, and made of either plastic or glass.
+                    </p>
+                    <h4>[Materials] Adhesive White Vinyl, Printer, Clothes Iron</h4>
+                    <p>
+                        <img src="../../img/acid-etching-vinyl.jpg" style="border: 0px">
+                        <img src="../../img/acid-etching-clothes-iron.png" style="border: 0px">
+                        <img src="../../img/acid-etching-printer.jpg" style="border: 0px">
+                    </p>
+                    <p>
+                        These materials for are going the toner transfer (described below). You will want matte, white vinyl with an adhesive back, which can be bought from art supplies stores or online shops like Amazon. The clothes iron and be any type, and the printer just needs to print black and white images.
+                    </p>
+                    <p>
+                        Note that instead of using vinyl, a lot of online tutorials recommend using magazine paper. This is a good option because it is readily available, however at ITP we have had some bad results using it. There are also products called Transfer Paper designed for exactly this, but they are less common to find.
+                    </p>
+                </div>
+                <div class="contentBlock" id="prepare-the-board">
+                    <h3>Prepare the Board</h3>
+                    <p>
+                        Before beginning, you'll want to not only have your Eagle design finished, but I would strongly recommend using the Bantam milling machine to cut the outline (dimension) of your PCB, as well as drilling all your holes. This way, once you are done acid etching, your board will be complete, and you won't have to worry about lining it up with the milling machine or alternatively drilling/cutting by hand!
+                    </p>
+                    <p>
+                        <img src="../../img/acid-etching-bantam-outline-holes.png">
+                    </p>
+                    <p>
+                        Also, the outline and holes the Bantam cuts are very helpful when aligning the design your print out with the board.
+                    </p>
+                </div>
+                <div class="contentBlock" id="export-your-design">
+                    <h3>Export Your Design</h3>
+                    <p>
+                        What we are going to do during toner transfer (described below), is we are going to "stick" your design onto your copper board. It is like putting on a temporary tattoo. The image your are sticking to your board will start on the papaer as being backwards (flipped horizontally), so that then once you have stuck it onto your board, it will be flipped again and now be in the correct orientation.
+                    </p>
+                    <p>
+                        Before exporting your copper layer as a PDF, go to the Layers menu and only select the following layers to be visible:
+                        <ul>
+                            <li>Top (or Bottom) copper layer</li>
+                            <li>Vias</li>
+                            <li>Pads</li>
+                            <li>Dimension</li>
+                        </ul>
+                    </p>
+                    <img src="../../img/acid-etching-show-layers.png">
+                    <p>
+                        Go to <strong class="code">File -> Print</strong>, and select <strong class="code">Print to File (PDF)</strong>. No matter if your exporting the top or bottom layers, always have the following settings:
+                        <ul>
+                            <li>Options: Black = On</li>
+                            <li>Options: Solid = On</li>
+                            <li>Scale: Scale Factor = 1</li>
+                        </ul>
+                    </p>
+                    <p>
+                        When you save an image of your design from Eagle, it gives you the option to flip the generated image horizontally. This is perfect for us, however, remember the following rule:
+                    </p>
+                    <p>
+                        When exporting the <strong class="code">TOP</strong> copper layer, always flip the exported image
+                    </p>
+                    <img src="../../img/acid-etching-export-top.png">
+                    <p>
+                        When exporting the <strong class="code">BOTTOM</strong> copper layer, <strong>DO NOT</strong> flip the exported image, keep it as normal
+                    </p>
+                    <img src="../../img/acid-etching-export-bottom.png">
+                    <p>
+                        Why do we not flip the bottom copper layer? Because in Eagle, the bottom layer is already flipped by default. Think about it, the blue bottom copper layer is underneath your board, so when you are looking at it in Eagle, it is as if you have super-human-X-ray-vision, and are looking through the board. Therefore, the bottom blue copper layer you are looking at is actually flipped horizontally from what it will look like in the real world.
+                    </p>
+                </div>
+                <div class="contentBlock" id="toner-transfer">
+                    <h3>Toner Transfer</h3>
+                    <p>
+                        <strong class="code">NOTE:</strong> Because I don't have the materials at home right now in isolation, I'm not able to make my own video. So instead, here is a good video demonstrating the same method that I describe here:
+                    </p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/haqP8xhsYas" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h4>1) Make the Printout</h4>
+                    <p>
+                        Cut out a piece of the white vinyl, and stick it to a piece of printer paper. Put that paper (with the vinyl on it) into your printer, and print your design so that it lines up on the vinyl.
+                    </p>
+                    <h4>2) Heat with Iron</h4>
+                    <p>
+                        Transfering the ink to your copper board is done with heat. We will press the black ink up again the copper, then heat them up so much that the ink melts and attaches to the copper.
+                    </p>
+                    <p>
+                        Before applying ink to your copper plate, make sure your board is shiny and clean. Scrub off any dirt with a scour pad, and then clean it with isopropyl rubbing alcohol and dry off.
+                    </p>
+                    <p>
+                        Place your printed design face-down onto your copper place and align with any holes you might have already drilled. Once aligned, add a small piece of tape to one or two sides of the paper, so that it doesn't shift while heating.
+                    </p>
+                    <p>
+                        Put the clothes iron on HIGH heat setting, and heat your toner paper/vinyl for 1-3 minutes under the iron. If you are heating a larger PCB that doesn't entirely fit under the iron, do an additional 1-3 minutes for each section of your PCB.
+                    </p>
+                    <h4>3) Remove Paper with Cold Water</h4>
+                    <p>
+                        When done heating, place the board and paper still stuck together in a tupperware container with <strong>cold</strong> water in it. Leave for a couple minutes, or until the transfer paper floats away from the copper plate. Peel back the paper, and your traces should be written in black ink on your copper plate.
+                    </p>
+                    <p>
+                        What happened is you heated copper plate and ink so that it melts onto the copper. Not hot enough, and only part of your design will transfer to the copper. Too hot, and the ink will start to bubble on the copper. If you don't heat it for the right amount of time and the transfer doesn't work, simply rub off the ink with a scour pad, and start again.
+                    </p>
+                    <h4>3) Air-Dry and Fix Mistakes with Ink</h4>
+                    <p>
+                        Do not touch the toner, as it is still soft can move around. To dry the board off, use a hair dryer, and try not to let anything touch your design.
+                    </p>
+                    <p>
+                        If there are any spots on your design missing some ink, you can simply use a permanent black marker to correct the mistake. You could even skip the entire toner transfer process, and simply draw onto a copper plate with permanent marker!
+                    </p>
+                    <p>
+                        If you have holes drilled into your PCB, make sure you cover those holes with black permanent ink. If you do not, then the acid will leak in there and remove copper around the edges of your holes.
+                    </p>
+                </div>
+                <div class="contentBlock" id="acid-etching">
+                    <h3>Acid Etching</h3>
+                    <p>
+                        <strong class="code">NOTE:</strong> Because I don't have the materials at home right now in isolation, I'm not able to make my own video. So instead, here is a good video demonstrating the same method that I describe here: <strong class="code">ONLY WATCH THE FIRST HALF OF THE VIDEO</strong>
+                    </p>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/gSZeEJrc99k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <h4>1) Prepare board</h4>
+                    <p>
+                        As mentioned in the toner transfer section, you can fix any mistakes in your design with a permanent maker. Apply the marker to a dry plate, and try to spread the ink thick so it fully covers the copper.
+                    </p>
+                    <h4>2) Prepare acid</h4>
+                    <p>
+                        Measure the muriatic acid + hydrogen peroxide at a 1-2 ratio (aka 1/4 cup of muriatic acid, and 1/2 cup of hydrogen peroxide), and make sure to first add the hydrogen peroxide, then second add the muriatic acid to your tupperware container. It should be a clear color before you etch.
+                    </p>
+                    <h4>3) Etch and Shake</h4>
+                    <p>
+                        With a second container of water next to it and wearing rubber gloves, add your copper plate to the acid. Mix the acid constantly by gently lifting one side, causing a wave pattern to move back and forth. With a rubber glove on, you can remove and inspect the plates. Once they are etching, they will start turning pink or purple.
+                    </p>
+                    <p>
+                        Eventually all your visible copper will disappear. How long this takes depends on the intensity of the acid. The muriatic acid mixture can be very fast right after mixing, and will eventually turn green/blue as it absorbs the copper.
+                    </p>
+                    <h4>4) Clean up and finish</h4>
+                    <p>
+                        When your board is finished etching, remove it from the acid and put it in your water container. Pour your used acid into a separate container, like a used water bottle or something else safe to hold it. That stuff is now filled with copper, and is bad for the environment and cannot simply be thrown away. You will need to bring it to <a href="https://www1.nyc.gov/assets/dsny/site/services/harmful-products/special-waste-drop-offs">your local waste disposal drop-off location</a>
+                    </p>
+                    <p>
+                        Rinse out your tupperware containers and board in the slop sink, making sure to rinse away any tiny amounts of acid that might be in the sink. Dry your board with a hair dryer, then remove the black ink with a scour pad.
+                    </p>
+                </div>
+            <div class="footerSection">
+                <a target="_blank" href="https://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

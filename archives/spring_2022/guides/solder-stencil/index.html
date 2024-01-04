@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2022 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="https://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus (2022)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Solder Stencil</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-solder-stencil.jpg')"></div>
+                    <p>
+                        Solder stencils make adding solder paste to your PCB very easy. An entire PCB can have it's solder paste added in just a few seconds.
+                    </p>
+                    <p>
+                        This guide describes how to use an Eagle file, transparency film, and a Bantam milling machine to make a solder stencil.
+                    </p>
+                    <ol>
+                        <li><a href="#cream-layer-to-svg">Cream Layer to SVG</a></li>
+                        <li><a href="#prepare-toolpaths">Prepare Toolpaths</a></li>
+                        <li><a href="#milling-transparency-stencils">Milling Transparency Stencils</a></li>
+                        <li><a href="#setup-the-stencil">Setup the Stencil</a></li>
+                        <li><a href="#spread-the-paste">Spread the Paste</a></li>
+                        <li><a href="#fix-errors-and-clean">Fix Errors and Clean</a></li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="cream-layer-to-svg">
+                    <h3>Cream Layer to SVG</h3>
+                    <p>
+                        A stencil is just a flat material, with a bunch of holes where we want our solder paste to be.
+                    </p>
+                    <p>
+                        Before milling a stencil, we need to create a file with those holes.
+                    </p>
+                    <p>
+                        In Eagle, the SMD pads where solder paste goes is on the <strong class="code">tCream</strong> layer (or the <strong class="code">bCream</strong> layer the part is mirrored).
+                    </p>
+                    <p>
+                        Hide all layers in Eagle, except for the <strong class="code">tCream</strong> layer.
+                    </p>
+                    <img src="../../img/stencil-eagle-show-tcream.png">
+                    <p>
+                        Save the file as a vectored PDF, by going to <strong>File -> Print</strong>, and select <strong class="code">Print to File (PDF)</strong>.
+                    </p>
+                    <p>
+                        Make sure the "Scale" is <strong class="code">1.0</strong>, and that the <strong class="code">Black</strong> and <strong class="code">Solid</strong> options are selected.
+                    </p>
+                    <img src="../../img/stencil-print-options.png">
+                    <p>
+                        Open the file in Adobe Illustrator (or similar software), and then save it as an SVG file.
+                    </p>
+                    <img src="../../img/stencil-save-as-svg.png">
+                    <p>
+                        Before the SVG is generated, Illustrator gives you some options specific to SVG files. Select the SVG version <strong>1.0</strong> from the dropdown menu before saving.
+                    </p>
+                    <img src="../../img/illustrator-svg-version-1.png">
+                    <p>
+                        <strong>NOTE:</strong> the Bantam app expects SVG version <strong>1.0</strong>, if it is not <strong>1.0</strong> then some pieces of the design may be missing.
+                    </p>
+                </div>
+                <div class="contentBlock" id="prepare-toolpaths">
+                    <h3>Prepare Toolpaths</h3>
+                    <p>
+                        Open the SVG file in the Bantam desktop software. The file will first appear with some default bits and settings.
+                    </p>
+                    <img src="../../img/stencil-load-bantam.png">
+                    <p>
+                        Set the bit so that it is using the <strong class="code">PCB Engraving Bit</strong>.
+                    </p>
+                    <p>
+                        Turn off the <strong>Engraving</strong> cuts, and only use the <strong>Cutout</strong>. Engraving would take much longer, while cutout will remove the holes with a single line each.
+                    </p>
+                    <p>
+                        Right now the cutout is on the outside, let's fix that.
+                    </p>
+                    <p>
+                        First, open the <strong>Advanced</strong> settings section, and change the <strong class="code">Cutout placement</strong> option from <strong class="code">Outside</strong> to <strong class="code">Inside</strong>.
+                    </p>
+                    <img src="../../img/stencil-cutout-inside.png">
+                    <p>
+                        Here is a picture with all the settings:
+                    </p>
+                    <img src="../../img/stencil-milling-settings.png">
+                </div>
+                <div class="contentBlock" id="milling-transparency-stencils">
+                    <h3>Milling Transparency Stencils</h3>
+                    <p>
+                        Install an engraving bit into the Bantam milling machine.
+                    </p>
+                    <p>
+                        Also, attach a PCB board (single or double sided) onto the Bantam's bed. We will be using this as a "spoilboard".
+                    </p>
+                    <p>
+                        Run the "Tool Locate" process, to probe the location of the bit. <a href="../bantam-setup/#locate-the-probe-bit">See the guide on locating the bit here</a>
+                    </p>
+                    <p>
+                        And then, measure the thickness of your PCB board with the <strong>BitBreak -> Probe Material Thickness</strong> process. <a href="../bantam-setup/#probe-pcb-thickness">See the guide on probing the material thickness here</a>.
+                    </p>
+                    <img src="../../img/bantam_probe_thickness_menu_zoom.png">
+                    <p>
+                        That guide uses the "1/8 inch diameter probe" to measure the thickness, but I recommend you use the engraving bit here because that's what we will use to make the stencil.
+                    </p>
+                    <p>
+                        Probing the PCB board will give us it's thickness (relative to the position of the metal spoil board).
+                    </p>
+                    <img src="../../img/bantam_probe_thickness_accept.png">
+                    <p>
+                        The transparency sheet we will cut will eventually be taped down on top of the PCB board.
+                    </p>
+                    <p>
+                        So, we are going to tell the Bantam software that our material (the transparency) has a <strong class="code">Z</strong> position equal to the thickness of the PCB board. Usually we do not touch this <strong class="code">Z</strong> setting, this is a rare time when it is helpful.
+                    </p>
+                    <p>
+                        Then, because the transparency is thin, we will say the material's thickness is <strong class="code">0.5mm</strong> (this does not need to be too perfect, the <strong class="code">Z</strong> position is more important).
+                    </p>
+                    <img src="../../img/solder-stencil-board-height-1.png">
+                    <img src="../../img/solder-stencil-board-height-2.png">
+                    <p>
+                        Tape the transparency down onto the PCB board, using double-sided tape.
+                    </p>
+                    <img src="../../img/solder-stencil-tape-down.jpg">
+                    <p>
+                        Mill the SVG file (milling only the <strong>Cutout</strong> with the "Advanced" cutout setting <strong>Inside</strong>)
+                    </p>
+                    <p>
+                        Watch the cuts closely. If you do not think the engraving bit is reaching down to the copper on the PCB plate, then stop the job and decrease the material's <strong class="code">Z</strong> position by <strong>0.1</strong> millimeters. Then try again.
+                    </p>
+                    <img src="../../img/solder-stencil-cut-through.jpg">
+                    <p>
+                        When it is done, you will have a transparency solder stencil. The spoil board (copper plate) underneath should be cut through just a little bit.
+                    </p>
+                    <p>
+                        When you are done, there might be quite a few rough spots. The bit may not cut perfectly, so you will want to clean up the transparency paper so it is as smooth as possible.
+                    </p>
+                    <p>
+                        Start by using a blade to cut out any holes that were not completely clean. Use a share blade.
+                    </p>
+                    <img src="../../img/solder-stencil-clean-cut.jpg">
+                    <p>
+                        Then, use a scour pad to rub off any remaining parts that are not smooth. However, do not rub too much or your transparency will have so many scratches on it that you won't be able to see through it any more.
+                    </p>
+                    <img src="../../img/solder-stencil-clean-scrub.jpg">
+                </div>
+                <div class="contentBlock" id="setup-the-stencil">
+                    <h3>Setup the Stencil</h3>
+                    <p>
+                        When the solder paste is spread, we'll be spreading with a squeegee (or credit card, gift card, etc). This involves pushing down onto the PCB with the squeegee, so that the stencil is perfectly flat to the copper board.
+                    </p>
+                    <p>
+                        However, we don't want the stencil to bend at all when we are pushing down. For example, it could bend around the outer dimension (cutout) of our PCB.
+                    </p>
+                    <p>
+                        To prevent this bending, you can simply tape together three spare FR1 boards, so that they squeeze around your PCB.
+                    </p>
+                    <img src="../../img/stencil-extra-boards-jig.jpg">
+                    <p>
+                        Or, you can be a little bit fancier if you want, and add a frame to your PCB. A frame is an extra section of board that you leave attached to the outer perimeter of your PCB design.
+                    </p>
+                    <p>
+                        Here is a PCB I made with a frame. I used 1mm wide sections of board to keep the frame and PCB design connected.
+                    </p>
+                    <p>
+                        Also, notice the big hole in the middle was given a bit of a fill. This way, the stencil won't accidentally bend into the big hole.
+                    </p>
+                    <img style="max-width:42.9%" src="../../img/stencil-board-with-frame-eagle.png">
+                    <img style="max-width:53.1%" src="../../img/stencil-board-with-frame.jpg">
+                    <p>
+                        Lay the transparency stencil on top of the PCB, and line up the holes with the pads on the copper.
+                    </p>
+                    <img src="../../img/stencil-align-transparency.jpg">
+                    <p>
+                        Tape just one edge of the stencil down. This way, the stencil will stay aligned, and you can lift if up like a hinge.
+                    </p>
+                    <img src="../../img/stencil-tape-transparency.jpg">
+                </div>
+                <div class="contentBlock" id="spread-the-paste">
+                    <h3>Spread the Paste</h3>
+                    <p>
+                        Now is the fun part.
+                    </p>
+                    <p>
+                        Take the solder paste out from the fridge, and create a line of it near the tape.
+                    </p>
+                    <p>
+                        You want the solder line to be the same width of your PCB.
+                    </p>
+                    <img src="../../img/stencil-paste-on-transparency.jpg">
+                    <p>
+                        Using your squeegee (or credit card, gift card, etc), firmly hold it in one hand. Press down onto just above the solder paste.
+                    </p>
+                    <p>
+                        While continuing to press down, drag the squeegee towards you, both pulling the paste and pushing it down into the holes.
+                    </p>
+                    <p>
+                        Drag the paste across the board all in one movement. You can do a second spread if you need to.
+                    </p>
+                    <p>
+                        <strong>Do not do more than two (2) squeegee motions.</strong> You will start to move the paste around and make it messy on the PCB.
+                    </p>
+                    <video id="vid_stencil_spread" style="max-width:100%; height:auto; border:1px solid #aaa" width="854" height="480" controls loop muted poster="../../img/stencil_spread_loop.png">
+                        <source src="../../img/stencil_spread_loop.webm" type="video/webm">
+                        <source src="../../img/stencil_spread_loop.ogv" type="video/ogg">
+                        <source src="../../img/stencil_spread_loop.mp4" type="video/mp4">
+                    </video>
+                    <script type="text/javascript">
+                        var vid_stencil_spread = document.getElementById('vid_stencil_spread');
+                        vid_stencil_spread.removeAttribute('controls');
+                        vid_stencil_spread.addEventListener('canplaythrough', function(e){
+                            vid_stencil_spread.play();
+                        })
+                    </script>
+                    <p>
+                        Lift the stencil up, and your solder paste should be spread across all your pads.
+                    </p>
+                    <img src="../../img/stencil-finished-solder.jpg">
+                </div>
+                <div class="contentBlock" id="fix-errors-and-clean">
+                    <h3>Fix Errors and Clean</h3>
+                    <p>
+                        If you have any spots you need to fix, you can use a need like described in the <a href="../smd-soldering#add-solder-paste">SMD Soldering guide</a>.
+                    </p>
+                    <p>
+                        If you are going to reuse your stencil, you can clean it with soap and isopropyl alcohol.
+                    </p>
+                    <p>
+                        Eventually, the transparency will start to wear and break. They could last maybe 3-5 times max before not being usable anymore.
+                    </p>
+                    <img src="../../img/stencil-clean-transparency.jpg">
+                    <p>
+                        If your solder paste came out very bad, and you want to start all over again, you can also easily clean your PCB with some isopropyl alcohol.
+                    </p>
+                    <img src="../../img/stencil-clean-pcb.jpg">
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="https://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

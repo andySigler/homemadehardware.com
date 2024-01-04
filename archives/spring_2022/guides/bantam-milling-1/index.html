@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+                max-width:100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2022 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="https://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus (2022)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Bantam Milling - 1</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-bantam-milling-1.jpg')"></div>
+                    <p>
+                        This guide describes how to mill a PCB, starting from an Eagle board file, all the way to milling a complete PCB on the Bantam milling machine.
+                    </p>
+                    <p>
+                        If you have not yet gone through the <a href="../bantam-setup">Bantam Setup guide</a>, you must go through that guide first before moving on to this one.
+                    </p>
+                    <ol>
+                        <li>
+                            <a href="#open-view-file">Open and View File</a>
+                        </li>
+                        <li>
+                            <a href="#create-toolpaths">Create Toolpaths</a>
+                        </li>
+                        <li>
+                            <a href="#select-parts-to-mill">Select Parts to Mill</a>
+                        </li>
+                        <li>
+                            <a href="#insert-smallest-bit">Insert Smallest Bit</a>
+                        </li>
+                        <li>
+                            <a href="#start-cutting">Starting Cutting</a>
+                        </li>
+                        <li>
+                            <a href="#changing-bits">Changing Bits</a>
+                        </li>
+                        <li>
+                            <a href="#adjust-board-thickness">Adjust Board Thickness</a>
+                        </li>
+                        <li>
+                            <a href="#remove-and-clean-board">Remove and Clean Board</a>
+                        </li>
+                    </ol>
+                </div>
+                <div class="contentBlock" id="open-view-file">
+                    <h3>Open and View File</h3>
+                    <p>
+                        At the bottom-right of the app, there is a button "Open Files..." where you can load in your Eagle <strong class="code">.BRD</strong> file.
+                    </p>
+                    <img src="../../img/bantam_file_open_button.png">
+                    <p>
+                        After the file has loaded, you'll see some new cutouts in the copper material, as well as a new box on the right side of the app.
+                    </p>
+                    <img src="../../img/bantam_file_loaded.png">
+                </div>
+                <div class="contentBlock" id="create-toolpaths">
+                    <h3>Create Toolpaths</h3>
+                    <p>
+                        The Bantam software calculates what sections the bits will cut into, in order to create your design. A plan is created, and it is called the "toolpath". We can create different "toolpaths" by selecting different types of bits to cut with.
+                    </p>
+                    <p>
+                        Take a closer look at the new box on the right side. This is where all the details of your design file are shown.
+                    </p>
+                    <img src="../../img/bantam_file_loaded_ui.png">
+                    <p>
+                        As a default, Bantam will add only a <strong class="code">1/32in Flat End Mill</strong>. However, you want to add a larger bit and a smaller bit. In our class, we will usually be using:
+                        <ul>
+                            <li><strong class="code">1/16in Flat End Mill</strong></li>
+                            <ul><li>For removing large copper sections, and board cutout</li></ul>
+                            <li><strong class="code">1/32in Flat End Mill</strong></li>
+                            <ul><li>For removing smaller copper sections, and drilling holes/vias</li></ul>
+                            <li><strong class="code">PCB Engraving Bit 0.003"</strong></li>
+                            <ul><li>For removing the tiny sections of copper</li></ul>
+                        </ul>
+                    </p>
+                    <p>
+                        Using all three of these bits will save you time, and help prevent smaller bits from breaking.
+                    </p>
+                    <p>
+                        Add those two other bits (1/16 and Engraving) to the menus.
+                    </p>
+                    <img style="max-width:48%" src="../../img/bantam_file_tool_1_16.png">
+                    <img style="max-width:48%" src="../../img/bantam_file_tool_all.png">
+                    <p>
+                        Now the "toolpaths" created by the Bantam software are using all three bits. This will save time and help prevent your small bits from breaking.
+                    </p>
+                </div>
+                <div class="contentBlock" id="select-parts-to-mill">
+                    <h3>Select Parts to Mill</h3>
+                    <p>
+                        Let's get a better view of our design. At the top of the screen, there are button to change the viewing mode.
+                    </p>
+                    <p>
+                        Click the "Top View" button to get a better view of your circuit design.
+                    </p>
+                    <img src="../../img/bantam_file_top_view_ui.png">
+                    <p>
+                        Now you can see your design from the top.
+                    </p>
+                    <img src="../../img/bantam_file_top_view_all.png">
+                    <p>
+                        To zoom in and out, hold down the <strong class="code">SHIFT</strong> key and SCROLL (on you mouse or trackpad).
+                    </p>
+                    <img src="../../img/bantam_file_mill_all.png">
+                    <p>
+                        Right now, the software is prepared to cut everything. However, we can have it cut (for example) just the cutout, or maybe just the holes.
+                    </p>
+                    <p>
+                        Use the three buttons in the design box to select which parts are milled.
+                    </p>
+                    <img src="../../img/bantam_file_mill_buttons.png">
+                    <p>
+                        Here is the file, with only the <strong class="code">Outline</strong>:
+                    </p>
+                    <img src="../../img/bantam_file_mill_cutout.png">
+                    <p>
+                        Here is the file, with only the <strong class="code">Holes</strong>, (there are no holes in this design!):
+                    </p>
+                    <img src="../../img/bantam_file_mill_holes.png">
+                    <p>
+                        Here is the file, with only the <strong class="code">Traces</strong>:
+                    </p>
+                    <img src="../../img/bantam_file_mill_traces.png">
+                    <p>
+                        For the rest of this tutorial, we'll be milling the design with all 3 of the buttons selected, so we'll mill everything at once.
+                    </p>
+                    <img src="../../img/bantam_file_mill_all.png">
+                </div>
+                <div class="contentBlock" id="insert-smallest-bit">
+                    <h3>Insert Smallest Bit</h3>
+                    <p>
+                        While milling, the Bantam software will always start with the smallest bit. When that bit is done cutting, it will automatically ask you for the next smallest bit. So, before we start cutting, we need to add the smallest bit.
+                    </p>
+                    <img src="../../img/bantam_config_ui_tool_change.png">
+                    <p>
+                        This tutorial's smallest bit is the <strong class="code">PCB Engraving Bit 0.003"</strong>
+                    </p>
+                    <p>
+                        Insert the bit, and remember to <strong>be very careful</strong> not to <strong>drop the bit</strong>. Keep a finger underneath so it doesn't fall out.
+                    </p>
+                    <img style="max-width:50%" src="../../img/bantam_change_tool_engraving_bit.jpg">
+                    <img style="max-width:46%" src="../../img/bantam_change_tool_engraving_inserted.jpg">
+                    <p>
+                        Now in the app, select the correct bit, and run the tool locate procedure
+                    </p>
+                    <img src="../../img/bantam_change_tool_engraving_select.png">
+                    <p>
+                        Here is a video of successfully locating the <strong class="code">PCB Engraving Bit 0.003"</strong>
+                    </p>
+                    <video style="max-width:100%; height:auto; border:1px solid #aaa" width="1280" height="720" controls loop poster="../../img/bantam_change_tool_engraving.png">
+                        <source src="../../img/bantam_change_tool_engraving.webm" type="video/webm">
+                        <source src="../../img/bantam_change_tool_engraving.ogv" type="video/ogg">
+                        <source src="../../img/bantam_change_tool_engraving.mp4" type="video/mp4">
+                    </video>
+                    <p>
+                        If the Z axis "skips" while moving up, then go to the <a href="../bantam-setup">Bantam Setup</a> guide and clean the rails.
+                    </p>
+                    <p>
+                        Because there is a small change that the Z axis "skipped" even a tiny, tiny bit, you should always "Re-Home" after doing a tool location.
+                    </p>
+                    <img src="../../img/bantam_move_ui_home.png" />
+                </div>
+                <div class="contentBlock" id="start-cutting">
+                    <h3>Start Cutting</h3>
+                    <p>
+                        Our design is loaded, our toolpath is created (with three bits), and our smallest bit is inserted and located.
+                    </p>
+                    <p>
+                        Let's cut!
+                    </p>
+                    <p>
+                        Make sure all the windows are on the Bantam. If there is a missing window, the machine will not allow you to cut.
+                    </p>
+                    <p>
+                        When ready, press the "Mill All Visible..." button underneath the design box.
+                    </p>
+                    <img src="../../img/bantam_run_button.png">
+                    <p>
+                        The bit will now start cutting the <strong class="code">PCB Engraving Bit 0.003"</strong> toolpath.
+                    </p>
+                </div>
+                <div class="contentBlock" id="changing-bits">
+                    <h3>Changing Bits</h3>
+                    <p>
+                        When the current toolpath is finished being cut, the machine will ask you to change to the next bit. For us, that next bit is the <strong class="code">1/32in Flat End Mill</strong>.
+                    </p>
+                    <img src="../../img/bantam_run_change_tool.png">
+                    <p>
+                        Insert the <strong class="code">1/32in Flat End Mill</strong>, and run the tool locate procedure.
+                    </p>
+                    <img style="max-width:44%;" src="../../img/bantam_change_tool_1_32_bit.jpg">
+                    <img style="max-width:52%;" src="../../img/bantam_change_tool_1_32_inserted.jpg">
+                    <p>
+                        Here's a video of the bit successfully locating, and then immediately moving back to start cutting the design.
+                    </p>
+                    <video style="max-width:100%; height:auto; border:1px solid #aaa" width="1280" height="720" controls loop poster="../../img/bantam_change_tool_1_32_locate.png">
+                        <source src="../../img/bantam_change_tool_1_32_locate.webm" type="video/webm">
+                        <source src="../../img/bantam_change_tool_1_32_locate.ogv" type="video/ogg">
+                        <source src="../../img/bantam_change_tool_1_32_locate.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="contentBlock" id="adjust-board-thickness">
+                    <h3>Adjust Board Thickness</h3>
+                    <p>
+                        Below is a video of a <strong class="code">1/16in Flat End Mill</strong> removing some copper. If you look closely, a bad thing is happening: not all of the copper is being removed (oh no!!!).
+                    </p>
+                    <video style="max-width:100%; height:auto; border:1px solid #aaa" width="1280" height="720" controls loop poster="../../img/bantam_material_missed_copper.png">
+                        <source src="../../img/bantam_material_missed_copper.webm" type="video/webm">
+                        <source src="../../img/bantam_material_missed_copper.ogv" type="video/ogg">
+                        <source src="../../img/bantam_material_missed_copper.mp4" type="video/mp4">
+                    </video>
+                    <p>
+                        Here is a picture of what the PCB looked like after missing a lot of the copper:
+                    </p>
+                    <img src="../../img/bantam_material_missed_copper.jpg">
+                    <p>
+                        We can fix this! We can tell the Bantam software that the PCB is <strong class="code">0.1 mm</strong> thinner, and then try cutting again.
+                    </p>
+                    <p>
+                        Here is the original thickness of the PCB:
+                    </p>
+                    <img src="../../img/bantam_material_change_thickness_1.png">
+                    <p>
+                        And here is the new thickness of the PCB, <strong class="code">0.1 mm</strong> thinner:
+                    </p>
+                    <img src="../../img/bantam_material_change_thickness_2.png">
+                    <p>
+                        And if we mill it again, the copper is now removed, and looks like this:
+                    </p>
+                    <img src="../../img/bantam_material_correct_copper.jpg">
+                </div>
+                <div class="contentBlock" id="remove-and-clean-board">
+                    <h3>Remove and Clean Board</h3>
+                    <p>
+                        You can peel off the PCB when it is finished being cut. It is very helpful to use a flathead screwdriver, or a scraping tool to peel it off.
+                    </p>
+                    <img src="../../img/bantam_board_remove.jpg">
+                    <p>
+                        Once it is removed, rub the copper with a scour pad. This will remove any rough edges, and make the copper much shinier (pretty!).
+                    </p>
+                    <img src="../../img/bantam_board_scour.jpg">
+                    <p>
+                        Now you can clean your PCB with some 91% isopropyl alcohol, and move on to soldering.
+                    </p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a target="_blank" href="https://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
