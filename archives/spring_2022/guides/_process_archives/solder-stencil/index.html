@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../../css/main.css">
+        <link rel="icon" href="../../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <h1>
+                    Homemade Hardware
+                </h1>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit" href="../../..">Syllabus</a>
+                    <a class="navUnit" href="../../../students/">Students</a>
+                    <a class="navUnit" href="../../../archives">Archives</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h3>Stuff</h3>
+                    <h2>Laser Etch a Solder Stencil</h2>
+                    <p class="classDate">Production #3</p>
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/zyB-01p7AtI" frameborder="0" allowfullscreen></iframe>
+                        <h3>1 - Make the printout</h3>
+                            <p>A solder stencil is a sheet of material with holes cut out of it. These holes represent the parts of your design that solder paste should be on, and is assigned the Eagle layers tCream and bCream. If I'm making a stencil for the top of my board, I'll hide all layers except the tCream layer, then I'll save as a PDF. Make sure to select the "black" and "solid" options.</p>
+                            <p>The size of each hole needs to be shrunk by about 70% before we make the stencil. To do this is Illustrator, open the PDF, and select each shape in the design. Navigate to Object->Transform->Transform Each..., and a popup will appear. Scale the width and height of each shape by 70% each, and apply the changes. Now each hole should be smaller.</p>
+                        <h3>2 - Raster stencil</h3>
+                            <p>Inser a piece of transparency film into one of the Epilog laser cutters. Load your PDF file, and go into the Print options. Using the Epilog's driver, set the laser cutter's Job Type to "Raster," and set the rastering speed and power to low settings. On the 60 watt machine, speed=10 and power=10 work well, while on the 50 watt it seems speed=10 and power=15 works well.</p>
+                            <p>Send the job to the laser cutter, and run it. The laser cutter will slowly cut out your stencil line by line. If it doesn't cut through the material, the power should be set higher. If the edges of the holes are not clean and seem melted, the power should be set lower.</p>
+                        <h3>3 - Align and tape</h3>
+                            <p>Cut out your stencil, and align it with your PCB. If PCB is still attached to the larger copper plate, you can tape down the top of the stencil to the plate. If your PCB is fully cut out right now, squeeze your PCB between three other plates, one at the top, two at each side, and tape the stencil to the plate at the top. This helps keep the stencil flat when applying paste.</p>
+                        <h3>4 - Spread paste</h3>
+                            <p>Place a small line of solder paste along the top of you design so that it is the same width. Using a flat scraping tool like an old ID or credit card, firmly press and pull the paste over the entire stencil in one motion. This should press the paste through each hole in the stencil.</p>
+                            <p>Pull up the stencil and check your board to see that the sold spread correctly. If it didn't go well, you can simply clean the paste off and try again. When you are done with the stencil, be sure to scape off all un-used solder paste and put it back in the tub to be reused.</p>
+                        <h3>5 - Adjust with needle</h3>
+                            <p>If small changes need to be made, either removing or adding paste, you can use a sewing needle to adjust and move solder paste around. You could even apply paste to an entire board just using a needle, no stencil needed, but this takes a bit longer and is of less quality.</p>
+                    <h2>Milling a Solder Stencil on OtherMill</h2>
+                    <p class="classDate">Production #3</p>
+                        <p>Here is <a href="http://www.instructables.com/id/Solder-Stencils-on-the-Othermill/?ALLSTEPS">the link</a> using the OtherMill to mill a stencil for solder paste. I haven't tried this yet, but <a href="http://kinasmith.com/">Kina Smith</a> had success a couple years ago.</p>
+                </div>
+            </div>
+            <div class="footerSection">
+                <a href="https://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Homemade Hardware</title>
+        <link rel="stylesheet" href="../../css/main.css">
+        <link rel="icon" href="../../img/favicon.ico" type="image/x-icon">
+        <link rel="shortcut icon" href="../../img/favicon.ico" type="image/x-icon">
+        <meta name=viewport content="width=device-width, initial-scale=1">
+        <style type="text/css">
+            img{
+                border: 1px solid grey;
+                border-radius: 3px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headerSection">
+                <div class="websiteTitleDiv">
+                    <a href="../../">
+                        <h1 class="websiteTitle">
+                            [2022 archive] Homemade Hardware
+                        </h1>
+                    </a>
+                    <p class="personalLink">
+                        <a target="_blank" href="https://andysigler.com">andysigler.com</a>
+                    </p>
+                </div>
+                <div class="navBar" style="margin-left:-5px">
+                    <a class="navUnit navSelected" href="../..">Guides</a>
+                    <a class="navUnit" href="../../things/">Tools/Materials</a>
+                    <a class="navUnit" href="../../syllabus">Syllabus (2022)</a>
+                </div>
+            </div>
+            <div class="bodySection">
+                <div class="contentBlock">
+                    <h2>Eagle Setup</h2>
+                    <div class="headerImage" style="background-image: url('../../img/guide-header-eagle-setup.jpg')"></div>
+                    <p>
+                        This guide goes through Eagle download, install, and configuration with the Homemade Hardware repository.
+                    </p>
+                    <p>
+                        Before you get started, make sure you have downloaded the <a href="https://github.com/andysigler/homemade-hardware">Homemade Hardware github repository</a>. It contains examples, a parts library, and DRC files.
+                    </p>
+                    <p>
+                        Download the repository as a ZIP file.
+                    </p>
+                    <a href="../../img/eagle-download-repo-zip.png"><img src="../../img/eagle-download-repo-zip.png" /></a>
+                    <p>
+                        If at any point during the class this repository is updated, you can re-download the source files and go through these instructions again.
+                    </p>
+                </div>
+                <div class="contentBlock" id="directories">
+                    <h3>Free Student License and Download Eagle</h3>
+                    <p>
+                        Before download and installing Eagle to your computer, it is easier to first register with your NYU email on the Autodesk website. This will allow you to have use Eagle without any of the limitation in the free version.
+                    </p>
+                    <p>
+                        To register with you NYU email address, first go to <a href="https://www.autodesk.com/education/free-software/eagle">Autodesk's Eagle webiste</a>, and create a new account with your NYU email address.
+                    </p>
+                    <p>
+                        Once your account has been registered as an education account, you can now download and install Eagle to your computer. Once installed, you will be asked to login, which will then activate your education license and give you all the features of Eagle.
+                    </p>
+                </div>
+                <div class="contentBlock" id="directories">
+                    <h3>Move to Eagle Directories</h3>
+                    <p>
+                        After first installing Eagle, you'll want to move some of the files inside the <strong class="code">homemade-hardware</strong> repository to Eagle's folders. If we do this, then Eagle will be able to see the parts library and design rules we will be using.
+                    </p>
+                    <p>
+                        Open Eagle, and you will see the Eagle Control Panel. (NOTE: If you close this window, Eagle will quit).
+                    </p>
+                    <a href="../../img/eagle-control-panel.png"><img src="../../img/eagle-control-panel.png" /></a>
+                    <p>
+                        At the top menu, go to <strong class="code">Options -> Directories...</strong>, and a window will open. This window shows us where Eagle has automatically created folders on our computer. We will want to add our downloaded files to these locations.
+                    </p>
+                    <p>
+                        The first one we will focus on is on the top: <strong class="code">Libraries</strong>. Similar to when installing an Arduino library, we want to move our downloaded <strong class="code">homemade-hardware</strong> library to this folder.
+                    </p>
+                    <a href="../../img/eagle-directories-1.png"><img src="../../img/eagle-directories-1.png" /></a>
+                    <p>
+                        Find this folder in your computer's file navigator:
+                    </p>
+                    <a href="../../img/eagle-library-directory-empty.png"><img src="../../img/eagle-library-directory-empty.png" /></a>
+                    <p>
+                        Now you'll want to find the Eagle library you downloaded:
+                    </p>
+                    <a href="../../img/eagle-library-downloaded.png"><img src="../../img/eagle-library-downloaded.png" /></a>
+                    <p>
+                        And then drag it into the Eagle library folder:
+                    </p>
+                    <a href="../../img/eagle-library-moved.png"><img src="../../img/eagle-library-moved.png" /></a>
+                    <p>
+                        Now that our custom Eagle library has been moved, now do the same for the "design rules" files:
+                    </p>
+                    <a href="../../img/eagle-design-rules-downloaded.png"><img src="../../img/eagle-design-rules-downloaded.png" /></a>
+                    <p>
+                        And move them into the design rules Eagle folder:
+                    </p>
+                    <a href="../../img/eagle-design-rules-moved.png"><img src="../../img/eagle-design-rules-moved.png" /></a>
+                </div>
+                <div class="contentBlock" id="directories">
+                    <h3>Change Default DRU</h3>
+                    <p>
+                        There are some default settings Eagle uses when you draw routes (traces). Before we start designing, let's change these defaults so our boards can be made on a Bantam milling machine.
+                    </p>
+                    <p>
+                        Go to the <strong class="code">design rules</strong> Eagle folder that we just copied files to, and you will find a file named <strong class="code">default.dru</strong>.
+                    </p>
+                    <a href="../../img/eagle-default-dru-1.png"><img src="../../img/eagle-default-dru-1.png" /></a>
+                    <p>
+                        Rename that file so it's called "default_OLD.dru" or something like that. So you know it's old, but you're not deleting it.
+                    </p>
+                    <a href="../../img/eagle-default-dru-2.png"><img src="../../img/eagle-default-dru-2.png" /></a>
+                    <p>
+                        Now, one of the files that we had just moved here is named <strong class="code">Endmill-1-32-Bantam.dru</strong>
+                    </p>
+                    <a href="../../img/eagle-default-dru-3.png"><img src="../../img/eagle-default-dru-3.png" /></a>
+                    <p>
+                        Now make a duplicate <strong>COPY</strong> of this file.
+                    </p>
+                    <a href="../../img/eagle-default-dru-4.png"><img src="../../img/eagle-default-dru-4.png" /></a>
+                    <p>
+                        Rename the file you just copied, naming it <strong class="code">default.dru</strong>
+                    </p>
+                    <a href="../../img/eagle-default-dru-5.png"><img src="../../img/eagle-default-dru-5.png" /></a>
+                    <p>
+                        If you have Eagle open, restart it.
+                    </p>
+                </div>
+            <div class="footerSection">
+                <a target="_blank" href="https://andysigler.com">andysigler.com</a>
+            </div>
+        </div>
+    </body>
+</html>
